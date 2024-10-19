@@ -50,7 +50,7 @@ npm install react-router-dom
 ```
 
 ```bash
-npx tailwindcss init -p
+npm install -D tailwindcss postcss autoprefixer
 ```
 
 ```bash
