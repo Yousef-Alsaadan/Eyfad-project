@@ -21,13 +21,9 @@
 
 - **Medical recommendations:** Based on the results of the reports, we provide the user with medical advice.
 
-- **Providing a medical team:** Allowing users to share their reports directly with doctors to obtain medical notes.
-
 - **Tracking reports and health history:** Allowing users to upload and store multiple medical reports over time, allowing them to track changes and improvements in their health status.
 
 - **Predicting the patient's condition:** Based on the results of the report, we explain the expected symptoms.
-
-- **Trusted medical team:** We allow doctors to register with a certificate of specialization from the Saudi Commission for Health Specialties.
 
 # How to start
 
@@ -50,7 +46,7 @@ npm install react-router-dom
 ```
 
 ```bash
-npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
 ```
 
 ```bash
