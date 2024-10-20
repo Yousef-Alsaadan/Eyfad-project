@@ -5,7 +5,10 @@ import titleimage from "../images/title.png";
 const Title = ({ title, linkPath }) => {
   return (
     <div className="flex flex-col md:flex-row-reverse justify-between items-center p-5">
-      <div>
+        {/* 
+         */}
+         <div className=" flex flex-col md:flex-row-reverse justify-between items-center gap-10 ">
+         <div>
         <img
           src={titleimage}
           alt="Title Image"
@@ -17,6 +20,9 @@ const Title = ({ title, linkPath }) => {
           {title}
         </h1>
       </div>
+         </div>
+   
+      {/*  */}
       <div>
         <Link
           to={linkPath}

@@ -13,3 +13,35 @@ body {
     font-family: "Tajawal", sans-serif;
     font-style: normal;
 }
+@keyframes moveUp {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px); /* Move up */
+    }
+    100% {
+      transform: translateY(0); /* Move back down */
+    }
+  }
+  
+  @keyframes moveDown {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(10px); /* Move down */
+    }
+    100% {
+      transform: translateY(0); /* Move back up */
+    }
+  }
+  
+  .move-up {
+    animation: moveUp 1s ease-in-out infinite; /* Up and down animation */
+  }
+  
+  .move-down {
+    animation: moveDown 1s ease-in-out infinite; /* Down and up animation */
+  }
+  
