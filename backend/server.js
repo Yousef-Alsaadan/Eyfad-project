@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const dotenv = require('dotenv');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const router = require("./routes/userRouter");
 const app = express();
 const port = 5000;
 
