@@ -67,8 +67,8 @@ const FileUpload = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <div className="bg-white rounded-3xl shadow-lg p-8 max-w-lg w-full">
+    <div className="flex flex-col items-center justify-center  ">
+      <div className="bg-white rounded-3xl shadow-2xl p-8 max-w-lg w-full">
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label className="block text-gray-700 font-bold mb-2 text-end">
