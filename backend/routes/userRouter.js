@@ -3,7 +3,7 @@ const { signupUser, logIn } = require('../controllers/userController'); // Adjus
 
 const router = express.Router();
 
-router.post('/register', signupUser);
+router.post('/signup', signupUser);
 router.post('/login', logIn);
 
 module.exports = router;

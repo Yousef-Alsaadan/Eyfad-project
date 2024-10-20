@@ -1,8 +1,9 @@
 const User = require('../models/userSchema.js');
-
+const { body, validationResult } = require('express-validator');
 const jwt = require('jsonwebtoken');
-
+const dotenv = require('dotenv');
 const bcrypt = require('bcrypt');
+dotenv.config();
 // function authenticateToken(req, res, next) {
 
 //     const token = req.headers['authorization'];
@@ -20,8 +21,20 @@ const bcrypt = require('bcrypt');
 //     });
     
 //     }
-const signupUser = async (req, res) => {
-    const { username, email, password } = req.body;
+const signupUser = [body('firstName').isLength({ min: 3 }),
+    body('firstName').isLength({ min: 3 }),
+    body('email').isEmail(),
+    body('password').isLength({ min: 5 }),async (req, res) => {
+    const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
+  const {  
+    firstName,
+    secondName,
+     email, 
+     password } = req.body;
     
     // Check if the email is already registered
     const existingUser = await User.findOne({ email });
@@ -34,7 +47,8 @@ const signupUser = async (req, res) => {
     
     // Create a new user
     const newUser = new User({
-        username,
+        firstName,
+        secondName,
         email,
         password: hashedPassword
     });
@@ -48,7 +62,7 @@ const signupUser = async (req, res) => {
     );
     
     res.status(201).json({ message: 'User registered successfully', user: newUser, token });
-};
+}];
 
 // Middleware to check if the user is logged in
 const logIn = async (req, res) => {
@@ -68,8 +82,12 @@ const logIn = async (req, res) => {
         if (!isMatch) {
             return res.status(400).json({ message: 'Incorrect password' });
         }
-        
-        res.status(200).json({ message: 'Login successful', user });
+        const token = jwt.sign(
+            { id: user._id, email: user.email }, // User data to include in the token
+            process.env.JWT_SECRET, // Secret key
+            { expiresIn: '1h' } // Token expiration
+        );
+        res.status(200).json({ message: 'Login successful', user,token });
     } catch (error) {
         res.status(500).json({ message: 'Server error', error });
     }
