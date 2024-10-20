@@ -6,7 +6,6 @@ import FileUpload from "../Components/FileUpload";
 function Home() {
   return (
     <div>
-      <FileUpload></FileUpload>
       <NavBar />
       <Footer />
     </div>
