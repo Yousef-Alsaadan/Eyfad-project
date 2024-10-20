@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
 
 body {
     font-family: "Noto Sans Arabic", sans-serif;
@@ -6,4 +7,9 @@ body {
     font-style: normal;
     font-variation-settings:
         "wdth" 100;
+}
+
+.tajawal-extralight {
+    font-family: "Tajawal", sans-serif;
+    font-style: normal;
 }
