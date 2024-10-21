@@ -78,7 +78,7 @@ function UserSignup() {
         setEmail("");
         setPassword("");
        
-        navigate("/user/userHome");
+        navigate("/user-page");
       })
       .catch(function (error) {
         if (error.response) {

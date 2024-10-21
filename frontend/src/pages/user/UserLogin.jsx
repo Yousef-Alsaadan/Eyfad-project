@@ -51,7 +51,7 @@ function UserLogin() {
             console.log(response);
             // setTimeout(() => {
             
-                navigate("/pages/user/UserHome");
+                navigate("/user-page");
             
               
           
