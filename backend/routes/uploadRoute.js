@@ -3,8 +3,10 @@ const multer = require('multer');
 const pdfParse = require('pdf-parse');
 const path = require('path');
 const axios = require('axios');
-require('dotenv').config(); // Load environment variables
+const MedicalTest = require('../models/medicalTest'); // Correct import of the medicalTest model
+require('dotenv').config();
 
+console.log(MedicalTest); // This should log the imported model
 const router = express.Router();
 
 // Set up storage for Multer
@@ -19,7 +21,7 @@ const upload = multer({ storage });
 // Function to send the pdfText to GPT API
 const processWithGPT = async (pdfText) => {
   const prompt = `Extract the following data from the provided medical test text. Provide the result in valid JSON format using an object
-   for the analyses. Ensure each field is accurately filled in based on the information provided in the text, and provide the symptoms, management, recommendations in Arabic:
+   for the analyses. Ensure each field is accurately filled in based on the information provided in the text, and provide the symptoms, management, recommendations in Arabic fill all the blank:
 
 {
   "testName": "",
@@ -42,7 +44,8 @@ const processWithGPT = async (pdfText) => {
         "high": "",        
         "low": ""          
       },
-      "recommendations": ""  
+      "recommendations": "",
+      "description":""  
     }
   ]
 }
@@ -54,7 +57,8 @@ Here is the text: ${pdfText}`;
       {
         model: 'gpt-3.5-turbo', 
         messages: [{ role: 'user', content: prompt }],
-        temperature: 0.2,
+        temperature: 0,
+        max_tokens:4096
       },
       {
         headers: {
@@ -88,6 +92,10 @@ router.post('/', upload.single('pdf'), async (req, res) => {
 
     // Parse the extractedData from GPT into a JavaScript object
     const extractedData = JSON.parse(gptResponse);
+
+    // Save the extractedData to MongoDB
+    const newMedicalTest = new MedicalTest(extractedData); // Use newMedicalTest as the variable name
+    await newMedicalTest.save();
 
     console.log('Extracted Data:', extractedData);
     res.json({ message: 'File uploaded, text extracted, and data processed successfully!', extractedData: extractedData });
