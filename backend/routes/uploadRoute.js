@@ -18,30 +18,33 @@ const upload = multer({ storage });
 
 // Function to send the pdfText to GPT API
 const processWithGPT = async (pdfText) => {
-  const prompt = `Extract the following data from the provided medical test text. Provide the result in valid JSON format using an object for the analyses. Ensure each field is accurately filled in based on the information provided in the text, and provide the answer in Arabic:
+  const prompt = `Extract the following data from the provided medical test text. Provide the result in valid JSON format using an object
+   for the analyses. Ensure each field is accurately filled in based on the information provided in the text, and provide the symptoms, management, recommendations in Arabic:
 
 {
   "testName": "",
   "testDate": "",
-  "analyses": {
-    "analysisName": {
-      "result": ,
-      "unit": "",
-      "isNormal": ,
+  "analyses": [
+    {
+      "analysisName": "",  
+      "result": 0,         
+      "unit": "",          
+      "isNormal": false,  
       "referenceRange": {
-        "min": ,
-        "max": 
+        "min": 0,          
+        "max": 0           
       },
       "symptoms": {
-        "high": "",
-        "low": ""
+        "high": "",        
+        "low": ""          
       },
-      "howToManage": {
-        "high": "",
-        "low": ""
-      }
+      "management": {
+        "high": "",        
+        "low": ""          
+      },
+      "recommendations": ""  
     }
-  }
+  ]
 }
 Here is the text: ${pdfText}`;
 
@@ -83,8 +86,11 @@ router.post('/', upload.single('pdf'), async (req, res) => {
     // Send the extracted PDF text to GPT API
     const gptResponse = await processWithGPT(pdfText);
 
-    console.log('Extracted Data from GPT:', gptResponse);
-    res.json({ message: 'File uploaded, text extracted, and data processed successfully!', extractedData: gptResponse });
+    // Parse the extractedData from GPT into a JavaScript object
+    const extractedData = JSON.parse(gptResponse);
+
+    console.log('Extracted Data:', extractedData);
+    res.json({ message: 'File uploaded, text extracted, and data processed successfully!', extractedData: extractedData });
   } catch (error) {
     console.error('Error processing PDF or GPT request:', error);
     res.status(500).send('Error processing PDF or GPT request.');
