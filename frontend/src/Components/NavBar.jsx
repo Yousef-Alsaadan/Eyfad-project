@@ -32,8 +32,8 @@ function NavBar() {
         </div>
 
         <Link to="/user/login" className="md:block hidden">
-          <div className="bg-gradient-to-b from-[#F96F5E] to-[#DFD0E0] font-medium rounded-full p-[1px]">
-            <span className="flex w-full bg-white rounded-full py-3 px-6 hover:bg-transparent hover:text-white">
+          <div className="bg-gradient-to-b from-[#f96f5e99] via-[#E6BCC4] to-[#DFD0E0] font-medium text-[#002933] rounded-full p-[1px]">
+            <span className="flex w-full bg-white rounded-full py-3 px-6">
               جربه الآن
             </span>
           </div>
@@ -88,8 +88,8 @@ function NavBar() {
             </Link>
 
             <Link to="/user/login">
-              <div className="bg-gradient-to-b from-[#F96F5E] to-[#DFD0E0] font-medium rounded-full p-[1px]">
-                <span className="flex w-full bg-white rounded-full py-3 px-6 hover:bg-transparent hover:text-white">
+              <div className="bg-gradient-to-b from-[#f96f5e99] via-[#E6BCC4] to-[#DFD0E0] text-[#002933] font-medium rounded-full p-[1px]">
+                <span className="flex w-full bg-white rounded-full py-3 px-6">
                   جربه الآن
                 </span>
               </div>
