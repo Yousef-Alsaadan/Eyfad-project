@@ -20,6 +20,7 @@ const router = createBrowserRouter([
   { path: "/user/login", element: <UserLogin /> },
   { path: "/user/signup", element: <UserSignup /> },
   { path: "/report", element: <AddReport /> },
+  {path: "medical-terms", element: <MedicalTerms/>}
 ]);
 
 function Router() {
