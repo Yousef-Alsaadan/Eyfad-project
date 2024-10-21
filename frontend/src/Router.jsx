@@ -7,6 +7,7 @@ import AddReport from "./pages/user/AddReport";
 import UserLogin from "./pages/user/UserLogin";
 import UserSignup from "./pages/user/UserSignup";
 import UserInfo from "./pages/user/UserInfo";
+import HomeUser from "./pages/user/HomeUser";
 
 const router = createBrowserRouter([
   {
@@ -20,7 +21,8 @@ const router = createBrowserRouter([
   { path: "/user/login", element: <UserLogin /> },
   { path: "/user/signup", element: <UserSignup /> },
   { path: "/report", element: <AddReport /> },
-  {path: "medical-terms", element: <MedicalTerms/>}
+  {path: "medical-terms", element: <MedicalTerms/>},
+  {path:"user-page", element: <HomeUser/>},
 ]);
 
 function Router() {

@@ -8,9 +8,12 @@ import Title from "../../Components/Title";
 function AddReport() {
   return (
     <div  >
-     <div className="container m-auto w-full text-center">
+     <div className="container m-auto w-full text-center mt-10">
      <Title title= "اكتشف نتائج تقريرك بسرعة مع الذكاء الاصطناعي"   ></Title>
+     <div className="md:mt-20">
      <FileUpload/>
+     </div>
+   
      </div>
      
 
