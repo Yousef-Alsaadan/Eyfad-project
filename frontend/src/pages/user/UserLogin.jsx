@@ -1,5 +1,3 @@
-import React from "react";
-
 import React, { useEffect, useState } from "react";
 import { IoMdArrowRoundForward } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
@@ -161,7 +159,7 @@ function UserLogin() {
           <p className="text-end w-full md:px-4 text-[#737D7F] text-sm">
             ليس لديك حساب ؟{" "}
             <span className="text-[#0AC6F2] hover:underline">
-              <Link to="/signup">إنشاء حساب</Link>
+              <Link to="/user/signup">إنشاء حساب</Link>
             </span>
           </p>
 

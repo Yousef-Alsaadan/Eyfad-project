@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 // import SignUp from "../assets/Signup-img.png";
 import axios from "axios";
-import React from "react";
 
 function UserSignup() {
   const [firstName, setFirstName] = useState("");
