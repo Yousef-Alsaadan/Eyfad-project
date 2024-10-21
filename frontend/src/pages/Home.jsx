@@ -13,6 +13,7 @@ import ai from "../assets/aiIcon.svg";
 import aboutImg from "../assets/aboutImg.svg";
 import aboutImg2 from "../assets/aboutImg2.svg";
 import aboutImg3 from "../assets/aboutImg3.svg";
+import homeBird from "../assets/homeBird.svg";
 import Typewriter from "typewriter-effect";
 
 function Home() {
@@ -300,6 +301,29 @@ function Home() {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* contact section */}
+      <div className="border-b border-black rounded-bl-[200px] py-20">
+        <div className="container mx-auto px-4 pb-20">
+          <div className="flex justify-between items-center">
+            <h1 className="font-bold md:text-5xl text-4xl">
+              التواصل مع المطورين
+            </h1>
+            <img src={homeBird} className="md:block hidden" />
+          </div>
+        </div>
+
+        <div className="grid xl:grid-cols-6 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 place-items-center gap-8">
+          <div className="lg:w-[220px] lg:h-[180px] h-[250px] w-[360px] bg-[#F4F5F6] rounded-tl-xl rounded-bl-xl rounded-br-xl rounded-tr-full"></div>
+          <div className="lg:w-[220px] lg:h-[180px] h-[250px] w-[360px] bg-[#C5D4E9] rounded-xl"></div>
+          <div className="lg:w-[220px] lg:h-[180px] h-[250px] w-[360px] bg-[#E6F9FE] rounded-xl"></div>
+          <div className="lg:w-[220px] lg:h-[180px] h-[250px] w-[360px] bg-[#F6E8F1] rounded-xl"></div>
+          <div className="lg:w-[220px] lg:h-[180px] h-[250px] w-[360px] bg-[#E9FCF9] rounded-xl"></div>
+          <div className="lg:w-[220px] lg:h-[180px] h-[250px] w-[360px] bg-[#F4F5F6] rounded-tl-xl rounded-bl-full rounded-br-xl rounded-tr-xl"></div>
+        </div>
+
+        <div className="bg-[#F76C35] w-[20px] h-[20px] rounded-full absolute left-20 translate-y-10"></div>
       </div>
       <Footer />
     </div>
