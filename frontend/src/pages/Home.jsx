@@ -10,6 +10,9 @@ import HeroSvg4 from "../Components/style/HeroSvg4";
 import reportIcon from "../assets/reportIcon.svg";
 import arrow from "../assets/arrow.svg";
 import ai from "../assets/aiIcon.svg";
+import aboutImg from "../assets/aboutImg.svg";
+import aboutImg2 from "../assets/aboutImg2.svg";
+import aboutImg3 from "../assets/aboutImg3.svg";
 import Typewriter from "typewriter-effect";
 
 function Home() {
@@ -271,6 +274,29 @@ function Home() {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-[#f4f5f987] h-auto">
+        <div className="container mx-auto px-4 py-20">
+          <h1 className="font-bold text-5xl">بالاضافة الى:</h1>
+
+          <div className="flex xl:flex-row flex-col gap-20 xl:gap-0 items-center justify-between mt-12">
+            <div className="bg-white h-[250px] w-[360px] rounded-3xl shadow-lg grid place-items-center">
+              <img src={aboutImg} />
+              <h1 className="font-bold text-xl">التتبع وحفظ السجلات</h1>
+            </div>
+
+            <div className="bg-white h-[250px] w-[360px] rounded-3xl shadow-lg grid place-items-center p-2">
+              <img src={aboutImg2} />
+              <h1 className="font-bold text-xl">التوصيات الصحية</h1>
+            </div>
+
+            <div className="bg-white h-[250px] w-[360px] rounded-3xl shadow-lg grid place-items-center">
+              <img src={aboutImg3} />
+              <h1 className="font-bold text-xl">التنبؤ بالحالة الصحية</h1>
             </div>
           </div>
         </div>
