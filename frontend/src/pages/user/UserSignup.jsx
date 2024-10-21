@@ -78,7 +78,7 @@ function UserSignup() {
         setEmail("");
         setPassword("");
        
-        navigate("/user/userHome");
+        navigate("/user-page");
       })
       .catch(function (error) {
         if (error.response) {
@@ -242,11 +242,11 @@ function UserSignup() {
           <div className="font-bold text-base">
             <button
               onClick={handleSubmit}
-              className="border-2 border-black rounded-full px-8 py-2 hover:bg-[#6622CE] hover:border-[#6622CE] flex items-center justify-center gap-2"
+              className="border-2 border-[#6622CE] rounded-full px-8 py-2 hover:bg-[#6622CE] hover:border-[#6622CE] hover:text-[#fff] text-[#6622CE] flex items-center justify-center gap-2"
             >
              {" "} إنشاء حساب 
               <span className="text-xl mt-1">
-                <IoMdArrowRoundForward />
+                <IoMdArrowRoundForward className="hover:text-[#fff] "/>
               </span>
             </button>
           </div>
