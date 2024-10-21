@@ -4,16 +4,16 @@ import NavBar from '../../Components/NavBar';
 import { Link } from 'react-router-dom';
 
 const HomeUser = () => {
-  // const userData = JSON.parse(localStorage.getItem("user"));
+  const userData = JSON.parse(localStorage.getItem("user"));
   return (
     <div className=''>
       <NavBar />
       <div className='flex flex-col gap-10 m-10 '>
         <h1 className='text-2xl text-center'>
-          اهلا بك <span className='font-extrabold text-indigo-300'>
-          {/* {userData ? userData.firstName : ""}{" "}
-          {userData ? userData.secondName : ""} */}
-          </span>
+        <span className='font-extrabold text-indigo-300'>
+          {userData ? userData.firstName : ""}{" "}
+          {userData ? userData.secondName : ""}
+          </span> اهلا بك 
         </h1>
         <div>
           <img
