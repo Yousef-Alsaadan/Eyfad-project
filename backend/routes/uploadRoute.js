@@ -2,6 +2,9 @@ const express = require('express');
 const multer = require('multer');
 const pdfParse = require('pdf-parse');
 const path = require('path');
+const axios = require('axios');
+require('dotenv').config(); // Load environment variables
+
 const router = express.Router();
 
 // Set up storage for Multer
@@ -13,7 +16,61 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
-// Route to handle file upload
+// Function to send the pdfText to GPT API
+const processWithGPT = async (pdfText) => {
+  const prompt = `Extract the following data from the provided medical test text. Provide the result in valid JSON format using an object
+   for the analyses. Ensure each field is accurately filled in based on the information provided in the text, and provide the symptoms, management, recommendations in Arabic:
+
+{
+  "testName": "",
+  "testDate": "",
+  "analyses": [
+    {
+      "analysisName": "",  
+      "result": 0,         
+      "unit": "",          
+      "isNormal": false,  
+      "referenceRange": {
+        "min": 0,          
+        "max": 0           
+      },
+      "symptoms": {
+        "high": "",        
+        "low": ""          
+      },
+      "management": {
+        "high": "",        
+        "low": ""          
+      },
+      "recommendations": ""  
+    }
+  ]
+}
+Here is the text: ${pdfText}`;
+
+  try {
+    const response = await axios.post(
+      'https://api.openai.com/v1/chat/completions',
+      {
+        model: 'gpt-3.5-turbo', 
+        messages: [{ role: 'user', content: prompt }],
+        temperature: 0.2,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${process.env.OPENAI_API_KEY}`, 
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+    return response.data.choices[0].message.content;
+  } catch (error) {
+    console.error('Error with GPT API request:', error.message);
+    throw error;
+  }
+};
+
+// Route to handle file upload and PDF processing
 router.post('/', upload.single('pdf'), async (req, res) => {
   if (!req.file) {
     return res.status(400).send('No file uploaded.');
@@ -26,12 +83,17 @@ router.post('/', upload.single('pdf'), async (req, res) => {
     const dataBuffer = await pdfParse(filePath);
     const pdfText = dataBuffer.text;
 
-    console.log('PDF Text:', pdfText); // The extracted text
-    
-    res.json({ message: 'File uploaded and text extracted successfully!', text: pdfText });
+    // Send the extracted PDF text to GPT API
+    const gptResponse = await processWithGPT(pdfText);
+
+    // Parse the extractedData from GPT into a JavaScript object
+    const extractedData = JSON.parse(gptResponse);
+
+    console.log('Extracted Data:', extractedData);
+    res.json({ message: 'File uploaded, text extracted, and data processed successfully!', extractedData: extractedData });
   } catch (error) {
-    console.error('Error extracting text from PDF:', error);
-    res.status(500).send('Error extracting text from PDF.');
+    console.error('Error processing PDF or GPT request:', error);
+    res.status(500).send('Error processing PDF or GPT request.');
   }
 });
 
