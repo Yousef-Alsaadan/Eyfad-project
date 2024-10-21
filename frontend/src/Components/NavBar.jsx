@@ -20,7 +20,7 @@ function NavBar() {
           <Link to="/" className="hover:underline underline-offset-[6px]">
             الرئيسية
           </Link>
-          <Link to="/#about" className="hover:underline underline-offset-[6px]">
+          <Link to="/#about" smooth className="hover:underline underline-offset-[6px]">
             حول المنصة
           </Link>
           <Link to="/terms" className="hover:underline underline-offset-[6px]">
@@ -71,6 +71,7 @@ function NavBar() {
             <Link
               to="/#about"
               className="hover:underline underline-offset-[6px] text-xl font-bold"
+              smooth
             >
               حول المنصة
             </Link>

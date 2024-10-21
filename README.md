@@ -102,6 +102,8 @@ Use this fake API [mockapi.io](https://670438ecab8a8f89273356ec.mockapi.io/testA
 npm install react-icons --save
 
 npm install react-router-hash-link
+
+npm i typewriter-effect
 ```
 
 - backend:

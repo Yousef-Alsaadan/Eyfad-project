@@ -4,8 +4,8 @@ import { HashLink as Link } from "react-router-hash-link";
 function Footer() {
   return (
     <div className="bg-[#FBFBFB] p-4">
-      <div className="flex items-center justify-between container mx-auto py-3 px-4">
-        <div className="flex gap-6">
+      <div className="flex flex-col md:flex-row items-center justify-between container gap-20 md:text-start text-center mx-auto py-3 px-4">
+        <div className="flex flex-col md:flex-row gap-6">
           <Link to="/">
             {/* <img src="" className="object-cover" /> */}
             الشعار
