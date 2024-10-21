@@ -1,13 +1,330 @@
-import React from "react";
+import React, { useState } from "react";
 import NavBar from "../Components/NavBar";
 import Footer from "../Components/Footer";
 import FileUpload from "../Components/FileUpload";
+import { HashLink as Link } from "react-router-hash-link";
+import HeroSvg from "../Components/style/HeroSvg";
+import HeroSvg2 from "../Components/style/HeroSvg2";
+import HeroSvg3 from "../Components/style/HeroSvg3";
+import HeroSvg4 from "../Components/style/HeroSvg4";
+import reportIcon from "../assets/reportIcon.svg";
+import arrow from "../assets/arrow.svg";
+import ai from "../assets/aiIcon.svg";
+import aboutImg from "../assets/aboutImg.svg";
+import aboutImg2 from "../assets/aboutImg2.svg";
+import aboutImg3 from "../assets/aboutImg3.svg";
+import homeBird from "../assets/homeBird.svg";
+import Typewriter from "typewriter-effect";
 
 function Home() {
   return (
     <div>
-      <FileUpload></FileUpload>
       <NavBar />
+
+      {/* hero section */}
+      <div className="hero min-h-[89vh] p-4">
+        <svg
+          height="88vh"
+          viewBox="0 0 915 782"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="-z-10 absolute xl:bottom-0 bottom-18 lg:w-[1000px] w-[800px] md:block hidden"
+        >
+          <path
+            d="M1 390.809C1 606.306 205.382 781 457.5 781C709.618 781 914 606.306 914 390.809C914 175.313 709.618 0.618164 457.5 0.618164"
+            stroke="#002933"
+          />
+        </svg>
+
+        <HeroSvg />
+
+        <div className="flex flex-col text-center gap-6 xl:h-[96%] items-center">
+          <div className="max-w-2xl text-black flex flex-col items-center">
+            <p className="font-semibold text-2xl pb-6">إيفاد</p>
+            <h1 className="mb-5 text-5xl font-semibold">
+              منصتك لفهم وتحليل <br />
+              <br />
+              التقارير الطبية بذكاء
+            </h1>
+            <p className="mb-5 text-[#04040499]">
+              منصة مبتكرة لتحليل التقارير الطبية المعقدة بطريقة مبسطة. نقدم
+              توصيات صحية ونوفر فريق طبي موثوق للإجابة على استفساراتك.
+            </p>
+
+            <HeroSvg2 />
+
+            <Link to="/user/login" className="w-fit mt-4">
+              <div className="bg-gradient-to-l from-[#f96f5e99] via-[#E6BCC4] to-[#DFD0E0] text-[#002933] font-medium rounded-full p-[1px]">
+                <span className="flex w-full bg-transparent rounded-full py-3 px-10 hover:text-[#002933]">
+                  جربه الآن
+                </span>
+              </div>
+            </Link>
+          </div>
+
+          <Link smooth to="/#about">
+            <svg
+              width="22"
+              height="21"
+              viewBox="0 0 22 21"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M10.6231 0C9.2424 0 8.1231 1.1193 8.1231 2.50003V7.50008C8.1231 10.2615 10.3617 12.5001 13.1231 12.5001V2.50003C13.1231 1.1193 12.0038 0 10.6231 0ZM3.75046 11.4601C2.55471 10.7697 1.02572 11.1794 0.335357 12.3751C-0.355006 13.5709 0.0546862 15.0999 1.25043 15.7902L9.91077 20.7903C11.2915 18.3988 10.4721 15.3408 8.08063 13.9601L3.75046 11.4601ZM18.2458 11.4601C19.4415 10.7697 20.9705 11.1794 21.6609 12.3751C22.3513 13.5709 21.9416 15.0999 20.7458 15.7902L12.0855 20.7903C10.7048 18.3988 11.5241 15.3408 13.9156 13.9601L18.2458 11.4601Z"
+                fill="black"
+              />
+            </svg>
+          </Link>
+
+          <div className="absolute xl:top-80 xl:right-60 lg:top-40 lg:right-60 md:top-40 md:right-32 right-12">
+            <HeroSvg3 />
+          </div>
+
+          <div className="absolute xl:bottom-8 xl:left-96 lg:bottom-32 lg:left-64 md:bottom-28 md:left-60 bottom-28 left-12">
+            <HeroSvg4 />
+          </div>
+
+          <div className="absolute xl:bottom-32 xl:right-96 lg:bottom-80 lg:right-40 bottom-72 right-20">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M14.0514 9.58062C14.0514 12.0499 12.0496 14.0516 9.58037 14.0516C7.11111 14.0516 5.10938 12.0499 5.10938 9.58062C5.10938 7.11135 7.11111 5.10962 9.58037 5.10962C12.0496 5.10962 14.0514 7.11135 14.0514 9.58062Z"
+                fill="url(#paint0_linear_645_9461)"
+                fillOpacity="0.5"
+              />
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M9.58071 18.7356C14.6368 18.7356 18.7356 14.6368 18.7356 9.58071C18.7356 4.5246 14.6368 0.425809 9.58071 0.425809C4.5246 0.425809 0.425809 4.5246 0.425809 9.58071C0.425809 14.6368 4.5246 18.7356 9.58071 18.7356ZM9.58071 19.1614C14.872 19.1614 19.1614 14.872 19.1614 9.58071C19.1614 4.28943 14.872 0 9.58071 0C4.28943 0 0 4.28943 0 9.58071C0 14.872 4.28943 19.1614 9.58071 19.1614Z"
+                fill="url(#paint1_linear_645_9461)"
+                fillOpacity="0.5"
+              />
+              <defs>
+                <linearGradient
+                  id="paint0_linear_645_9461"
+                  x1="9.58071"
+                  y1="0"
+                  x2="10.0369"
+                  y2="31.4795"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stopColor="#4A6369" />
+                </linearGradient>
+                <linearGradient
+                  id="paint1_linear_645_9461"
+                  x1="9.58071"
+                  y1="-6.34505e-09"
+                  x2="9.79361"
+                  y2="23.2066"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stopColor="#002B35" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+
+          <div className="absolute xl:top-40 xl:left-96 lg:top-80 lg:left-60 md:top-72 left-32 top-28">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M14.0514 9.58062C14.0514 12.0499 12.0496 14.0516 9.58037 14.0516C7.11111 14.0516 5.10938 12.0499 5.10938 9.58062C5.10938 7.11135 7.11111 5.10962 9.58037 5.10962C12.0496 5.10962 14.0514 7.11135 14.0514 9.58062Z"
+                fill="url(#paint0_linear_645_9461)"
+                fillOpacity="0.5"
+              />
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M9.58071 18.7356C14.6368 18.7356 18.7356 14.6368 18.7356 9.58071C18.7356 4.5246 14.6368 0.425809 9.58071 0.425809C4.5246 0.425809 0.425809 4.5246 0.425809 9.58071C0.425809 14.6368 4.5246 18.7356 9.58071 18.7356ZM9.58071 19.1614C14.872 19.1614 19.1614 14.872 19.1614 9.58071C19.1614 4.28943 14.872 0 9.58071 0C4.28943 0 0 4.28943 0 9.58071C0 14.872 4.28943 19.1614 9.58071 19.1614Z"
+                fill="url(#paint1_linear_645_9461)"
+                fillOpacity="0.5"
+              />
+              <defs>
+                <linearGradient
+                  id="paint0_linear_645_9461"
+                  x1="9.58071"
+                  y1="0"
+                  x2="10.0369"
+                  y2="31.4795"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stopColor="#4A6369" />
+                </linearGradient>
+                <linearGradient
+                  id="paint1_linear_645_9461"
+                  x1="9.58071"
+                  y1="-6.34505e-09"
+                  x2="9.79361"
+                  y2="23.2066"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stopColor="#002B35" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      {/* about section */}
+      <div className="bg-[#f4f5f987] md:min-h-screen">
+        <div
+          id="about"
+          className="rounded-br-[200px] bg-gradient-to-b from-[#DDE1F2] to-[#FFFFFF] to-[53%] min-h-screen"
+        >
+          <div className="container mx-auto px-4 md:py-8 pt-8 pb-32">
+            <div className="flex gap-4 items-center">
+              <svg
+                width="88"
+                height="139"
+                viewBox="0 0 88 139"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M0 45.8869C0 43.3498 2.05679 41.293 4.59397 41.293C7.13115 41.293 9.18794 43.3498 9.18794 45.8869V133.61C9.18794 136.147 7.13115 138.204 4.59397 138.204C2.05679 138.204 0 136.147 0 133.61L0 45.8869Z"
+                  fill="#C5D4E9"
+                />
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M52.0776 32.4572C52.0776 29.9201 54.1344 27.8633 56.6716 27.8633C59.2088 27.8633 61.2656 29.9201 61.2656 32.4573V120.18C61.2656 122.717 59.2088 124.774 56.6716 124.774C54.1344 124.774 52.0776 122.717 52.0776 120.18L52.0776 32.4572Z"
+                  fill="#C5D4E9"
+                />
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M78.1221 4.59397C78.1221 2.05679 80.1789 0 82.716 0C85.2532 0 87.31 2.05679 87.31 4.59397V92.3169C87.31 94.8541 85.2532 96.9109 82.716 96.9109C80.1789 96.9109 78.1221 94.8541 78.1221 92.3169L78.1221 4.59397Z"
+                  fill="#001926"
+                />
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M26.0444 16.7092C26.0444 14.172 28.1012 12.1152 30.6384 12.1152C33.1756 12.1152 35.2324 14.172 35.2324 16.7092V104.432C35.2324 106.969 33.1756 109.026 30.6384 109.026C28.1012 109.026 26.0444 106.969 26.0444 104.432L26.0444 16.7092Z"
+                  fill="#DBAAB4"
+                />
+              </svg>
+
+              <h1 className="font-bold text-5xl">
+                كيف <span className="text-[#94A0D5]">إيفاد</span> يعمل
+              </h1>
+            </div>
+
+            <div className="flex xl:flex-row flex-col gap-20 xl:gap-0 items-center justify-between mt-12">
+              <div className="flex flex-col gap-4">
+                <h1 className="font-extrabold text-3xl mx-8">
+                  رفع التقرير الطبي
+                </h1>
+
+                <div className="bg-white h-[250px] w-[360px] rounded-3xl shadow-lg grid place-items-center">
+                  <img src={reportIcon} />
+                </div>
+              </div>
+
+              <Link to="/#ai" smooth className="cursor-default">
+                <div className="-rotate-90 xl:rotate-0">
+                  <img src={arrow} />
+                </div>
+              </Link>
+
+              <div className="flex flex-col gap-4 text-center" id="ai">
+                <h1 className="font-extrabold text-3xl">الذكاء الاصطناعي</h1>
+
+                <div className="bg-transparent h-[250px] w-fit  rounded-3xl grid place-items-center">
+                  <img src={ai} />
+                </div>
+              </div>
+
+              <Link to="/#text" smooth className="cursor-default">
+                <div className="-rotate-90 xl:rotate-0">
+                  <img src={arrow} />
+                </div>
+              </Link>
+
+              <div className="flex flex-col gap-4" id="text">
+                <h1 className="font-extrabold text-3xl mx-8">شرح مبسط ومخصص</h1>
+
+                <div className="bg-white h-[250px] w-[360px] rounded-3xl shadow-lg flex items-center">
+                  <div className="font-bold text-sm flex flex-col gap-4 p-4">
+                    <Typewriter
+                      options={{ autoStart: true, loop: true }}
+                      onInit={(typewriter) => {
+                        typewriter
+                          .typeString(
+                            "الهيموغلوبين (Hemoglobin):<br><br>النتيجة: 13.5 جم/دل<br><br>الوضع: طبيعي<br><br>التفسير: مستوى الهيموغلوبين لديك في النطاق الطبيعي, مما يشير الى عدم وجود مشاكل تتعلق بفقر الدم"
+                          )
+                          .changeDeleteSpeed(1000)
+                          .start();
+                      }}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-[#f4f5f987] h-auto">
+        <div className="container mx-auto px-4 py-20">
+          <h1 className="font-bold text-5xl">بالاضافة الى:</h1>
+
+          <div className="flex xl:flex-row flex-col gap-20 xl:gap-0 items-center justify-between mt-12">
+            <div className="bg-white h-[250px] w-[360px] rounded-3xl shadow-lg grid place-items-center">
+              <img src={aboutImg} />
+              <h1 className="font-bold text-xl">التتبع وحفظ السجلات</h1>
+            </div>
+
+            <div className="bg-white h-[250px] w-[360px] rounded-3xl shadow-lg grid place-items-center p-2">
+              <img src={aboutImg2} />
+              <h1 className="font-bold text-xl">التوصيات الصحية</h1>
+            </div>
+
+            <div className="bg-white h-[250px] w-[360px] rounded-3xl shadow-lg grid place-items-center">
+              <img src={aboutImg3} />
+              <h1 className="font-bold text-xl">التنبؤ بالحالة الصحية</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* contact section */}
+      <div className="border-b border-black rounded-bl-[200px] py-20">
+        <div className="container mx-auto px-4 pb-20">
+          <div className="flex justify-between items-center">
+            <h1 className="font-bold md:text-5xl text-4xl">
+              التواصل مع المطورين
+            </h1>
+            <img src={homeBird} className="md:block hidden" />
+          </div>
+        </div>
+
+        <div className="grid xl:grid-cols-6 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 place-items-center gap-8">
+          <div className="lg:w-[220px] lg:h-[180px] h-[250px] w-[360px] bg-[#F4F5F6] rounded-tl-xl rounded-bl-xl rounded-br-xl rounded-tr-full"></div>
+          <div className="lg:w-[220px] lg:h-[180px] h-[250px] w-[360px] bg-[#C5D4E9] rounded-xl"></div>
+          <div className="lg:w-[220px] lg:h-[180px] h-[250px] w-[360px] bg-[#E6F9FE] rounded-xl"></div>
+          <div className="lg:w-[220px] lg:h-[180px] h-[250px] w-[360px] bg-[#F6E8F1] rounded-xl"></div>
+          <div className="lg:w-[220px] lg:h-[180px] h-[250px] w-[360px] bg-[#E9FCF9] rounded-xl"></div>
+          <div className="lg:w-[220px] lg:h-[180px] h-[250px] w-[360px] bg-[#F4F5F6] rounded-tl-xl rounded-bl-full rounded-br-xl rounded-tr-xl"></div>
+        </div>
+
+        <div className="bg-[#F76C35] w-[20px] h-[20px] rounded-full absolute left-20 translate-y-10"></div>
+      </div>
       <Footer />
     </div>
   );

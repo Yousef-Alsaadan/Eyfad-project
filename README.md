@@ -96,6 +96,18 @@ Use this fake API [mockapi.io](https://670438ecab8a8f89273356ec.mockapi.io/testA
 
 **If you use any other API or package please add at below:**
 
+- frontend:
+
+```bash
+npm install react-icons --save
+
+npm install react-router-hash-link
+
+npm i typewriter-effect
+```
+
+- backend:
+
 ```bash
 
 ```
