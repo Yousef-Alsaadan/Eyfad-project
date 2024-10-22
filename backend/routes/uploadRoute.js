@@ -97,7 +97,7 @@ Here is the text: ${pdfText}`;
 // Route to handle file upload and PDF processing
 router.post('/', upload.single('pdf'),authenticateToken, async (req, res) => {
     
-  console.log(req.user.id);
+  
   if (!req.file) {
     return res.status(400).send('No file uploaded.');
   }
@@ -105,32 +105,36 @@ router.post('/', upload.single('pdf'),authenticateToken, async (req, res) => {
   const filePath = path.join(__dirname, '../uploads', req.file.filename);
 
   try {
-    // const user = await User.findById(req.user.id);
+    const user = await User.findById(req.user.id);
     
-    // if (!user) {
+    if (!user) {
     
-    // return res.status(404).json({ message: 'User not found' });
+    return res.status(404).json({ message: 'User not found' });
     
-    // }
+    }
+    
     // console.log(req);
     // Read and convert PDF to text
     const dataBuffer = await pdfParse(filePath);
     const pdfText = dataBuffer.text;
-
+    
     // Send the extracted PDF text to GPT API
     const gptResponse = await processWithGPT(pdfText);
 
     // Parse the extractedData from GPT into a JavaScript object
     const extractedData = JSON.parse(gptResponse);
-
+    
+   extractedData.user=user.id;
+   
     // Save the extractedData to MongoDB
     const newMedicalTest = new MedicalTest(extractedData); // Use newMedicalTest as the variable name
     await newMedicalTest.save();
-
-    console.log('Extracted Data:', extractedData);
+ user.reports.push(newMedicalTest._id);
+ await user.save();
+    console.log('Extracted Data:', extractedData,newMedicalTest._id,user.reports);
     res.json({ message: 'File uploaded, text extracted, and data processed successfully!', extractedData: extractedData });
   } catch (error) {
-    // console.error('Error processing PDF or GPT request:', error);
+    console.error('Error processing PDF or GPT request:', error);
     res.status(500).send('Error processing PDF or GPT request.');
   }
 });
