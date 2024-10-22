@@ -1,32 +1,32 @@
 import React from "react";
-import { Link } from "react-router-dom";  
+import { Link } from "react-router-dom";
 import titleimage from "../images/title.png";
 
 const Title = ({ title, linkPath }) => {
   return (
-    <div className="flex flex-col-reverse gap-4 md:flex-row-reverse justify-between items-center p-5">
-        {/* 
-         */}
-         <div className=" flex flex-col md:flex-row-reverse justify-between items-center gap-10 ">
-         <div>
-        <img
-          src={titleimage}
-          alt="Title Image"
-          className="w-20 h-20 md:w-24 md:h-24 object-contain"
-        />
+    <div className="flex justify-between items-center">
+      {/*
+       */}
+      <div className=" flex flex-row justify-between items-center gap-10 ">
+        <div>
+          <img
+            src={titleimage}
+            alt="Title Image"
+            className="w-20 h-20 md:w-24 md:h-24 object-contain"
+          />
+        </div>
+        <div className="text-center md:text-right mb-4 md:mb-0">
+          <h1 className="font-bold md:text-3xl text-2xl leading-10 text-end">
+            {title}
+          </h1>
+        </div>
       </div>
-      <div className="text-center md:text-right mb-4 md:mb-0">
-        <h1 className="font-sans font-bold md:text-3xl text-2xl leading-10">
-          {title}
-        </h1>
-      </div>
-         </div>
-   
+
       {/*  */}
       <div>
         <Link
           to={linkPath}
-          className="md:flex  items-center hover:scale-110 transition-transform duration-200  top-5 left-5  "
+          className="hover:scale-110 transition-transform duration-200 flex items-center"
         >
           <svg
             width="24"
