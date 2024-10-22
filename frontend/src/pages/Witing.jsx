@@ -4,9 +4,9 @@ import witingImage from '../images/witing.png';
 
 const Witing = () => {
   return (
-    <div className="container mx-auto w-full text-center ">
-      <Title title="... نقوم الآن بتحليل نتائجك " />
-      <div className="flex justify-center mt-4">
+    <div className="container mx-auto w-full text-center p-4 h-screen">
+      <Title title="نقوم الآن بتحليل نتيجتك ..." />
+      <div className="flex justify-center items-center mt-4 h-[85%]">
         <img 
           src={witingImage} 
           alt="تحليل النتائج باستخدام الذكاء الاصطناعي" 

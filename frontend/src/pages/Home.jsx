@@ -53,7 +53,7 @@ function Home() {
 
             <HeroSvg2 />
 
-            <Link to="/user/login" className="w-fit mt-4">
+            <Link to="/user/login" className="w-fit mt-4 hover:scale-110 transition-transform duration-200">
               <div className="bg-gradient-to-l from-[#f96f5e99] via-[#E6BCC4] to-[#DFD0E0] text-[#002933] font-medium rounded-full p-[1px]">
                 <span className="flex w-full bg-transparent rounded-full py-3 px-10 hover:text-[#002933]">
                   جربه الآن
@@ -62,7 +62,7 @@ function Home() {
             </Link>
           </div>
 
-          <Link smooth to="/#about">
+          <Link smooth to="/#about" className="hover:scale-110 transition-transform duration-200">
             <svg
               width="22"
               height="21"
@@ -315,12 +315,12 @@ function Home() {
         </div>
 
         <div className="grid xl:grid-cols-6 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 place-items-center gap-8">
-          <div className="lg:w-[220px] lg:h-[180px] h-[250px] w-[360px] bg-[#F4F5F6] rounded-tl-xl rounded-bl-xl rounded-br-xl rounded-tr-full"></div>
-          <div className="lg:w-[220px] lg:h-[180px] h-[250px] w-[360px] bg-[#C5D4E9] rounded-xl"></div>
-          <div className="lg:w-[220px] lg:h-[180px] h-[250px] w-[360px] bg-[#E6F9FE] rounded-xl"></div>
-          <div className="lg:w-[220px] lg:h-[180px] h-[250px] w-[360px] bg-[#F6E8F1] rounded-xl"></div>
-          <div className="lg:w-[220px] lg:h-[180px] h-[250px] w-[360px] bg-[#E9FCF9] rounded-xl"></div>
-          <div className="lg:w-[220px] lg:h-[180px] h-[250px] w-[360px] bg-[#F4F5F6] rounded-tl-xl rounded-bl-full rounded-br-xl rounded-tr-xl"></div>
+          <div className="lg:w-[13.75rem] lg:h-[11.25rem] h-[15.625rem] w-[22.5rem] bg-[#F4F5F6] rounded-tl-xl rounded-bl-xl rounded-br-xl rounded-tr-full"></div>
+          <div className="lg:w-[13.75rem] lg:h-[11.25rem] h-[15.625rem] w-[22.5rem] bg-[#C5D4E9] rounded-xl"></div>
+          <div className="lg:w-[13.75rem] lg:h-[11.25rem] h-[15.625rem] w-[22.5rem] bg-[#E6F9FE] rounded-xl"></div>
+          <div className="lg:w-[13.75rem] lg:h-[11.25rem] h-[15.625rem] w-[22.5rem] bg-[#F6E8F1] rounded-xl"></div>
+          <div className="lg:w-[13.75rem] lg:h-[11.25rem] h-[15.625rem] w-[22.5rem] bg-[#E9FCF9] rounded-xl"></div>
+          <div className="lg:w-[13.75rem] lg:h-[11.25rem] h-[15.625rem] w-[22.5rem] bg-[#F4F5F6] rounded-tl-xl rounded-bl-full rounded-br-xl rounded-tr-xl"></div>
         </div>
 
         <div className="bg-[#F76C35] w-[20px] h-[20px] rounded-full absolute left-20 translate-y-10"></div>

@@ -15,10 +15,8 @@ const Title = ({ title, linkPath }) => {
             className="w-20 h-20 md:w-24 md:h-24 object-contain"
           />
         </div>
-        <div className="text-center md:text-right mb-4 md:mb-0">
-          <h1 className="font-bold md:text-3xl text-2xl leading-10 text-end">
-            {title}
-          </h1>
+        <div className="mb-4 md:mb-0 text-start">
+          <h1 className="font-bold md:text-3xl text-xl leading-10">{title}</h1>
         </div>
       </div>
 

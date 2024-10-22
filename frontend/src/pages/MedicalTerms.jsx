@@ -6,19 +6,19 @@ import InfoBox from "../Components/InfoBox";
 
 function MedicalTerms() {
   return (
-    <div className="flex flex-col min-h-screen" dir="ltr">
+    <div className="flex flex-col min-h-screen">
       <NavBar />
-      <div className="flex-grow container mx-auto w-full text-center mt-10">
-        <Title title="ابحث عن مصطلح طبي تود المعرفة عنه" />
+      <div className="flex-grow container mx-auto w-full text-center my-10 px-4">
+        <Title title="ابحث عن مصطلح طبي تود المعرفة عنه" linkPath="/" />
         <div className="flex flex-col items-center p-6 space-y-6">
           {/* Search Bar */}
           <div className="relative w-full max-w-lg mb-10">
             <input
               type="text"
-              placeholder=" ... ابحث عن مصطلح طبي "
-              className="w-full px-4 pr-16 h-12 text-right border rounded-full shadow-sm focus:outline-none"
+              placeholder="ابحث عن المصطلح الطبي ..."
+              className="w-full px-6 h-12 border rounded-full shadow-sm focus:outline-none "
             />
-         <button className="absolute top-0 right-0 h-full flex items-center px-3 hover:scale-110  transition duration-200 ease-in-out hover:text-gray-700 group">
+            <button className="absolute top-0 left-0 h-full flex items-center px-3 hover:scale-110  transition duration-200 ease-in-out hover:text-gray-700 group">
               <svg
                 className="w-10 h-10 text-gray-500 "
                 width="48"
@@ -28,12 +28,12 @@ function MedicalTerms() {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <circle
-        cx="24.4102"
-        cy="24"
-        r="23.5"
-        fill="#001926"
-        className='group-hover:fill-indigo-900 transition duration-300 ease-in-out'
-      />
+                  cx="24.4102"
+                  cy="24"
+                  r="23.5"
+                  fill="#001926"
+                  className="group-hover:fill-indigo-900 transition duration-300 ease-in-out"
+                />
                 <path
                   d="M34.623 31.7949C34.9922 32.2051 34.9922 32.8203 34.582 33.1895L33.4336 34.3379C33.0645 34.748 32.4492 34.748 32.0391 34.3379L27.9785 30.2773C27.7734 30.0723 27.6914 29.8262 27.6914 29.5801V28.8828C26.2148 30.0312 24.4102 30.6875 22.4414 30.6875C17.7246 30.6875 13.9102 26.873 13.9102 22.1562C13.9102 17.4805 17.7246 13.625 22.4414 13.625C27.1172 13.625 30.9727 17.4805 30.9727 22.1562C30.9727 24.166 30.2754 25.9707 29.168 27.4062H29.8242C30.0703 27.4062 30.3164 27.5293 30.5215 27.6934L34.623 31.7949ZM22.4414 27.4062C25.3125 27.4062 27.6914 25.0684 27.6914 22.1562C27.6914 19.2852 25.3125 16.9062 22.4414 16.9062C19.5293 16.9062 17.1914 19.2852 17.1914 22.1562C17.1914 25.0684 19.5293 27.4062 22.4414 27.4062Z"
                   fill="white"

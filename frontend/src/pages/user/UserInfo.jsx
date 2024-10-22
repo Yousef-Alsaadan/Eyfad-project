@@ -9,8 +9,6 @@ function UserInfo() {
   return (
     <div>
       <NavBar />
-      <Info />
-      <ReportHistory />
       <ResultHistory />
       <Footer />
     </div>

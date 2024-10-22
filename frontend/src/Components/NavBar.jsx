@@ -9,10 +9,10 @@ function NavBar() {
   return (
     <div className="bg-[#FBFBFB] p-4">
       <div className="flex items-center justify-between container mx-auto px-4">
-        <div>
+        <div className="text-4xl font-extrabold tajawal-extralight">
           <Link to="/">
             {/* <img src="" className="object-cover" /> */}
-            الشعار
+            إيــفـــــاد
           </Link>
         </div>
 
@@ -20,7 +20,11 @@ function NavBar() {
           <Link to="/" className="hover:underline underline-offset-[6px]">
             الرئيسية
           </Link>
-          <Link to="/#about" smooth className="hover:underline underline-offset-[6px]">
+          <Link
+            to="/#about"
+            smooth
+            className="hover:underline underline-offset-[6px]"
+          >
             حول المنصة
           </Link>
           <Link to="/terms" className="hover:underline underline-offset-[6px]">
@@ -31,7 +35,7 @@ function NavBar() {
           </Link>
         </div>
 
-        <Link to="/user/login" className="md:block hidden">
+        <Link to="/user/login" className="md:block hidden hover:scale-110 transition-transform duration-200">
           <div className="bg-gradient-to-b from-[#f96f5e99] via-[#E6BCC4] to-[#DFD0E0] font-medium text-[#002933] rounded-full p-[1px]">
             <span className="flex w-full bg-white rounded-full py-3 px-6">
               جربه الآن
@@ -40,7 +44,7 @@ function NavBar() {
         </Link>
 
         {/* mobile header */}
-        <div className="block lg:hidden">
+        <div className="block md:hidden">
           {hidden === "hidden" ? (
             <RxHamburgerMenu
               onClick={() => {
@@ -59,8 +63,34 @@ function NavBar() {
         </div>
       </div>
 
-      <div className="block lg:hidden">
-        <div className={`h-screen ${hidden}`}>
+      <div className="block md:hidden z-30 w-full top-0 left-0 fixed bg-[#FBFBFB]">
+        <div className={`h-screen ${hidden} p-4`}>
+          <div className="flex items-center justify-between container mx-auto px-4">
+            <div className="text-4xl font-extrabold tajawal-extralight">
+              <Link to="/">
+                {/* <img src="" className="object-cover" /> */}
+                إيــفـــــاد
+              </Link>
+            </div>
+
+            <div className="block md:hidden">
+              {hidden === "hidden" ? (
+                <RxHamburgerMenu
+                  onClick={() => {
+                    setHidden("");
+                  }}
+                  size="2rem"
+                />
+              ) : (
+                <IoClose
+                  onClick={() => {
+                    setHidden("hidden");
+                  }}
+                  size="2rem"
+                />
+              )}
+            </div>
+          </div>
           <div className="flex flex-col items-center justify-center gap-16 h-[90%]">
             <Link
               to="/"

@@ -9,6 +9,8 @@ import UserSignup from "./pages/user/UserSignup";
 import UserInfo from "./pages/user/UserInfo";
 import HomeUser from "./pages/user/HomeUser";
 import ResultHistory from "./Components/user/ResultHistory";
+import Results from "./Components/user/Results";
+import Witing from "./pages/Witing";
 
 const router = createBrowserRouter([
   {
@@ -22,8 +24,10 @@ const router = createBrowserRouter([
   { path: "/user/login", element: <UserLogin /> },
   { path: "/user/signup", element: <UserSignup /> },
   { path: "/report", element: <AddReport /> },
-   {path:"/user/history", element: <ResultHistory/>},
-  {path:"user-page", element: <HomeUser/>},
+  { path: "/user/history", element: <ResultHistory /> }, // this must be deleted
+  { path: "user-page", element: <HomeUser /> },
+  { path: "/Results", element: <Results /> }, // this must be deleted
+  { path: "/Witing", element: <Witing /> }, // this must be deleted
 ]);
 
 function Router() {

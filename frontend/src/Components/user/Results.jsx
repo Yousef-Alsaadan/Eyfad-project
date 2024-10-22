@@ -6,7 +6,7 @@ function Results() {
   return (
     <div className="grid place-items-center p-4">
       <div className="container m-auto px-4 pb-4">
-        <Title title="تاريخ تحاليلك" linkPath="/report"></Title>
+        <Title title="نتيجتك" linkPath="/report"></Title>
       </div>
       <div className="overflow-y-scroll no-scrollbar max-h-[650px] h-[650px] lg:w-[830px] md:w-[730px] w-[330px] border border-[#524FE1] rounded-xl p-4 flex justify-between flex-col">
         <div className="flex flex-col gap-4">
