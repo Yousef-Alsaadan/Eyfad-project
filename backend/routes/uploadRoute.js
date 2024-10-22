@@ -1,11 +1,30 @@
 const express = require('express');
+const User = require('../models/userSchema.js');
 const multer = require('multer');
 const pdfParse = require('pdf-parse');
 const path = require('path');
 const axios = require('axios');
+const jwt = require('jsonwebtoken');
 const MedicalTest = require('../models/medicalTest'); // Correct import of the medicalTest model
 require('dotenv').config();
 
+function authenticateToken(req, res, next) {
+
+  const token = req.headers['authorization'];
+  
+  if (!token) return res.status(401).json({ message: 'Access Denied' });
+  
+  jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+  
+  if (err) return res.status(403).json({ message: 'Invalid Token' });
+  
+  req.user = user; // إضافة بيانات المستخدم إلى الطلب
+  
+  next();
+  
+  });
+  
+  }
 console.log(MedicalTest); // This should log the imported model
 const router = express.Router();
 
@@ -75,7 +94,9 @@ Here is the text: ${pdfText}`;
 };
 
 // Route to handle file upload and PDF processing
-router.post('/', upload.single('pdf'), async (req, res) => {
+router.post('/', upload.single('pdf'),authenticateToken, async (req, res) => {
+    
+  console.log(req.user.id);
   if (!req.file) {
     return res.status(400).send('No file uploaded.');
   }
@@ -83,6 +104,14 @@ router.post('/', upload.single('pdf'), async (req, res) => {
   const filePath = path.join(__dirname, '../uploads', req.file.filename);
 
   try {
+    // const user = await User.findById(req.user.id);
+    
+    // if (!user) {
+    
+    // return res.status(404).json({ message: 'User not found' });
+    
+    // }
+    // console.log(req);
     // Read and convert PDF to text
     const dataBuffer = await pdfParse(filePath);
     const pdfText = dataBuffer.text;
@@ -100,7 +129,7 @@ router.post('/', upload.single('pdf'), async (req, res) => {
     console.log('Extracted Data:', extractedData);
     res.json({ message: 'File uploaded, text extracted, and data processed successfully!', extractedData: extractedData });
   } catch (error) {
-    console.error('Error processing PDF or GPT request:', error);
+    // console.error('Error processing PDF or GPT request:', error);
     res.status(500).send('Error processing PDF or GPT request.');
   }
 });

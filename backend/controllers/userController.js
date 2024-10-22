@@ -93,4 +93,14 @@ const logIn = async (req, res) => {
     }
 };
 
+// app.get('/users/:id', (req, res) => {
+//     const { id } = req.params;
+//     const user = User.find(u => u.id === id);
+  
+//     if (user) {
+//       res.json(user);
+//     } else {
+//       res.status(404).json({ message: 'User not found' });
+//     }
+//   });
 module.exports = { signupUser, logIn };

@@ -6,11 +6,10 @@ const userSchema = new Schema({
   secondName: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-//   isAdmin: { type: Boolean, default: false },
-//   ideas: [{
-//     type: mongoose.Schema.Types.ObjectId,
-//     ref: 'Idea'
-//   }]
+  reports: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'medicalTest'
+  }]
 });
 
 const User = mongoose.model('User', userSchema);
