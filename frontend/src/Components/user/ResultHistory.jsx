@@ -4,7 +4,7 @@ import Title from "../Title";
 
 function ResultHistory() {
   return (
-    <div>
+    <div dir="ltr">
            <Title title= "اكتشف نتائج تقريرك بسرعة مع الذكاء الاصطناعي"   ></Title>
 
     <div className="grid grid-cols-1 md:grid-cols-2 "> 
