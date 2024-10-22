@@ -8,6 +8,7 @@ import UserLogin from "./pages/user/UserLogin";
 import UserSignup from "./pages/user/UserSignup";
 import UserInfo from "./pages/user/UserInfo";
 import HomeUser from "./pages/user/HomeUser";
+import ResultHistory from "./Components/user/ResultHistory";
 
 const router = createBrowserRouter([
   {
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
   { path: "/user/login", element: <UserLogin /> },
   { path: "/user/signup", element: <UserSignup /> },
   { path: "/report", element: <AddReport /> },
-  {path: "medical-terms", element: <MedicalTerms/>},
+   {path:"/user/history", element: <ResultHistory/>},
   {path:"user-page", element: <HomeUser/>},
 ]);
 

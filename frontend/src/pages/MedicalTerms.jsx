@@ -3,21 +3,22 @@ import NavBar from "../Components/NavBar";
 import Footer from "../Components/Footer";
 import Title from "../Components/Title";
 import InfoBox from "../Components/InfoBox";
+
 function MedicalTerms() {
   return (
-    <div>
+    <div className="flex flex-col min-h-screen" dir="ltr">
       <NavBar />
-      <div className="container mx-auto w-full text-center mt-10 ">
+      <div className="flex-grow container mx-auto w-full text-center mt-10">
         <Title title="ابحث عن مصطلح طبي تود المعرفة عنه" />
         <div className="flex flex-col items-center p-6 space-y-6">
           {/* Search Bar */}
-          <div className="relative w-full max-w-lg  mb-10">
+          <div className="relative w-full max-w-lg mb-10">
             <input
               type="text"
               placeholder=" ... ابحث عن مصطلح طبي "
-              className="w-full   px-4 pr-16  h-12   text-right border rounded-full shadow-sm focus:outline-none"
+              className="w-full px-4 pr-16 h-12 text-right border rounded-full shadow-sm focus:outline-none"
             />
-            <button className="absolute top-0 right-0 h-full flex items-center px-3 hover:scale-110  transition duration-200 ease-in-out hover:text-gray-700 group">
+         <button className="absolute top-0 right-0 h-full flex items-center px-3 hover:scale-110  transition duration-200 ease-in-out hover:text-gray-700 group">
               <svg
                 className="w-10 h-10 text-gray-500 "
                 width="48"
@@ -47,10 +48,9 @@ function MedicalTerms() {
 
           {/* Info Box */}
           <InfoBox
-        title="ارتفاع ضغط الدم (Hypertension)"
-        description="ارتفاع ضغط الدم هو حالة طبية شائعة تتميز بزيادة الضغط على جدران الشرايين على مدى فترة طويلة. يحدث ذلك عندما تكون قوة تدفق الدم ضد جدران الشرايين عالية بما يكفي لتسبب مشاكل صحية، مثل أمراض القلب."
-      />
-
+            title="ارتفاع ضغط الدم (Hypertension)"
+            description="ارتفاع ضغط الدم هو حالة طبية شائعة تتميز بزيادة الضغط على جدران الشرايين على مدى فترة طويلة. يحدث ذلك عندما تكون قوة تدفق الدم ضد جدران الشرايين عالية بما يكفي لتسبب مشاكل صحية، مثل أمراض القلب."
+          />
         </div>
       </div>
       <Footer />

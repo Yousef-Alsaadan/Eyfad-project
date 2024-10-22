@@ -4,7 +4,7 @@ import titleimage from "../images/title.png";
 
 const Title = ({ title, linkPath }) => {
   return (
-    <div className="flex flex-col md:flex-row-reverse justify-between items-center p-5">
+    <div className="flex flex-col-reverse gap-4 md:flex-row-reverse justify-between items-center p-5">
         {/* 
          */}
          <div className=" flex flex-col md:flex-row-reverse justify-between items-center gap-10 ">
@@ -16,7 +16,7 @@ const Title = ({ title, linkPath }) => {
         />
       </div>
       <div className="text-center md:text-right mb-4 md:mb-0">
-        <h1 className="font-sans font-bold md:text-3xl text-2xl leading-10 text-end">
+        <h1 className="font-sans font-bold md:text-3xl text-2xl leading-10">
           {title}
         </h1>
       </div>
@@ -26,7 +26,7 @@ const Title = ({ title, linkPath }) => {
       <div>
         <Link
           to={linkPath}
-          className="md:flex  items-center hover:scale-110 transition-transform duration-200 absolute top-5 left-5  "
+          className="md:flex  items-center hover:scale-110 transition-transform duration-200  top-5 left-5  "
         >
           <svg
             width="24"
