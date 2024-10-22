@@ -1,12 +1,12 @@
 import { useState } from "react";
 import axios from "axios";
 
-const FileUpload = () => {
+const FileUpload = ({token}) => {
   const [file, setFile] = useState(null);
   const [uploadProgress, setUploadProgress] = useState(0);
   const [isUploading, setIsUploading] = useState(false);
   const [cancelTokenSource, setCancelTokenSource] = useState(null); // For canceling upload
-
+console.log("fileupload"+token)
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
     if (selectedFile && selectedFile.size > 10 * 1024 * 1024) { // Check for size limit
@@ -35,6 +35,7 @@ const FileUpload = () => {
         {
           headers: {
             "Content-Type": "multipart/form-data",
+            'Authorization':token
           },
           onUploadProgress: (progressEvent) => {
             const percentCompleted = Math.round(

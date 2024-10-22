@@ -5,6 +5,9 @@ import { Link } from 'react-router-dom';
 
 const HomeUser = () => {
   const userData = JSON.parse(localStorage.getItem("user"));
+  
+  console.log(userData.token);
+  localStorage.setItem("user1",JSON.stringify({userData}))
   return (
     <div className=''>
       <NavBar />

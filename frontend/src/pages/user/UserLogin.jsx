@@ -20,7 +20,7 @@ function UserLogin() {
       return;
     }
 
-    console.log(email, password);
+  
 
     // const user = users.find((data) => data.email === email);
     // if (!user) {
