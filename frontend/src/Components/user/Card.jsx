@@ -2,7 +2,10 @@ import React from "react";
 
 const Card = ({ date, testName, descreptions, fileName }) => {
   return (
-    <div dir="ltr" className="  flex flex-col lg:flex-row gap-5 bg-white   rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
+    <div
+      dir="ltr"
+      className="  flex flex-col lg:flex-row gap-5 bg-white   rounded-lg p-6 hover:shadow-lg transition-shadow duration-300"
+    >
       <div className="border-r-2 border-gray-300 text-sm text-gray-500 px-4">
         {date}
       </div>
