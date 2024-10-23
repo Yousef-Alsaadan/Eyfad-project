@@ -1,14 +1,9 @@
-import React from 'react'
+import React from "react";
 
 const InfoBox = ({ title, description }) => {
   return (
- 
- 
     <div className="p-6 sm:p-10 md:p-12 md:px-20 space-y-6   shadow-2xl max-w-2xl w-full rounded-l-3xl rounded-tr-3xl  md:rounded-l-full md:rounded-tr-full">
-      <div className="flex flex-col-reverse md:flex-row items-center justify-end gap-3 md:gap-5">
-        <h2 className="text-lg sm:text-xl font-semibold text-right text-blue-900">
-          {title}
-        </h2>
+      <div className="flex flex-col-reverse md:flex-row items-center gap-3 md:gap-5">
         <div>
           <svg
             width="48" // Adjusting the size for smaller screens
@@ -32,17 +27,17 @@ const InfoBox = ({ title, description }) => {
             />
           </svg>
         </div>
+
+        <h2 className="text-lg sm:text-xl font-semibold text-right text-blue-900">
+          {title}
+        </h2>
       </div>
 
       <p className="text-right text-sm sm:text-base text-gray-700">
         {description}
       </p>
-      
     </div>
- 
- 
-  
-  )
-}
+  );
+};
 
-export default InfoBox
+export default InfoBox;

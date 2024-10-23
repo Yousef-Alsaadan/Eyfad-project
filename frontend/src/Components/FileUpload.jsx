@@ -7,9 +7,12 @@ const FileUpload = ({token}) => {
   const [isUploading, setIsUploading] = useState(false);
   const [cancelTokenSource, setCancelTokenSource] = useState(null); // For canceling upload
 console.log("fileupload"+token)
+  const userData = JSON.parse(localStorage.getItem("user"));
+
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
-    if (selectedFile && selectedFile.size > 10 * 1024 * 1024) { // Check for size limit
+    if (selectedFile && selectedFile.size > 10 * 1024 * 1024) {
+      // Check for size limit
       alert("File size exceeds 10 MB");
       return;
     }
@@ -22,7 +25,7 @@ console.log("fileupload"+token)
     if (!file) return; // Ensure a file is selected
 
     const formData = new FormData();
-    formData.append('pdf', file);
+    formData.append("pdf", file);
 
     const source = axios.CancelToken.source();
     setCancelTokenSource(source); // Store cancel token
@@ -30,7 +33,7 @@ console.log("fileupload"+token)
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/upload",  
+        "http://localhost:5000/upload",
         formData,
         {
           headers: {
@@ -51,7 +54,10 @@ console.log("fileupload"+token)
       if (axios.isCancel(error)) {
         console.log("Upload canceled");
       } else {
-        console.error("Error uploading file:", error.response ? error.response.data : error.message);
+        console.error(
+          "Error uploading file:",
+          error.response ? error.response.data : error.message
+        );
       }
     } finally {
       setIsUploading(false); // Reset uploading state
@@ -72,13 +78,15 @@ console.log("fileupload"+token)
       <div className="bg-white rounded-3xl shadow-2xl p-8 max-w-lg w-full">
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label className="block text-gray-700 font-bold mb-2 text-end">
+            <label className="block text-gray-700 font-bold mb-2 text-start">
               تحميل الوسائط
             </label>
-            <p className="text-gray-600 text-sm font-thin text-end">أضف مستنداتك هنا</p>
+            <p className="text-gray-600 text-sm font-thin text-start">
+              أضف مستنداتك هنا
+            </p>
             <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
               <div className="text-center">
-              <svg
+                <svg
                   width="36"
                   height="24"
                   viewBox="0 0 36 24"
@@ -93,6 +101,7 @@ console.log("fileupload"+token)
                 </svg>
 
                 <div className="mt-4 flex justify-center items-center text-sm leading-6 text-gray-600">
+                  <p className="pl-1">اسحب ملفك أو</p>
                   <label
                     htmlFor="file-upload"
                     className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
@@ -106,7 +115,6 @@ console.log("fileupload"+token)
                       className="sr-only"
                     />
                   </label>
-                  <p className="pl-1">اسحب ملفك أو</p>
                 </div>
                 <p className="text-xs leading-5 text-gray-600 font-thin">
                   يُسمح بملفات بحجم 10 ميجابايت كحد أقصى
@@ -114,8 +122,8 @@ console.log("fileupload"+token)
               </div>
             </div>
 
-            <p className="text-gray-600 text-sm font-thin text-end">
-              .jpg .png .pdf يدعم فقط ملفات
+            <p className="text-gray-600 text-sm font-thin text-start">
+              يدعم فقط ملفات .pdf .png .jpg
             </p>
           </div>
 
@@ -155,7 +163,9 @@ console.log("fileupload"+token)
           <div className="w-full text-center">
             <button
               type="submit"
-              className={`border border-indigo-600 font-bold bg-white text-indigo-600 py-2 px-4 rounded-lg hover:text-white hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-opacity-50 transition duration-300 ease-in-out shadow-sm hover:shadow-md active:shadow-lg transform active:scale-95 ${isUploading && 'cursor-not-allowed'}`}
+              className={`border border-indigo-600 font-bold bg-white text-indigo-600 py-2 px-4 rounded-lg hover:text-white hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-opacity-50 transition duration-300 ease-in-out shadow-sm hover:shadow-md active:shadow-lg transform active:scale-95 ${
+                isUploading && "cursor-not-allowed"
+              }`}
               disabled={isUploading} // Disable button while uploading
             >
               تحميل

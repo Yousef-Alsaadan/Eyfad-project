@@ -52,7 +52,7 @@ function UserLogin() {
       console.log(response);
       // setTimeout(() => {
 
-      navigate("/user-page");
+      navigate("/user");
 
       setEmail("");
       setPassword("");
@@ -75,7 +75,7 @@ function UserLogin() {
   };
 
   return (
-    <div>
+    <div  dir="ltr">
       <div className="flex items-center justify-center h-screen">
         <div className="rounded-3xl px-4 pb-12 pt-6 shadow-xl bg-transparent z-10 shadow-[#00293333] text-center flex flex-col items-center gap-4 md:gap-8 xl:w-2/5 md:w-9/12 w-full">
           <div className="w-full h-0 text-2xl">

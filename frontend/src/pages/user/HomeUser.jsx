@@ -1,16 +1,22 @@
-import React from 'react';
-import userImage from '../../images/user.png';
-import NavBar from '../../Components/NavBar';
-import { Link } from 'react-router-dom';
+import React from "react";
+import userImage from "../../images/user.png";
+import NavBar from "../../Components/NavBar";
+import { Link, useNavigate } from "react-router-dom";
 
 const HomeUser = () => {
   const userData = JSON.parse(localStorage.getItem("user"));
   
   console.log(userData.token);
   localStorage.setItem("user1",JSON.stringify({userData}))
+
+  const navigate = useNavigate();
+
+  if (!userData) {
+    navigate("/user/login");
+  }
   return (
     <div className=''>
-      <NavBar />
+      <NavBar isLogged={userData}/>
       <div className='flex flex-col gap-10 m-10 '>
         <h1 className='text-2xl text-center'>
         <span className='font-extrabold text-indigo-300'>
@@ -21,25 +27,26 @@ const HomeUser = () => {
         <div>
           <img
             src={userImage}
-            alt='user'
-            className='sm:w-2/5 mx-auto animate-fadeIn'
+            alt="user"
+            className="sm:w-2/5 mx-auto animate-fadeIn"
           />
         </div>
-        
 
         <div className="w-full text-center mt-10">
-  <Link to={'/report'}>
-    <button className="relative inline-block lg:w-1/2 text-indigo-900 sm:text-3xl px-4 py-2 md:py-6 rounded-lg 
-      transition duration-300 ease-in-out bg-white border-[1px] border-indigo-900 hover:bg-indigo-900 hover:text-white">
-      <span className="absolute inset-0 border-2 border-white rounded-lg"></span>
-      <span className="relative z-10">اكتشف نتائج تقريرك بسرعة مع الذكاء الاصطناعي</span>
-    </button>
-  </Link>
-</div>
+          <Link to={"/report"}>
+            <button
+              className="relative inline-block lg:w-1/2 text-indigo-900 sm:text-3xl px-4 py-2 md:py-6 rounded-lg 
+      transition duration-300 ease-in-out bg-white border-[1px] border-indigo-900 hover:bg-indigo-900 hover:text-white"
+            >
+              <span className="absolute inset-0 border-2 border-white rounded-lg"></span>
+              <span className="relative z-10">
+                اكتشف نتائج تقريرك بسرعة مع الذكاء الاصطناعي
+              </span>
+            </button>
+          </Link>
+        </div>
 
-
-         
-        <div className='flex justify-center items-center mt-5 '>
+        <div className="flex justify-center items-center mt-5 ">
           <svg
             width="23"
             height="24"
@@ -55,7 +62,6 @@ const HomeUser = () => {
             />
           </svg>
         </div>
-        
       </div>
     </div>
   );

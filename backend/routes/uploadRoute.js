@@ -40,8 +40,11 @@ const upload = multer({ storage });
 
 // Function to send the pdfText to GPT API
 const processWithGPT = async (pdfText) => {
-  const prompt = `Extract the following data from the provided medical test text. Provide the result in valid JSON format using an object
-   for the analyses. Ensure each field is accurately filled in based on the information provided in the text, and provide the symptoms, management, recommendations in Arabic fill all the blank:
+  const prompt = `extract only the analyses where the result is outside the normal reference range.
+    Provide an accurate diagnosis, Use precise medical terminology, and provide the results in valid JSON format.
+    All descriptions should be provided in Arabic.
+
+Format:
 
 {
   "testName": "",
@@ -69,8 +72,9 @@ const processWithGPT = async (pdfText) => {
     }
   ]
 }
-Here is the text: ${pdfText}`;
 
+Analyze the following medical text and include only analyses where the result is outside the reference range in the json: ${pdfText}`;
+  
   try {
     const response = await axios.post(
       'https://api.openai.com/v1/chat/completions',
@@ -78,7 +82,6 @@ Here is the text: ${pdfText}`;
         model: 'gpt-3.5-turbo', 
         messages: [{ role: 'user', content: prompt }],
         temperature: 0,
-        max_tokens:4096
       },
       {
         headers: {
@@ -93,6 +96,7 @@ Here is the text: ${pdfText}`;
     throw error;
   }
 };
+
 
 // Route to handle file upload and PDF processing
 router.post('/', upload.single('pdf'),authenticateToken, async (req, res) => {
@@ -132,6 +136,10 @@ router.post('/', upload.single('pdf'),authenticateToken, async (req, res) => {
  user.reports.push(newMedicalTest._id);
  await user.save();
     console.log('Extracted Data:', extractedData,newMedicalTest._id,user.reports);
+
+    console.log('Extracted Data:', pdfText);
+    console.log('Extracted Data:', gptResponse);
+    console.log('Extracted Data:', extractedData);
     res.json({ message: 'File uploaded, text extracted, and data processed successfully!', extractedData: extractedData });
   } catch (error) {
     console.error('Error processing PDF or GPT request:', error);

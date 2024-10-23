@@ -5,10 +5,10 @@ function Footer() {
   return (
     <div className="bg-[#FBFBFB] p-4">
       <div className="flex flex-col md:flex-row items-center justify-between container gap-20 md:text-start text-center mx-auto py-3 px-4">
-        <div className="flex flex-col md:flex-row gap-6">
-          <Link to="/">
+        <div className="flex flex-col items-center md:flex-row gap-6">
+          <Link to="/" className="text-4xl font-extrabold tajawal-extralight">
             {/* <img src="" className="object-cover" /> */}
-            الشعار
+            إيــفـــــاد
           </Link>
 
           <div className="md:flex-row flex flex-col gap-4">
