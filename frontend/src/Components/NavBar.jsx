@@ -12,6 +12,8 @@ function NavBar({isLogged}) {
     setDropdownVisible((prev) => !prev); // Toggle dropdown visibility
   };
 
+  const userData = JSON.parse(localStorage.getItem("user"));
+
   return (
     <div className="bg-[#FBFBFB] p-4">
       <div className="flex items-center justify-between container mx-auto px-4">
