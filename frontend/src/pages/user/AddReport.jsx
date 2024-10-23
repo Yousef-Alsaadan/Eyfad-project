@@ -18,7 +18,7 @@ function AddReport() {
           linkPath="/user"
         ></Title>
         <div className="md:mt-20 mt-10">
-          <FileUpload token={userData.userData.token}/>
+          <FileUpload token={userData.token}/>
         </div>
       </div>
       <Footer />

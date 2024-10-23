@@ -41,6 +41,7 @@ function UserLogin() {
       localStorage.setItem(
         "user",
         JSON.stringify({
+          id:response.data.user._id,
           firstName: response.data.user.firstName,
           secondName: response.data.user.secondName,
           email: response.data.user.email,

@@ -24,7 +24,7 @@ const router = createBrowserRouter([
   { path: "/user/signup", element: <UserSignup /> },
   { path: "/report", element: <AddReport /> },
   { path: "/user/history", element:  <UserInfo />}, // just add an ID to the path
-  { path: "/Results", element: <Results /> }, // this must be deleted
+  { path: "/report/:id", element: <Results /> }, // this must be deleted
   { path: "/Witing", element: <Witing /> }, // this must be deleted
 ]);
 
