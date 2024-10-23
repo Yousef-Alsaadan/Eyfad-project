@@ -27,10 +27,7 @@ const medicalTestSchema = new mongoose.Schema({
   testName: { type: String, required: true },
   testDate: { type: String, required: true },
   analyses: [analysisSchema],
-  patientInfo: {
-    name: { type: String },
-    id: { type: String }
-  }
+ 
 });
 
 const medicalTest = mongoose.model('MedicalTest', medicalTestSchema);
