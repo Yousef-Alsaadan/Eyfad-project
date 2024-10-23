@@ -34,7 +34,7 @@ function NavBar() {
             المصطلحات الطبية
           </Link>
           <Link to="/report" className="hover:underline underline-offset-[6px]">
-            تقرير
+            تحليل
           </Link>
         </div>
 
@@ -45,7 +45,7 @@ function NavBar() {
           >
             <div className="bg-gradient-to-b from-[#f96f5e99] via-[#E6BCC4] to-[#DFD0E0] font-medium text-[#002933] rounded-full p-[1px]">
               <span className="flex w-full bg-white rounded-full py-3 px-6">
-                جربه الآن
+                حلل الآن
               </span>
             </div>
           </Link>
@@ -55,7 +55,7 @@ function NavBar() {
           <div
             tabIndex={0}
             role="button"
-            className="btn btn-ghost btn-circle avatar md:flex items-center hidden"
+            className="btn btn-ghost hover:bg-transparent btn-circle avatar md:flex items-center hidden"
           >
             <div className="rounded-full flex items-center">
               <FiUser size="2rem" />
@@ -155,7 +155,7 @@ function NavBar() {
               to="/report"
               className="hover:underline underline-offset-[6px] text-xl font-bold"
             >
-              تقرير
+              تحليل
             </Link>
 
             <Link
@@ -187,7 +187,7 @@ function NavBar() {
               <Link to="/user/login">
                 <div className="bg-gradient-to-b from-[#f96f5e99] via-[#E6BCC4] to-[#DFD0E0] text-[#002933] font-medium rounded-full p-[1px]">
                   <span className="flex w-full bg-white rounded-full py-3 px-6">
-                    جربه الآن
+                    حلل الآن
                   </span>
                 </div>
               </Link>

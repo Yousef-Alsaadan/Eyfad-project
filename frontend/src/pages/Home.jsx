@@ -28,7 +28,7 @@ function Home() {
           viewBox="0 0 915 782"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="-z-10 absolute xl:bottom-0 bottom-18 lg:w-[1000px] w-[800px] md:block hidden"
+          className="-z-10 absolute xl:bottom-0 bottom-18 lg:w-[62.5rem] w-[48rem] md:block hidden"
         >
           <path
             d="M1 390.809C1 606.306 205.382 781 457.5 781C709.618 781 914 606.306 914 390.809C914 175.313 709.618 0.618164 457.5 0.618164"
@@ -54,12 +54,12 @@ function Home() {
             <HeroSvg2 />
 
             <Link
-              to="/user-page"
+              to="/user"
               className="w-fit mt-4 hover:scale-110 transition-transform duration-200"
             >
               <div className="bg-gradient-to-l from-[#f96f5e99] via-[#E6BCC4] to-[#DFD0E0] text-[#002933] font-medium rounded-full p-[1px]">
                 <span className="flex w-full bg-transparent rounded-full py-3 px-10 hover:text-[#002933]">
-                  جربه الآن
+                  حلل الآن
                 </span>
               </div>
             </Link>
