@@ -7,7 +7,7 @@ function ResultHistory() {
   return (
     <div>
       <div className="container mx-auto px-4 py-10 min-h-screen">
-        <Title title="تاريخ تحاليلك" linkPath="/user-page" />
+        <Title title="تاريخ تحاليلك" linkPath="/user" />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 ">
           <Card
