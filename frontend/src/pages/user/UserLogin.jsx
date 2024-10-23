@@ -52,7 +52,7 @@ function UserLogin() {
       console.log(response);
       // setTimeout(() => {
 
-      navigate("/user-page");
+      navigate("/user");
 
       setEmail("");
       setPassword("");

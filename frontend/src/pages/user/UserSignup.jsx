@@ -77,7 +77,7 @@ function UserSignup() {
         setEmail("");
         setPassword("");
 
-        navigate("/user-page");
+        navigate("/user");
       })
       .catch(function (error) {
         if (error.response) {
