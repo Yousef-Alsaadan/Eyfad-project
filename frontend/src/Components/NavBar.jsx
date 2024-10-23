@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoClose } from "react-icons/io5";
 import { HashLink as Link } from "react-router-hash-link";
+import { FiUser } from "react-icons/fi";
 
 function NavBar() {
   const [hidden, setHidden] = useState("hidden");
+
+  const userData = JSON.parse(localStorage.getItem("user"));
 
   return (
     <div className="bg-[#FBFBFB] p-4">
@@ -35,13 +38,50 @@ function NavBar() {
           </Link>
         </div>
 
-        <Link to="/user/login" className="md:block hidden hover:scale-110 transition-transform duration-200">
-          <div className="bg-gradient-to-b from-[#f96f5e99] via-[#E6BCC4] to-[#DFD0E0] font-medium text-[#002933] rounded-full p-[1px]">
-            <span className="flex w-full bg-white rounded-full py-3 px-6">
-              جربه الآن
-            </span>
+        <div className={userData ? `hidden` : ""}>
+          <Link
+            to="/user/login"
+            className="md:block hidden hover:scale-110 transition-transform duration-200"
+          >
+            <div className="bg-gradient-to-b from-[#f96f5e99] via-[#E6BCC4] to-[#DFD0E0] font-medium text-[#002933] rounded-full p-[1px]">
+              <span className="flex w-full bg-white rounded-full py-3 px-6">
+                جربه الآن
+              </span>
+            </div>
+          </Link>
+        </div>
+
+        <div className={userData ? `dropdown dropdown-end` : "hidden"}>
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn btn-ghost btn-circle avatar md:flex items-center hidden"
+          >
+            <div className="rounded-full flex items-center">
+              <FiUser size="2rem" />
+            </div>
           </div>
-        </Link>
+          <ul
+            tabIndex={0}
+            className="menu menu-sm dropdown-content rounded-box z-[1] mt-3 w-52 p-2 shadow bg-[#FBFBFB] flex flex-col gap-4"
+          >
+            <li>
+              <Link to="/user/history">الملف الشخصي</Link>
+            </li>
+
+            <li>
+              <Link
+                className="border-t"
+                onClick={() => {
+                  localStorage.removeItem("user");
+                  navigate("/");
+                }}
+              >
+                تسجيل الخروج
+              </Link>
+            </li>
+          </ul>
+        </div>
 
         {/* mobile header */}
         <div className="block md:hidden">
@@ -91,7 +131,7 @@ function NavBar() {
               )}
             </div>
           </div>
-          <div className="flex flex-col items-center justify-center gap-16 h-[90%]">
+          <div className="flex flex-col items-center justify-center justify- gap-10 h-[90%]">
             <Link
               to="/"
               className="hover:underline underline-offset-[6px] text-xl font-bold"
@@ -118,13 +158,40 @@ function NavBar() {
               تقرير
             </Link>
 
-            <Link to="/user/login">
-              <div className="bg-gradient-to-b from-[#f96f5e99] via-[#E6BCC4] to-[#DFD0E0] text-[#002933] font-medium rounded-full p-[1px]">
-                <span className="flex w-full bg-white rounded-full py-3 px-6">
-                  جربه الآن
-                </span>
-              </div>
+            <Link
+              to="/user/history"
+              className={
+                userData
+                  ? `hover:underline underline-offset-[6px] text-xl font-bold`
+                  : "hidden"
+              }
+            >
+              الملف الشخصي
             </Link>
+
+            <Link
+              className={
+                userData
+                  ? `hover:underline underline-offset-[6px] text-xl font-bold`
+                  : "hidden"
+              }
+              onClick={() => {
+                localStorage.removeItem("user");
+                navigate("/");
+              }}
+            >
+              تسجيل الخروج
+            </Link>
+
+            <div className={userData ? `hidden` : ""}>
+              <Link to="/user/login">
+                <div className="bg-gradient-to-b from-[#f96f5e99] via-[#E6BCC4] to-[#DFD0E0] text-[#002933] font-medium rounded-full p-[1px]">
+                  <span className="flex w-full bg-white rounded-full py-3 px-6">
+                    جربه الآن
+                  </span>
+                </div>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
