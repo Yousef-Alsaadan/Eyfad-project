@@ -7,11 +7,15 @@ import Title from "../../Components/Title";
 import { useNavigate } from "react-router-dom";
 
 function AddReport() {
-  const userData = JSON.parse(localStorage.getItem("user"));
+  const navigate = useNavigate();
 
+  const userData = JSON.parse(localStorage.getItem("user"));
+  if (!userData) {
+    navigate("/user/login");
+  }
   return (
     <div>
-       <NavBar isLogged={userData}/>
+      <NavBar />
       <div className="container m-auto w-full text-center xl:h-screen h-[85vh] mt-10 px-4">
         <Title
           title="اكتشف نتائج تقريرك بسرعة مع الذكاء الاصطناعي"

@@ -12,14 +12,15 @@ const HomeUser = () => {
     navigate("/user/login");
   }
   return (
-    <div className=''>
-      <NavBar isLogged={userData}/>
-      <div className='flex flex-col gap-10 m-10 '>
-        <h1 className='text-2xl text-center'>
-        <span className='font-extrabold text-indigo-300'>
-          {userData ? userData.firstName : ""}{" "}
-          {userData ? userData.secondName : ""}
-          </span> اهلا بك 
+    <div className="">
+      <NavBar />
+      <div className="flex flex-col gap-10 m-10 ">
+        <h1 className="text-2xl text-center">
+          <span className="font-extrabold text-indigo-300">
+            {userData ? userData.firstName : ""}{" "}
+            {userData ? userData.secondName : ""}
+          </span>{" "}
+          اهلا بك
         </h1>
         <div>
           <img

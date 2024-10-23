@@ -5,11 +5,9 @@ import Title from "../Components/Title";
 import InfoBox from "../Components/InfoBox";
 
 function MedicalTerms() {
-  const userData = JSON.parse(localStorage.getItem("user"));
-
   return (
     <div className="flex flex-col min-h-screen">
-       <NavBar isLogged={userData}/>
+      <NavBar />
       <div className="flex-grow container mx-auto w-full text-center my-10 px-4">
         <Title title="ابحث عن مصطلح طبي تود المعرفة عنه" linkPath="/" />
         <div className="flex flex-col items-center p-6 space-y-6">
