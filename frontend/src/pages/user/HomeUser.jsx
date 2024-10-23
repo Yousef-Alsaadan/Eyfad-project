@@ -7,7 +7,7 @@ const HomeUser = () => {
   const userData = JSON.parse(localStorage.getItem("user"));
   return (
     <div className=''>
-      <NavBar />
+      <NavBar isLogged={userData}/>
       <div className='flex flex-col gap-10 m-10 '>
         <h1 className='text-2xl text-center'>
         <span className='font-extrabold text-indigo-300'>

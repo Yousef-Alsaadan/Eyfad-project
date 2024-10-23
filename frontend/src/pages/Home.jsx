@@ -17,9 +17,11 @@ import homeBird from "../assets/homeBird.svg";
 import Typewriter from "typewriter-effect";
 
 function Home() {
+  const userData = JSON.parse(localStorage.getItem("user"));
+
   return (
     <div>
-      <NavBar />
+       <NavBar isLogged={userData}/>
 
       {/* hero section */}
       <div className="hero min-h-[89vh] p-4">

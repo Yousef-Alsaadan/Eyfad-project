@@ -6,6 +6,7 @@ const FileUpload = () => {
   const [uploadProgress, setUploadProgress] = useState(0);
   const [isUploading, setIsUploading] = useState(false);
   const [cancelTokenSource, setCancelTokenSource] = useState(null); // For canceling upload
+  const userData = JSON.parse(localStorage.getItem("user"));
 
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
