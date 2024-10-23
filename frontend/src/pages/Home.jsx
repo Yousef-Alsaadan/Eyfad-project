@@ -17,11 +17,9 @@ import homeBird from "../assets/homeBird.svg";
 import Typewriter from "typewriter-effect";
 
 function Home() {
-  const userData = JSON.parse(localStorage.getItem("user"));
-
   return (
     <div>
-       <NavBar isLogged={userData}/>
+      <NavBar />
 
       {/* hero section */}
       <div className="hero min-h-[89vh] p-4">
@@ -333,7 +331,7 @@ function Home() {
 
               <div className="flex items-center justify-around w-full border-dashed rounded-lg border border-[#2b44e740] p-1">
                 <a
-                  href=""
+                  href="mailto:yousefmalsaadan@gmail.com"
                   target="_blank"
                   className="hover:scale-110 transition-transform duration-200"
                 >
@@ -356,7 +354,7 @@ function Home() {
                 </a>
 
                 <a
-                  href=""
+                  href="https://github.com/Yousef-Alsaadan"
                   target="_blank"
                   className="hover:scale-110 transition-transform duration-200"
                 >
@@ -379,7 +377,7 @@ function Home() {
                 </a>
 
                 <a
-                  href=""
+                  href="https://www.linkedin.com/in/yousef-mohammed-b01685249"
                   target="_blank"
                   className="hover:scale-110 transition-transform duration-200"
                 >
@@ -417,7 +415,7 @@ function Home() {
 
               <div className="flex items-center justify-around w-full border-dashed rounded-lg border border-[#2b44e740] p-1">
                 <a
-                  href=""
+                  href="mailto:ahmedfalahalharbi@gmail.com"
                   target="_blank"
                   className="hover:scale-110 transition-transform duration-200"
                 >
@@ -440,7 +438,7 @@ function Home() {
                 </a>
 
                 <a
-                  href=""
+                  href="https://github.com/AhmedFalahALharbi"
                   target="_blank"
                   className="hover:scale-110 transition-transform duration-200"
                 >
@@ -463,7 +461,7 @@ function Home() {
                 </a>
 
                 <a
-                  href=""
+                  href="https://www.linkedin.com/in/ahmed-alharbi-7a8436304/"
                   target="_blank"
                   className="hover:scale-110 transition-transform duration-200"
                 >
@@ -501,7 +499,7 @@ function Home() {
 
               <div className="flex items-center justify-around w-full border-dashed rounded-lg border border-[#2b44e740] p-1">
                 <a
-                  href=""
+                  href="mailto:nourahaltuaim@gmail.com"
                   target="_blank"
                   className="hover:scale-110 transition-transform duration-200"
                 >
@@ -524,7 +522,7 @@ function Home() {
                 </a>
 
                 <a
-                  href=""
+                  href="https://github.com/tunourah"
                   target="_blank"
                   className="hover:scale-110 transition-transform duration-200"
                 >
@@ -547,7 +545,7 @@ function Home() {
                 </a>
 
                 <a
-                  href=""
+                  href="https://www.linkedin.com/in/noura-a-altuwaim/"
                   target="_blank"
                   className="hover:scale-110 transition-transform duration-200"
                 >
@@ -585,7 +583,7 @@ function Home() {
 
               <div className="flex items-center justify-around w-full border-dashed rounded-lg border border-[#2b44e740] p-1">
                 <a
-                  href=""
+                  href="mailto:madaawadh1@gmail.com"
                   target="_blank"
                   className="hover:scale-110 transition-transform duration-200"
                 >
@@ -608,7 +606,7 @@ function Home() {
                 </a>
 
                 <a
-                  href=""
+                  href="https://github.com/meme-mw"
                   target="_blank"
                   className="hover:scale-110 transition-transform duration-200"
                 >
@@ -630,7 +628,7 @@ function Home() {
                   </div>
                 </a>
 
-                <a
+                {/* <a
                   href=""
                   target="_blank"
                   className="hover:scale-110 transition-transform duration-200"
@@ -657,7 +655,7 @@ function Home() {
                       />
                     </svg>
                   </div>
-                </a>
+                </a> */}
               </div>
             </div>
           </div>

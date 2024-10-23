@@ -24,12 +24,12 @@ function UserSignup() {
       email === "" ||
       password === ""
     ) {
-      errorLog("Please fill in all fields!");
+      errorLog("الرجاء تعبأة جميع الحقول");
       return;
     }
 
     if (firstName.length < 2 || secondName.length < 2) {
-      errorLog("Name must be more than 2 characters!");
+      errorLog("الاسم لابد بأن يكون أكثر من حرفين");
       return;
     }
 
@@ -38,12 +38,12 @@ function UserSignup() {
         /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       )
     ) {
-      errorLog("Write a valid email address!!");
+      errorLog("ادخل بريد الكتروني صحيح");
       return;
     }
 
     if (password.length < 5) {
-      errorLog("Password must be more than 8 characters!!");
+      errorLog("كلمة السر لابد بأن تكون أكثر من 5 خانات");
       return;
     }
 
@@ -115,7 +115,7 @@ function UserSignup() {
           </div>
 
           <div className="w-full">
-            <p className="text-[#FF6565] text-sm text-start md:px-4 mb-2">
+            <p className="text-[#FF6565] text-sm md:px-4 mb-2 text-end">
               {errorMessage}
             </p>
 
@@ -174,7 +174,7 @@ function UserSignup() {
             >
               <input
                 type="text"
-                className="grow"
+                className="grow text-end"
                 placeholder="example@gmail.com"
                 value={email}
                 onChange={(e) => {
