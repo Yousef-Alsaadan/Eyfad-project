@@ -2,7 +2,9 @@ const express = require('express');
 const cors = require('cors'); 
 const uploadRoute = require('./routes/uploadRoute'); // Import the upload route
 const mongoose = require("mongoose");
+const User = require("./models/userSchema");
 const dotenv = require('dotenv');
+const MedicalTest = require('./models/medicalTest');
 // const bcrypt = require('bcrypt');
 // const jwt = require('jsonwebtoken');
 const routerUser = require("./routes/userRouter");
@@ -16,6 +18,34 @@ app.use(cors());
 app.use(express.json())
 app.use('/', routerUser)
 app.use('/upload', uploadRoute);
+app.get("/reports",(req,res)=>{
+  MedicalTest.find().then(result=>{
+   res.send(result)
+  })
+ })
+app.get('/user/:id', async (req, res) => {
+  console.log("ryju");
+  try {
+  
+  const user = await User.findById(req.params.id).populate('reports'); // استخدم populate هنا
+ 
+  if (!user) {
+  
+  return res.status(404).json({ message: 'User not found' });
+  
+  }
+  
+  res.status(200).json(user); // سيحتوي على بيانات المستخدم مع مقالاته
+  
+  } catch (error) {
+  
+  console.error(error);
+  
+  res.status(500).json({ message: 'Error retrieving user', error });
+  
+  }
+  
+  })
 main().catch(err => console.log(err));
 async function main() { 
     await mongoose.connect(process.env.MONGO_URL);

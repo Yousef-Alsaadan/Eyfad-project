@@ -30,6 +30,6 @@ const medicalTestSchema = new mongoose.Schema({
  user:{ type: Schema.Types.ObjectId, ref: 'User' }
 });
 
-const medicalTest = mongoose.model('MedicalTest', medicalTestSchema);
+const MedicalTest = mongoose.model('MedicalTest', medicalTestSchema);
 
-module.exports = medicalTest;
+module.exports = MedicalTest;

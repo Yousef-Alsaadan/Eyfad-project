@@ -6,10 +6,7 @@ const userSchema = new Schema({
   secondName: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  reports: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'medicalTest'
-  }]
+  reports: [{type: mongoose.Schema.Types.ObjectId,ref:'MedicalTest'}]
 });
 
 const User = mongoose.model('User', userSchema);
