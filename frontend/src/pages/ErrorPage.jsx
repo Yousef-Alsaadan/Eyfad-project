@@ -1,5 +1,5 @@
 import { useRouteError } from "react-router-dom";
-import Error from "../Images/error.png";  
+import Error from "../Images/error.png";
 import background from "../Images/bacground.png";
 import { Link } from "react-router-dom";
 
@@ -8,18 +8,21 @@ export default function ErrorPage() {
   console.error(error);
 
   return (
-    <div id="error-page" className="h-screen w-screen flex justify-center items-center bg-white relative">
-    
-      <div className="absolute top-0 left-0 w-full h-full bg-white grid grid-cols-12 gap-4" style={{ backgroundImage: `url(${background})`, backgroundSize: '20px 20px' }}></div>
+    <div
+      id="error-page"
+      className="h-screen w-screen flex justify-center items-center bg-white relative"
+    >
+      <div
+        className="absolute top-0 left-0 w-full h-full bg-white grid grid-cols-12 gap-4"
+        style={{
+          backgroundImage: `url(${background})`,
+          backgroundSize: "20px 20px",
+        }}
+      ></div>
 
       <div className="relative z-10 flex flex-col md:flex-row justify-evenly items-center">
-      
         <div className="mb-8 md:mb-0">
-          <img
-            src={Error}
-            alt="error image"
-            className="w-40 md:w-64"
-          />
+          <img src={Error} alt="error image" className="w-40 md:w-64" />
         </div>
 
         {/* Error message */}

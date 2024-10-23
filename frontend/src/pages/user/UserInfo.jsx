@@ -1,7 +1,5 @@
 import React from "react";
-
 import ResultHistory from "../../Components/user/ResultHistory";
-
 import NavBar from "../../Components/NavBar";
 import Footer from "../../Components/Footer";
 import { useNavigate } from "react-router-dom";
