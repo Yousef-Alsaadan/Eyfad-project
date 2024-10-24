@@ -147,6 +147,25 @@ router.post('/', upload.single('pdf'),authenticateToken, async (req, res) => {
   }
 });
 
-
+router.get('/reports/:id', async (req, res) => {
+  try {
+  
+  const test = await MedicalTest.findById(req.params.id); console.log(req.params.id);
+  if (!test) {
+  
+  return res.status(404).json({ message: 'test not found' });
+  
+  }
+  
+  res.status(200).json(test); 
+  } catch (error) {
+  
+  console.error(error);
+  
+  res.status(500).json({ message: 'Error retrieving test', error });
+  
+  }
+  
+  })
 
 module.exports = router;

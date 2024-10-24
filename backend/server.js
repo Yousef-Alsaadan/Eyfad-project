@@ -24,7 +24,6 @@ app.get("/reports",(req,res)=>{
   })
  })
 app.get('/user/:id', async (req, res) => {
-  console.log("ryju");
   try {
   
   const user = await User.findById(req.params.id).populate('reports'); // استخدم populate هنا
@@ -35,8 +34,7 @@ app.get('/user/:id', async (req, res) => {
   
   }
   
-  res.status(200).json(user); // سيحتوي على بيانات المستخدم مع مقالاته
-  
+  res.status(200).json(user); 
   } catch (error) {
   
   console.error(error);
