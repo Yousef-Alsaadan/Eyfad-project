@@ -1,64 +1,82 @@
 import React from "react";
 import userImage from "../../images/user.png";
 import NavBar from "../../Components/NavBar";
+import bgImage from "../../Images/bgUserPage.png";
 import { Link, useNavigate } from "react-router-dom";
 
 const HomeUser = () => {
   const userData = JSON.parse(localStorage.getItem("user"));
-
   const navigate = useNavigate();
 
   if (!userData) {
     navigate("/user/login");
   }
+
   return (
-    <div className="">
+    <div className=" ">
       <NavBar />
-      <div className="flex flex-col gap-10 m-10 ">
-        <h1 className="text-2xl text-center">
-          <span className="font-extrabold text-indigo-300">
-            {userData ? userData.firstName : ""}{" "}
-            {userData ? userData.secondName : ""}
-          </span>{" "}
-          اهلا بك
-        </h1>
-        <div>
-          <img
-            src={userImage}
-            alt="user"
-            className="sm:w-2/5 mx-auto animate-fadeIn"
-          />
-        </div>
+      <div
+        style={{ backgroundImage: `url(${bgImage})` }}
+         className="h-screen bg-cover bg-center bg-no-repeat sm:overflow-hidden"
+      >
+        <div className="flex flex-col items-center gap-5 sm:gap-10 m-5 sm:m-20">
+          <h1 className="text-3xl sm:text-5xl text-center">
+            مرحبًا بك
+            <span className="font-extrabold text-black text-3xl sm:text-4xl mr-5">
+              {userData ? userData.firstName : ""}
+              {userData ? userData.secondName : ""}
+            </span>
+          </h1>
+          <h1 className="text-3xl sm:text-5xl text-center mt-5">
+            كيف يمكننا مساعدتك اليوم؟
+          </h1>
 
-        <div className="w-full text-center mt-10">
-          <Link to={"/report"}>
-            <button
-              className="relative inline-block lg:w-1/2 text-indigo-900 sm:text-3xl px-4 py-2 md:py-6 rounded-lg 
-      transition duration-300 ease-in-out bg-white border-[1px] border-indigo-900 hover:bg-indigo-900 hover:text-white"
-            >
-              <span className="absolute inset-0 border-2 border-white rounded-lg"></span>
-              <span className="relative z-10">
-                اكتشف نتائج تقريرك بسرعة مع الذكاء الاصطناعي
-              </span>
-            </button>
-          </Link>
-        </div>
+          <div className="flex flex-col lg:flex-row gap-4 lg:gap-12 md:gap-28 w-3/4 mt-14  justify-center items-center px-5">
+            <div className="bg-[rgba(255,255,255,0.29)] border-2 border-[rgba(43,68,231,0.23)] px-4 pt-5 pb-10 lg:w-1/2 rounded-xl text-gray-600 shadow-[0_4px_10px_rgba(43,68,231,0.2)] transition-colors cursor-pointer hover:bg-white">
+              <Link to={"/report"}>
+                <div className="flex flex-col sm:flex-row   items-center gap-2">
+                  <svg width="15" height="19" viewBox="0 0 15 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M8.78186 1.44444V4.55556C8.78186 5.5374 9.54096 6.33333 10.4774 6.33333H13.4445M5.96709 13.8889V12.5556M8.93416 13.8889V9.8889M2.69548 1H8.07966C8.52926 1 8.96056 1.1873 9.27856 1.5207L13.3718 5.81263C13.6898 6.14604 13.8684 6.59821 13.8684 7.0697V16.2222C13.8684 17.2041 13.1093 18 12.1729 18H2.69548C1.75909 18 1 17.2041 1 16.2222V2.77778C1 1.79594 1.75909 1 2.69548 1Z"
+                      stroke="#2B44E7"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                  <h1 className="font-bold mb-2">اكتشف نتائج تقريرك بسرعة مع الذكاء الاصطناعي</h1>
+                </div>
+                <div className="text-right text-[14px] hidden md:block">
+                  <p>
+                    ميزة تستخدم الذكاء الاصطناعي لتحليل تقاريرك بسرعة وتقديم ملخصات دقيقة للنتائج، مما يسهل عليك فهم
+                    المعلومات الطبية أو البيانات المعقدة بشكل فوري
+                  </p>
+                </div>
+              </Link>
+            </div>
 
-        <div className="flex justify-center items-center mt-5 ">
-          <svg
-            width="23"
-            height="24"
-            viewBox="0 0 23 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fillRule="evenodd"
-              clipRule="evenodd"
-              d="M11.0313 0.194513C9.65083 0.169194 8.5112 1.26778 8.48588 2.64827L8.36753 9.10082C8.3169 11.8618 10.5141 14.1411 13.2751 14.1917L13.4851 2.73996C13.5104 1.35947 12.4118 0.219833 11.0313 0.194513ZM18.2956 13.2009C19.5734 12.4101 21.1491 12.8612 21.8148 14.2084C22.4806 15.5557 21.9844 17.2889 20.7065 18.0797L12.0688 23.425C10.7372 20.7305 11.7296 17.2641 14.2853 15.6826L18.2956 13.2009ZM4.04603 12.9402C2.79803 12.1031 1.20692 12.4961 0.492197 13.818C-0.222527 15.14 0.209783 16.8902 1.45779 17.7273L9.89374 23.3858C11.3232 20.742 10.4586 17.2415 7.96256 15.5673L4.04603 12.9402Z"
-              fill="black"
-            />
-          </svg>
+            <div className="bg-[rgba(255,255,255,0.29)] border-2 border-[rgba(43,68,231,0.23)] px-4 pt-5 pb-10 lg:w-1/2 rounded-xl text-gray-600 shadow-[0_4px_10px_rgba(43,68,231,0.2)] transition-colors cursor-pointer hover:bg-white">
+              <Link to={"/terms"}>
+                <div className="flex flex-col sm:flex-row   items-center gap-2">
+                  <svg width="26" height="25" viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M13.645 8.7533L16.2467 11.355M13.645 8.7533L4.53884 17.8594C3.82039 18.5779 3.82039 19.7427 4.53884 20.4612C5.25729 21.1796 6.42213 21.1796 7.14058 20.4612L16.2467 11.355M13.645 8.7533L16.8601 5.53884C17.5786 4.82039 18.7434 4.82039 19.4619 5.53884C20.1803 6.25729 20.1803 7.42213 19.4619 8.14059L16.2467 11.355"
+                      stroke="#2B44E7"
+                      strokeWidth="2"
+                    />
+                    <path d="M7.25 1V7M9.5 4H5" stroke="#2B44E7" strokeWidth="2" strokeLinecap="round" />
+                    <path d="M22.25 11V17M24.5 14H20" stroke="#2B44E7" strokeWidth="2" strokeLinecap="round" />
+                  </svg>
+                  <h1 className="font-bold mb-2">ابحث عن مصطلح طبي تود المعرفة عنه</h1>
+                </div>
+                <div className="text-right text-[14px] hidden md:block">
+                  <p>
+                    ميزة تتيح للمستخدمين البحث بسهولة عن أي مصطلح طبي للحصول على شرح مبسط وسريع حوله، مما يساعد على
+                    فهم المعلومات الطبية المعقدة بطريقة ميسرة.
+                  </p>
+                </div>
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </div>
