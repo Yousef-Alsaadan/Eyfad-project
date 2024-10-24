@@ -3,15 +3,21 @@ import Title from "../Title";
 import resultSVGr from "../../assets/resultSVGr.svg";
 import Collapse from "../user/Collapse"
 import { useParams } from 'react-router-dom';
+import axios from "axios";
 function ResultsHistory() {
   const { id } = useParams();
   const [tests, setTests] = useState([])
   
   useEffect(() => {
-      fetch(`http://localhost:5000/upload/reports/${id}`)
-      .then(response => response.json())
-          // 4. Setting *dogImage* to the image url that we received from the response above
-      .then(data => setTests(data))
+    const fetchData = async () => {
+        try {
+            const response =await axios.get(`http://localhost:5000/upload/reports/${id}`)
+   
+         setTests(response.data)
+         
+    } catch (err) {
+     }}
+     fetchData();
     },[])
   return (
     <div className="grid place-items-center p-4">
@@ -24,7 +30,7 @@ function ResultsHistory() {
             <p>{tests.testName}</p>
             <p>{tests.testDate}</p>
           </div>
-         {tests!=[]?tests.analyses!=undefined?(tests.analyses.map(el=><Collapse 
+         {tests.analyses!=undefined?(tests.analyses.map(el=><Collapse 
 analysisName={el.analysisName}
 res={el.result}
 unit={el.unit}
@@ -34,7 +40,7 @@ rec={el.recommendations}
 />
        
 
-   ) ):"":""
+   )):""
          }
           <div className="collapse bg-[#F9FAFC]">
             <input type="checkbox" />

@@ -3,18 +3,22 @@ import Card from "./Card";
 import Title from "../Title";
 import NavBar from "../NavBar";
 import { useNavigate } from "react-router-dom";
-
+import axios from "axios";
 function ResultHistory() {
   const navigate = useNavigate();
-  const [reports, setReports] = useState([])
+  const [reports, setReports] = useState("[]")
   const userData = JSON.parse(localStorage.getItem("user"));
-  
+ 
   useEffect(() => {
-      fetch(`http://localhost:5000/user/${userData.id}`)
-      .then(response => response.json())
-          // 4. Setting *dogImage* to the image url that we received from the response above
-      .then(data => setReports(data.reports))
-    },[])
+      const fetchData = async () => {
+          try {
+              const response =await axios.get(`http://localhost:5000/user/${userData.id}`)
+             
+              setReports(response.data.reports)  
+ } catch (err) {
+  }}
+  fetchData();
+ },[])
     const handleClick = (id) => {
      
       navigate(`/reports/${id}`);
@@ -25,7 +29,7 @@ function ResultHistory() {
         <Title title="تاريخ تحاليلك" linkPath="/user" />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 ">
-     
+     { console.log(reports)}
           {reports!=[]?reports.map(el=>(
           <Card onClick={()=>handleClick(el._id)} 
           
