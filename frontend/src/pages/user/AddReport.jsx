@@ -36,7 +36,7 @@ function AddReport() {
          
           {/* Show the appropriate component based on the upload state */}
           {!isUploading && !uploadData && (
-            <FileUpload token={userData.token} onUploadComplete={handleUploadComplete} />
+            <FileUpload token={userData?userData.token:""} onUploadComplete={handleUploadComplete} />
           )}
 
           {isUploading && <Witing />}
