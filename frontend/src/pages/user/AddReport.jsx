@@ -23,9 +23,9 @@ function AddReport() {
   };
 
   return (
-    <div>
+    <div className="bg-custom-gradient min-h-screen">
       <NavBar />
-      <div className="container m-auto w-full text-center xl:h-screen h-[85vh] mt-10 px-4">
+      <div className="container m-auto w-full text-center xl:h-screen h-[85vh] mt-10 px-4 ">
         <Title
           title="اكتشف نتائج تقريرك بسرعة مع الذكاء الاصطناعي"
           linkPath="/user"
@@ -41,7 +41,7 @@ function AddReport() {
           {uploadData && <Results data={uploadData} />}
         </div>
       </div>
-      <Footer />
+    
     </div>
   );
 }
