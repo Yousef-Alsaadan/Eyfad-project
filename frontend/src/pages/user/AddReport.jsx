@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Results from "../../Components/user/Results";
 import NavBar from "../../Components/NavBar";
 import Footer from "../../Components/Footer";
@@ -13,9 +13,11 @@ function AddReport() {
   const navigate = useNavigate();
 
   const userData = JSON.parse(localStorage.getItem("user"));
-  if (!userData) {
-    navigate("/user/login");
-  }
+  useEffect(() => {
+    if (!userData) {
+      navigate("/user/login");
+    }
+  });
 
   const handleUploadComplete = (data) => {
     setUploadData(data); // Set the upload data once the upload is complete
