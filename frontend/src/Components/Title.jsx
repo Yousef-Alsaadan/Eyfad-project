@@ -9,11 +9,11 @@ const Title = ({ title, linkPath }) => {
        */}
       <div className=" flex flex-row justify-between items-center gap-10 ">
         <div>
-          <img
+          {/* <img
             src={titleimage}
             alt="Title Image"
             className="w-20 h-20 md:w-24 md:h-24 object-contain"
-          />
+          /> */}
         </div>
         <div className="mb-4 md:mb-0 text-start">
           <h1 className="font-bold md:text-3xl text-xl leading-10">{title}</h1>
