@@ -13,6 +13,10 @@ body {
     font-family: "Tajawal", sans-serif;
     font-style: normal;
 }
+.highlight {
+    background-color: rgba(250, 229, 155, 0.38);  
+    display: inline; 
+  }
 @keyframes moveUp {
     0% {
       transform: translateY(0);
