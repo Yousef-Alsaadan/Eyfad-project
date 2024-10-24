@@ -4,7 +4,7 @@ import { IoClose } from "react-icons/io5";
 import { HashLink as Link } from "react-router-hash-link";
 import { FiUser } from "react-icons/fi";
 import bgTop from "../Images/bgTop.png";
-import mainBg from "../Images/main-bg.png";
+import mainBg from "../Images/mainBG.png";
 
 function NavBar() {
   const [hidden, setHidden] = useState("hidden");

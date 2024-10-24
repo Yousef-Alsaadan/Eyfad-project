@@ -16,31 +16,24 @@ import aboutImg3 from "../assets/aboutImg3.svg";
 import homeBird from "../assets/homeBird.svg";
 import Typewriter from "typewriter-effect";
 
+import bgTop from "../Images/bgTop.png";
+import mainBg from "../Images/mainBG.png";
+import circleBG from "../Images/circleBG.png";
+
 function Home() {
   return (
-    <div>
+    <div className="bg-gradient-to-br from-[#dcf3ff] via-[#f5ffff] to-[#fff] to-[20%]">
       <NavBar />
 
       {/* hero section */}
-      <div className="hero min-h-[89vh] p-4">
-        <svg
-          height="88vh"
-          viewBox="0 0 915 782"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="-z-10 absolute xl:bottom-0 bottom-18 lg:w-[62.5rem] w-[48rem] md:block hidden"
-        >
-          <path
-            d="M1 390.809C1 606.306 205.382 781 457.5 781C709.618 781 914 606.306 914 390.809C914 175.313 709.618 0.618164 457.5 0.618164"
-            stroke="#002933"
-          />
-        </svg>
+      <div className="flex flex-col items-center justify-center min-h-[90vh] p-4 bg-gradient-to-tl from-[#dcf3ff] via-[#f5ffff] to-transparent md:to-[20%] to-[40%]">
+        <div className=" rounded-[100%] w-[47.52rem] max-h-[40rem] h-full md:block hidden absolute">
+          <img src={circleBG} />
+        </div>
 
-        <HeroSvg />
-
-        <div className="flex flex-col text-center gap-6 xl:h-[96%] items-center">
+        <div className="flex flex-col text-center gap-6 xl:h-[96%] items-center z-10">
           <div className="max-w-2xl text-black flex flex-col items-center">
-            <p className="font-semibold text-2xl pb-6">إيفاد</p>
+            <p className="font-semibold text-2xl pb-6">إيـفـــاد</p>
             <h1 className="mb-5 text-5xl font-semibold">
               منصتك لفهم وتحليل <br />
               <br />
@@ -85,16 +78,17 @@ function Home() {
               />
             </svg>
           </Link>
-
-          <div className="absolute xl:top-80 xl:right-60 lg:top-40 lg:right-60 md:top-40 md:right-32 right-12">
+        </div>
+        <div className="absolute flex flex-col items-center justify-center min-h-[90vh] p-4">
+          <div className="absolute xl:top-32 xl:left-96 lg:top-80 lg:left-80 md:top-52 md:left-80 md:block hidden">
             <HeroSvg3 />
           </div>
 
-          <div className="absolute xl:bottom-8 xl:left-96 lg:bottom-32 lg:left-64 md:bottom-28 md:left-60 bottom-28 left-12">
+          <div className="absolute xl:bottom-20 xl:right-80 lg:bottom-80 lg:right-80 md:bottom-44 md:right-80 md:block hidden">
             <HeroSvg4 />
           </div>
 
-          <div className="absolute xl:bottom-32 xl:right-96 lg:bottom-80 lg:right-40 bottom-72 right-20">
+          <div className="absolute xl:top-20 xl:right-80 lg:top-96 lg:right-80 md:top-52 md:right-80 md:block hidden">
             <svg
               width="20"
               height="20"
@@ -139,7 +133,7 @@ function Home() {
             </svg>
           </div>
 
-          <div className="absolute xl:top-40 xl:left-96 lg:top-80 lg:left-60 md:top-72 left-32 top-28">
+          <div className="absolute xl:bottom-20 xl:left-80 lg:bottom-80 lg:left-72 md:bottom-44 md:left-72 md:block hidden">
             <svg
               width="20"
               height="20"
@@ -187,52 +181,15 @@ function Home() {
       </div>
 
       {/* about section */}
-      <div className="bg-[#f4f5f987] md:min-h-screen">
+      <div className="md:min-h-screen bg-gradient-to-bl from-[#dcf3ff] via-[#f5ffff] to-transparent md:to-[20%] to-[40%]">
         <div
           id="about"
-          className="rounded-br-[200px] bg-gradient-to-b from-[#DDE1F2] to-[#FFFFFF] to-[53%] min-h-screen"
+          className="rounded-br-[200px] border-b border-black min-h-screen py-20"
         >
-          <div className="container mx-auto px-4 md:py-8 pt-8 pb-32">
-            <div className="flex gap-4 items-center">
-              <svg
-                width="88"
-                height="139"
-                viewBox="0 0 88 139"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M0 45.8869C0 43.3498 2.05679 41.293 4.59397 41.293C7.13115 41.293 9.18794 43.3498 9.18794 45.8869V133.61C9.18794 136.147 7.13115 138.204 4.59397 138.204C2.05679 138.204 0 136.147 0 133.61L0 45.8869Z"
-                  fill="#C5D4E9"
-                />
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M52.0776 32.4572C52.0776 29.9201 54.1344 27.8633 56.6716 27.8633C59.2088 27.8633 61.2656 29.9201 61.2656 32.4573V120.18C61.2656 122.717 59.2088 124.774 56.6716 124.774C54.1344 124.774 52.0776 122.717 52.0776 120.18L52.0776 32.4572Z"
-                  fill="#C5D4E9"
-                />
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M78.1221 4.59397C78.1221 2.05679 80.1789 0 82.716 0C85.2532 0 87.31 2.05679 87.31 4.59397V92.3169C87.31 94.8541 85.2532 96.9109 82.716 96.9109C80.1789 96.9109 78.1221 94.8541 78.1221 92.3169L78.1221 4.59397Z"
-                  fill="#001926"
-                />
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M26.0444 16.7092C26.0444 14.172 28.1012 12.1152 30.6384 12.1152C33.1756 12.1152 35.2324 14.172 35.2324 16.7092V104.432C35.2324 106.969 33.1756 109.026 30.6384 109.026C28.1012 109.026 26.0444 106.969 26.0444 104.432L26.0444 16.7092Z"
-                  fill="#DBAAB4"
-                />
-              </svg>
+          <div className="container mx-auto px-4 md:py-20 pt-8 pb-32">
+            <h1 className="font-bold text-5xl">كيف يعمل إيـفـــاد</h1>
 
-              <h1 className="font-bold text-5xl">
-                كيف <span className="text-[#94A0D5]">إيفاد</span> يعمل
-              </h1>
-            </div>
-
-            <div className="flex xl:flex-row flex-col gap-20 xl:gap-0 items-center justify-between mt-12">
+            <div className="flex xl:flex-row flex-col gap-20 xl:gap-0 items-center justify-between mt-20">
               <div className="flex flex-col gap-4">
                 <h1 className="font-extrabold text-3xl mx-8">
                   رفع التقرير الطبي
@@ -628,7 +585,7 @@ function Home() {
                   </div>
                 </a>
 
-                {/* <a
+                <a
                   href=""
                   target="_blank"
                   className="hover:scale-110 transition-transform duration-200"
@@ -655,7 +612,7 @@ function Home() {
                       />
                     </svg>
                   </div>
-                </a> */}
+                </a>
               </div>
             </div>
           </div>
