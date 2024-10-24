@@ -44,4 +44,18 @@ body {
   .move-down {
     animation: moveDown 1s ease-in-out infinite; /* Down and up animation */
   }
+  .animated-path {
+    animation: pulse 1.5s infinite;
+  }
   
+  @keyframes pulse {
+    0% {
+      fill: #a89cc4;
+    }
+    50% {
+      fill: #3B4D68; /* Change to any color you like */
+    }
+    100% {
+      fill: #537aad;
+    }
+  }
