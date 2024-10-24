@@ -11,10 +11,21 @@ function UserInfo() {
   if (!userData) {
     navigate("/user/login");
   }
+
   return (
-    <div>
+    <div >
       <NavBar />
-      <ResultHistory />
+      <div className="grid grid-cols-5 h-screen">
+        {/* First column for the user name */}
+        <div className="bg-blue-200 p-4">
+          <h1 className="text-xl font-bold">{userData.name}</h1>
+        </div>
+
+        {/* Second column for ResultHistory */}
+        <div className="col-span-4 bg-white p-4">
+          <ResultHistory />
+        </div>
+      </div>
       <Footer />
     </div>
   );

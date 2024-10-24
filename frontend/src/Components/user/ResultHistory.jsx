@@ -7,9 +7,10 @@ function ResultHistory() {
   return (
     <div>
       <div className="container mx-auto px-4 py-10 min-h-screen">
-        <Title title="تاريخ تحاليلك" linkPath="/user" />
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 ">
+        
+        <Title title="سجل التقارير" linkPath="/user" />
+<hr  className="mt-3"/>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2  mt-5">
           <Card
             date="2024-10-22"
             testName="AI Test"

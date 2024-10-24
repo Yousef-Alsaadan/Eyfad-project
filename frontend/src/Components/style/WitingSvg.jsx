@@ -2,7 +2,7 @@ import React from 'react'
 
 export const WitingSvg = () => {
   return (
- <svg width="410" height="350" viewBox="0 0 410 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+ <svg width="100%" height="auto" viewBox="0 0 410 350" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_920_1854)">
 <path d="M369.804 117.926C373.356 117.926 376.235 115.219 376.235 111.879C376.235 108.539 373.356 105.831 369.804 105.831C366.252 105.831 363.373 108.539 363.373 111.879C363.373 115.219 366.252 117.926 369.804 117.926Z" className="animated-path" fill="#91AAFF"/>
 <path d="M369.804 169.33C373.356 169.33 376.235 166.623 376.235 163.283C376.235 159.943 373.356 157.235 369.804 157.235C366.252 157.235 363.373 159.943 363.373 163.283C363.373 166.623 366.252 169.33 369.804 169.33Z" className="animated-path" fill="#91AAFF"/>
