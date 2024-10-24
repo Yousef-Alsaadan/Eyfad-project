@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import Card from "./Card";
 import Title from "../Title";
 import NavBar from "../NavBar";
+import { useNavigate } from "react-router-dom";
 
 function ResultHistory() {
+  const navigate = useNavigate();
   const [reports, setReports] = useState([])
   const userData = JSON.parse(localStorage.getItem("user"));
   
@@ -13,8 +15,9 @@ function ResultHistory() {
           // 4. Setting *dogImage* to the image url that we received from the response above
       .then(data => setReports(data.reports))
     },[])
-    const handleClick = () => {
-      navigate(`/card/${userData.id}`);
+    const handleClick = (id) => {
+     
+      navigate(`/reports/${id}`);
   };
   return (
     <div>
@@ -22,12 +25,12 @@ function ResultHistory() {
         <Title title="تاريخ تحاليلك" linkPath="/user" />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 ">
-       { console.log(reports)}
+     
           {reports!=[]?reports.map(el=>(
-          <Card onClick={handleClick} 
+          <Card onClick={()=>handleClick(el._id)} 
+          
             date={el.testDate}
             testName={el.testName}
-            descreptions="This is a test description for AI-generated content."
             fileName={`${el.testName} test.pdf`}
           />
         )):""}

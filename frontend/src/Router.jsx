@@ -9,6 +9,7 @@ import UserSignup from "./pages/user/UserSignup";
 import UserInfo from "./pages/user/UserInfo";
 import HomeUser from "./pages/user/HomeUser";
 import Results from "./Components/user/Results";
+import ResultsHistory from "./Components/user/ResultsHistory";
 import Witing from "./pages/Witing";
 
 const router = createBrowserRouter([
@@ -24,7 +25,8 @@ const router = createBrowserRouter([
   { path: "/user/signup", element: <UserSignup /> },
   { path: "/report", element: <AddReport /> },
   { path: "/user/history", element:  <UserInfo />}, // just add an ID to the path
-  { path: "/report/:id", element: <Results /> }, // this must be deleted
+  { path: "/Results", element: <Results /> }, // this must be deleted
+  { path: "/reports/:id", element: <ResultsHistory /> },
   { path: "/Witing", element: <Witing /> }, // this must be deleted
 ]);
 
