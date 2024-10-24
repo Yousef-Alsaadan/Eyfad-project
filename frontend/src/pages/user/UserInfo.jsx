@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ResultHistory from "../../Components/user/ResultHistory";
 import NavBar from "../../Components/NavBar";
 import Footer from "../../Components/Footer";
@@ -8,9 +8,11 @@ function UserInfo() {
   const navigate = useNavigate();
 
   const userData = JSON.parse(localStorage.getItem("user"));
-  if (!userData) {
-    navigate("/user/login");
-  }
+  useEffect(() => {
+    if (!userData) {
+      navigate("/user/login");
+    }
+  });
   return (
     <div>
       <NavBar />
