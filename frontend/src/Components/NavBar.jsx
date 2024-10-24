@@ -3,6 +3,8 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { IoClose } from "react-icons/io5";
 import { HashLink as Link } from "react-router-hash-link";
 import { FiUser } from "react-icons/fi";
+import bgTop from "../Images/bgTop.png";
+import mainBg from "../Images/main-bg.png";
 
 function NavBar() {
   const [hidden, setHidden] = useState("hidden");
@@ -10,7 +12,7 @@ function NavBar() {
   const userData = JSON.parse(localStorage.getItem("user"));
 
   return (
-    <div className="bg-[#FBFBFB] p-4">
+    <div className="p-4">
       <div className="flex items-center justify-between container mx-auto px-4">
         <div className="text-4xl font-extrabold tajawal-extralight">
           <Link to="/">
@@ -103,8 +105,14 @@ function NavBar() {
         </div>
       </div>
 
-      <div className="block md:hidden z-30 w-full top-0 left-0 fixed bg-[#FBFBFB]">
-        <div className={`h-screen ${hidden} p-4`}>
+      <div
+        className="block md:hidden z-30 w-full top-0 left-0 fixed bg-no-repeat"
+        style={{ backgroundImage: `url(${mainBg})` }}
+      >
+        <div
+          className={`h-screen ${hidden} p-4 bg-no-repeat`}
+          style={{ backgroundImage: `url(${bgTop})` }}
+        >
           <div className="flex items-center justify-between container mx-auto px-4">
             <div className="text-4xl font-extrabold tajawal-extralight">
               <Link to="/">
