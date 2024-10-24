@@ -1,74 +1,77 @@
 import { useState } from "react";
 import axios from "axios";
 
-const FileUpload = () => {
+const FileUpload = ({ onUploadComplete }) => {
   const [file, setFile] = useState(null);
   const [uploadProgress, setUploadProgress] = useState(0);
   const [isUploading, setIsUploading] = useState(false);
   const [cancelTokenSource, setCancelTokenSource] = useState(null); // For canceling upload
 
+  const handleCancelUpload = () => {
+    if (cancelTokenSource) {
+      cancelTokenSource.cancel("File upload canceled.");
+      setIsUploading(false); // Stop the upload
+      setUploadProgress(0);   // Reset progress bar
+    }
+  };
+  
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
     if (selectedFile && selectedFile.size > 10 * 1024 * 1024) {
-      // Check for size limit
       alert("File size exceeds 10 MB");
       return;
     }
     setFile(selectedFile);
     setUploadProgress(0); // Reset progress when a new file is selected
   };
+  
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  if (!file) return;
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!file) return; // Ensure a file is selected
+  const formData = new FormData();
+  formData.append("pdf", file);
 
-    const formData = new FormData();
-    formData.append("pdf", file);
+  const source = axios.CancelToken.source();
+  setCancelTokenSource(source);
+  setIsUploading(true); // Show waiting
 
-    const source = axios.CancelToken.source();
-    setCancelTokenSource(source); // Store cancel token
-    setIsUploading(true); // Set uploading state to true
-
-    try {
-      const response = await axios.post(
-        "http://localhost:5000/upload",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-          onUploadProgress: (progressEvent) => {
-            const percentCompleted = Math.round(
-              (progressEvent.loaded * 100) / progressEvent.total
-            );
-            setUploadProgress(percentCompleted);
-          },
-          cancelToken: source.token, // Attach cancel token
-        }
-      );
-      console.log("File uploaded successfully:", response.data);
-    } catch (error) {
-      if (axios.isCancel(error)) {
-        console.log("Upload canceled");
-      } else {
-        console.error(
-          "Error uploading file:",
-          error.response ? error.response.data : error.message
-        );
+  try {
+    const response = await axios.post(
+      "http://localhost:5000/upload",
+      formData,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+        onUploadProgress: (progressEvent) => {
+          const percentCompleted = Math.round(
+            (progressEvent.loaded * 100) / progressEvent.total
+          );
+          setUploadProgress(percentCompleted);
+        },
+        cancelToken: source.token,
       }
-    } finally {
-      setIsUploading(false); // Reset uploading state
-      setCancelTokenSource(null); // Reset cancel token
-    }
-  };
+    );
 
-  const handleCancelUpload = () => {
-    if (cancelTokenSource) {
-      cancelTokenSource.cancel("File upload canceled.");
-      setIsUploading(false); // Stop the upload
-      setUploadProgress(0); // Reset progress bar
+    // Extract the `extractedData` from the response
+    onUploadComplete(response.data.extractedData);
+    console.log("File uploaded successfully:", response.data.extractedData);
+  } catch (error) {
+    if (axios.isCancel(error)) {
+      console.log("Upload canceled");
+    } else {
+      console.error(
+        "Error uploading file:",
+        error.response ? error.response.data : error.message
+      );
     }
-  };
+  } finally {
+    setIsUploading(false);
+    setCancelTokenSource(null);
+  }
+};
+
 
   return (
     <div className="flex flex-col items-center justify-center  ">
@@ -133,29 +136,29 @@ const FileUpload = () => {
 
           {/* Progress bar and percentage */}
           {isUploading && (
-            <div className="mt-4">
-              <div className="flex items-center space-x-2">
-                <div className="w-full bg-gray-200 rounded-full h-2.5">
-                  <div
-                    className="bg-purple-500 h-2.5 rounded-full"
-                    style={{ width: `${uploadProgress}%` }}
-                  ></div>
-                </div>
-                <span className="text-sm font-medium text-gray-700">
-                  {uploadProgress}%
-                </span>
-              </div>
+  <div className="mt-4">
+    <div className="flex items-center space-x-2">
+      <div className="w-full bg-gray-200 rounded-full h-2.5">
+        <div
+          className="bg-purple-500 h-2.5 rounded-full"
+          style={{ width: `${uploadProgress}%` }}
+        ></div>
+      </div>
+      <span className="text-sm font-medium text-gray-700">
+        {uploadProgress}%
+      </span>
+    </div>
 
-              {/* Cancel upload button */}
-              <button
-                type="button"
-                onClick={handleCancelUpload}
-                className="mt-2 text-red-600 hover:underline text-sm"
-              >
-                إلغاء التحميل
-              </button>
-            </div>
-          )}
+    {/* Cancel upload button */}
+    <button
+      type="button"
+      onClick={handleCancelUpload}  
+      className="mt-2 text-red-600 hover:underline text-sm"
+    >
+      إلغاء التحميل
+    </button>
+  </div>
+)}
 
           <div className="w-full text-center">
             <button
