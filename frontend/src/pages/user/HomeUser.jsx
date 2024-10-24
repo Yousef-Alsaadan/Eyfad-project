@@ -13,11 +13,11 @@ const HomeUser = () => {
   }
 
   return (
-    <div className=" ">
+    <div className="overflow-hidden h-screen">
       <NavBar />
       <div
         style={{ backgroundImage: `url(${bgImage})` }}
-         className="h-screen bg-cover bg-center bg-no-repeat sm:overflow-hidden"
+        className="h-full bg-cover bg-center bg-no-repeat"
       >
         <div className="flex flex-col items-center gap-5 sm:gap-10 m-5 sm:m-20">
           <h1 className="text-3xl sm:text-5xl text-center">
@@ -31,10 +31,10 @@ const HomeUser = () => {
             كيف يمكننا مساعدتك اليوم؟
           </h1>
 
-          <div className="flex flex-col lg:flex-row gap-4 lg:gap-12 md:gap-28 w-3/4 mt-14  justify-center items-center px-5">
+          <div className="flex flex-col lg:flex-row gap-4 lg:gap-12 md:gap-28 w-3/4 mt-14 justify-center items-center px-5">
             <div className="bg-[rgba(255,255,255,0.29)] border-2 border-[rgba(43,68,231,0.23)] px-4 pt-5 pb-10 lg:w-1/2 rounded-xl text-gray-600 shadow-[0_4px_10px_rgba(43,68,231,0.2)] transition-colors cursor-pointer hover:bg-white">
               <Link to={"/report"}>
-                <div className="flex flex-col sm:flex-row   items-center gap-2">
+                <div className="flex flex-col sm:flex-row items-center gap-2">
                   <svg width="15" height="19" viewBox="0 0 15 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="M8.78186 1.44444V4.55556C8.78186 5.5374 9.54096 6.33333 10.4774 6.33333H13.4445M5.96709 13.8889V12.5556M8.93416 13.8889V9.8889M2.69548 1H8.07966C8.52926 1 8.96056 1.1873 9.27856 1.5207L13.3718 5.81263C13.6898 6.14604 13.8684 6.59821 13.8684 7.0697V16.2222C13.8684 17.2041 13.1093 18 12.1729 18H2.69548C1.75909 18 1 17.2041 1 16.2222V2.77778C1 1.79594 1.75909 1 2.69548 1Z"
@@ -56,7 +56,7 @@ const HomeUser = () => {
 
             <div className="bg-[rgba(255,255,255,0.29)] border-2 border-[rgba(43,68,231,0.23)] px-4 pt-5 pb-10 lg:w-1/2 rounded-xl text-gray-600 shadow-[0_4px_10px_rgba(43,68,231,0.2)] transition-colors cursor-pointer hover:bg-white">
               <Link to={"/terms"}>
-                <div className="flex flex-col sm:flex-row   items-center gap-2">
+                <div className="flex flex-col sm:flex-row items-center gap-2">
                   <svg width="26" height="25" viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="M13.645 8.7533L16.2467 11.355M13.645 8.7533L4.53884 17.8594C3.82039 18.5779 3.82039 19.7427 4.53884 20.4612C5.25729 21.1796 6.42213 21.1796 7.14058 20.4612L16.2467 11.355M13.645 8.7533L16.8601 5.53884C17.5786 4.82039 18.7434 4.82039 19.4619 5.53884C20.1803 6.25729 20.1803 7.42213 19.4619 8.14059L16.2467 11.355"
