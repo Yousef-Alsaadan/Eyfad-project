@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 function ResultHistory() {
   const navigate = useNavigate();
-  const [reports, setReports] = useState("[]")
+  const [reports, setReports] = useState([])
   const userData = JSON.parse(localStorage.getItem("user"));
  
   useEffect(() => {
