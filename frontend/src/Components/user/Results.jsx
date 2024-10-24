@@ -30,11 +30,9 @@ function Results({ data }) {
                     {analysis.analysisName}
                   </span>
 
-                  {/* If the result is normal or abnormal */}
+                  
                   <span
-                    className={`${
-                      analysis.isNormal ? "bg-[#C5D4E9]" : "bg-[#E74C3C]"
-                    } rounded-full flex items-center h-fit`}
+                    className={`bg-[#C5D4E9] rounded-full flex items-center h-fit`}
                   >
                     <svg
                       width="25"
@@ -56,22 +54,19 @@ function Results({ data }) {
                   <span className="pt-4 font-bold text-2xl">التحليل</span>
 
                   <p>النتيجة: {analysis.result} {analysis.unit}</p>
-                  <p>الحد المرجعي: {analysis.referenceRange.min} - {analysis.referenceRange.max}</p>
+                  <p>الحد الطبيعي: {analysis.referenceRange.min} - {analysis.referenceRange.max}</p>
 
                   <p className="pt-4">
-                    {/* Depending on whether the result is high or low */}
-                    {analysis.isNormal
-                      ? "الوضع: طبيعي"
-                      : analysis.result > analysis.referenceRange.max
-                      ? `الوضع: مرتفع. ${analysis.management.high}`
-                      : `الوضع: منخفض. ${analysis.management.low}`}
+                   طريقة التعامل عندما يكون:
                   </p>
+                    <p>مرتفع عن الطبيعي: {analysis.management.high || "غير متوفرة"}</p>
+                    <p>منخفض عن الطبيعي: {analysis.management.low || "غير متوفرة"}</p>
 
                   {/* Symptoms */}
                   <div>
-                    <p className="font-bold text-lg">الأعراض المحتملة:</p>
-                    <p>مرتفعة: {analysis.symptoms.high || "غير متوفرة"}</p>
-                    <p>منخفضة: {analysis.symptoms.low || "غير متوفرة"}</p>
+                    <p className="font-bold text-lg">الأعراض المحتملة عند:</p>
+                    <p>الارتفاع: {analysis.symptoms.high || "غير متوفرة"}</p>
+                    <p>الانخفاض: {analysis.symptoms.low || "غير متوفرة"}</p>
                   </div>
 
                   {/* Recommendations */}
