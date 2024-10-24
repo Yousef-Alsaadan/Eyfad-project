@@ -16,20 +16,21 @@ function UserLogin() {
 
   const handleSubmit = async (e) => {
     if (email === "" || password === "") {
-      errorLog("Please fill in all fields!");
+      errorLog("الرجاء تعبأة الحقول");
       return;
     }
 
   
+    // console.log(email, password);
 
     // const user = users.find((data) => data.email === email);
     // if (!user) {
-    //   errorLog("Email or password is wrong!");
+    //   errorLog("البريد الالكتروني او كلمة السر خاطئه");
     //   return;
     // }
 
     // if (user.password !== password) {
-    //   errorLog("Email or password is wrong!");
+    //   errorLog("البريد الالكتروني او كلمة السر خاطئه");
     //   return;
     // }
     e.preventDefault();
@@ -76,7 +77,7 @@ function UserLogin() {
   };
 
   return (
-    <div  dir="ltr">
+    <div dir="ltr">
       <div className="flex items-center justify-center h-screen">
         <div className="rounded-3xl px-4 pb-12 pt-6 shadow-xl bg-transparent z-10 shadow-[#00293333] text-center flex flex-col items-center gap-4 md:gap-8 xl:w-2/5 md:w-9/12 w-full">
           <div className="w-full h-0 text-2xl">

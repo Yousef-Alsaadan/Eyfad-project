@@ -15,7 +15,7 @@
 
 - **Explaining medical reports:** Providing a comprehensive medical dictionary where users can learn about medical terms, conditions and treatments mentioned in their reports.
 
-- **Multilingualism:** Ifad provides the user with the freedom to choose between Arabic and English.
+- **Multilingualism:** Efada provides the user with the freedom to choose between Arabic and English.
 
 - **Multiple attachments:** Through Efada, you can attach different documents, images and files.
 

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-const FileUpload = ({token}) => {
+const FileUpload = ({token,onUploadComplete}) => {
   const [file, setFile] = useState(null);
   const [uploadProgress, setUploadProgress] = useState(0);
   const [isUploading, setIsUploading] = useState(false);

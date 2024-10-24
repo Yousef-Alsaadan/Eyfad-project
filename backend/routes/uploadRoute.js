@@ -97,13 +97,14 @@ Analyze the following medical text and include only analyses where the result is
   }
 };
 
+const fs = require('fs');
 
 // Route to handle file upload and PDF processing
 router.post('/', upload.single('pdf'),authenticateToken, async (req, res) => {
     
   
   if (!req.file) {
-    return res.status(400).send('No file uploaded.');
+    return res.status(400).json({ message: 'No file uploaded.' });
   }
 
   const filePath = path.join(__dirname, '../uploads', req.file.filename);
@@ -123,27 +124,32 @@ router.post('/', upload.single('pdf'),authenticateToken, async (req, res) => {
     const pdfText = dataBuffer.text;
     
     // Send the extracted PDF text to GPT API
-    const gptResponse = await processWithGPT(pdfText);
+ 
 
-    // Parse the extractedData from GPT into a JavaScript object
+    const gptResponse = await processWithGPT(pdfText);
     const extractedData = JSON.parse(gptResponse);
     
    extractedData.user=user.id;
    
     // Save the extractedData to MongoDB
-    const newMedicalTest = new MedicalTest(extractedData); // Use newMedicalTest as the variable name
+    // Use newMedicalTest as the variable name
+
+    const newMedicalTest = new MedicalTest(extractedData);
     await newMedicalTest.save();
  user.reports.push(newMedicalTest._id);
  await user.save();
     console.log('Extracted Data:', extractedData,newMedicalTest._id,user.reports);
 
-    console.log('Extracted Data:', pdfText);
-    console.log('Extracted Data:', gptResponse);
-    console.log('Extracted Data:', extractedData);
-    res.json({ message: 'File uploaded, text extracted, and data processed successfully!', extractedData: extractedData });
+    // Optionally delete the file after processing
+    fs.unlinkSync(filePath);
+
+    res.status(200).json({
+      message: 'File uploaded, text extracted, and data processed successfully!',
+      extractedData: extractedData,
+    });
   } catch (error) {
     console.error('Error processing PDF or GPT request:', error);
-    res.status(500).send('Error processing PDF or GPT request.');
+    res.status(500).json({ message: 'Error processing PDF or GPT request.' });
   }
 });
 

@@ -3,8 +3,8 @@ import React from "react";
 function HeroSvg2() {
   return (
     <svg
-      width="337"
-      height="223"
+      width="21.063rem"
+      height="13.938rem"
       viewBox="0 0 337 223"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

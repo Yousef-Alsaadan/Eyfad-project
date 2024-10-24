@@ -31,7 +31,7 @@ function Footer() {
               to="/report"
               className="hover:underline underline-offset-[6px]"
             >
-              تقرير
+              تحليل
             </Link>
           </div>
         </div>
