@@ -1,24 +1,90 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import NavBar from "../Components/NavBar";
 import Footer from "../Components/Footer";
 import Title from "../Components/Title";
 import InfoBox from "../Components/InfoBox";
 
+
 function MedicalTerms() {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [result, setResult] = useState('');
+  const [error, setError] = useState('');
+
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    setError(''); // Reset error before making a new request
+    const OPENAI_API_KEY = import.meta.env.VITE_OPENAI_API_KEY;
+
+
+    try {
+      const response = await axios.post(
+        'https://api.openai.com/v1/chat/completions',
+        {
+          model: 'gpt-3.5-turbo',  // Chat-based model
+          messages: [
+            {
+              role: "system",
+              content: "You are a helpful assistant providing medical explanations in Arabic."
+            },
+            {
+              role: "user",
+              content: `Give me a simple explanation in Arabic about ${searchTerm}, including its description, what happens if it's too high or too low, and related symptoms. Arrange the output like this with sections separated by ###:
+              ### الوصف:
+              - محتوى الوصف
+              ### اعراض الارتفاع والانخفاض:
+              - محتوى اعراض الارتفاع والانخفاض
+              ### نصائح الارتفاع والانخفاض:
+              - محتوى نصائح الارتفاع والانخفاض
+              Each section should be on a new line.`
+            }
+          ],
+          temperature: 0.2,
+        },
+        {
+          headers: {
+          Authorization: `Bearer ${OPENAI_API_KEY}`,  // Replace with your real API key
+          },
+        }
+      );
+
+      setResult(response.data.choices[0].message.content); // Get the result from GPT
+    } catch (error) {
+      console.error('Error fetching details:', error);
+      setError('Failed to fetch medical term details. Please try again.');
+    }
+  };
+  const formatResult = (text) => {
+    const sections = text.split('###').filter(Boolean); // Split text into sections
+    return sections.map((section, index) => {
+      const [title, ...content] = section.split(':'); // Split each section by ':'
+      return (
+        <div key={index}>
+          <strong>{title.trim()}:</strong>
+          <p>{content.join(':').trim()}</p>
+        </div>
+      );
+    });
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
       <NavBar />
       <div className="flex-grow container mx-auto w-full text-center my-10 px-4">
         <Title title="ابحث عن مصطلح طبي تود المعرفة عنه" linkPath="/" />
         <div className="flex flex-col items-center p-6 space-y-6">
+          
           {/* Search Bar */}
           <div className="relative w-full max-w-lg mb-10">
-            <input
-              type="text"
-              placeholder="ابحث عن المصطلح الطبي ..."
-              className="w-full px-6 h-12 border rounded-full shadow-sm focus:outline-none "
-            />
-            <button className="absolute top-0 left-0 h-full flex items-center px-3 hover:scale-110  transition duration-200 ease-in-out hover:text-gray-700 group">
+            <form onSubmit={handleSearch}>
+              <input
+                type="text"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                placeholder="ابحث عن المصطلح الطبي ..."
+                className="w-full px-6 h-12 border rounded-full shadow-sm focus:outline-none"
+              />
+              <button className="absolute top-0 left-0 h-full flex items-center px-3 hover:scale-110  transition duration-200 ease-in-out hover:text-gray-700 group">
               <svg
                 className="w-10 h-10 text-gray-500 "
                 width="48"
@@ -44,13 +110,23 @@ function MedicalTerms() {
                 />
               </svg>
             </button>
+            </form>
           </div>
 
           {/* Info Box */}
-          <InfoBox
-            title="ارتفاع ضغط الدم (Hypertension)"
-            description="ارتفاع ضغط الدم هو حالة طبية شائعة تتميز بزيادة الضغط على جدران الشرايين على مدى فترة طويلة. يحدث ذلك عندما تكون قوة تدفق الدم ضد جدران الشرايين عالية بما يكفي لتسبب مشاكل صحية، مثل أمراض القلب."
-          />
+          {result && (
+            <InfoBox
+              title={` ${searchTerm}`}
+              description={
+                <div style={{ direction: 'rtl', textAlign: 'right' }}>
+                  {formatResult(result)}  {/* Format and display the result */}
+                </div>
+              }
+            />
+          )}
+
+          {/* Error Message */}
+          {error && <div className="text-red-500">{error}</div>}
         </div>
       </div>
       <Footer />
