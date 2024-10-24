@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-
+const { Schema } = mongoose;
 
 const analysisSchema = new mongoose.Schema({
     analysisName: { type: String, required: true },
@@ -27,9 +27,9 @@ const medicalTestSchema = new mongoose.Schema({
   testName: { type: String, required: true },
   testDate: { type: String, required: true },
   analyses: [analysisSchema],
- 
+ user:{ type: Schema.Types.ObjectId, ref: 'User' }
 });
 
-const medicalTest = mongoose.model('MedicalTest', medicalTestSchema);
+const MedicalTest = mongoose.model('MedicalTest', medicalTestSchema);
 
-module.exports = medicalTest;
+module.exports = MedicalTest;

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-const FileUpload = ({ onUploadComplete }) => {
+const FileUpload = ({ token,onUploadComplete }) => {
   const [file, setFile] = useState(null);
   const [uploadProgress, setUploadProgress] = useState(0);
   const [isUploading, setIsUploading] = useState(false);
@@ -43,6 +43,7 @@ const handleSubmit = async (e) => {
       {
         headers: {
           "Content-Type": "multipart/form-data",
+          'Authorization':token
         },
         onUploadProgress: (progressEvent) => {
           const percentCompleted = Math.round(

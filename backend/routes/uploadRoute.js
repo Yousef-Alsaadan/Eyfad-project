@@ -1,10 +1,30 @@
 const express = require('express');
+const User = require('../models/userSchema.js');
 const multer = require('multer');
 const pdfParse = require('pdf-parse');
 const path = require('path');
 const axios = require('axios');
+const jwt = require('jsonwebtoken');
 const MedicalTest = require('../models/medicalTest'); // Correct import of the medicalTest model
 require('dotenv').config();
+
+function authenticateToken(req, res, next) {
+
+  const token = req.headers['authorization'];
+  
+  if (!token) return res.status(401).json({ message: 'Access Denied' });
+  
+  jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+  
+  if (err) return res.status(403).json({ message: 'Invalid Token' });
+  
+  req.user = user; // إضافة بيانات المستخدم إلى الطلب
+  
+  next();
+  
+  });
+  
+  }
 
 console.log(MedicalTest); // This should log the imported model
 const router = express.Router();
@@ -80,7 +100,9 @@ Analyze the following medical text and include only analyses where the result is
 const fs = require('fs');
 
 // Route to handle file upload and PDF processing
-router.post('/', upload.single('pdf'), async (req, res) => {
+router.post('/', upload.single('pdf'),authenticateToken, async (req, res) => {
+    
+  
   if (!req.file) {
     return res.status(400).json({ message: 'No file uploaded.' });
   }
@@ -88,14 +110,35 @@ router.post('/', upload.single('pdf'), async (req, res) => {
   const filePath = path.join(__dirname, '../uploads', req.file.filename);
 
   try {
+    const user = await User.findById(req.user.id);
+    
+    if (!user) {
+    
+    return res.status(404).json({ message: 'User not found' });
+    
+    }
+    
+    // console.log(req);
+    // Read and convert PDF to text
     const dataBuffer = await pdfParse(filePath);
     const pdfText = dataBuffer.text;
+    
+    // Send the extracted PDF text to GPT API
+ 
 
     const gptResponse = await processWithGPT(pdfText);
     const extractedData = JSON.parse(gptResponse);
+    
+   extractedData.user=user.id;
+   
+    // Save the extractedData to MongoDB
+    // Use newMedicalTest as the variable name
 
     const newMedicalTest = new MedicalTest(extractedData);
     await newMedicalTest.save();
+ user.reports.push(newMedicalTest._id);
+ await user.save();
+    console.log('Extracted Data:', extractedData,newMedicalTest._id,user.reports);
 
     // Optionally delete the file after processing
     fs.unlinkSync(filePath);
@@ -110,5 +153,25 @@ router.post('/', upload.single('pdf'), async (req, res) => {
   }
 });
 
+router.get('/reports/:id', async (req, res) => {
+  try {
+  
+  const test = await MedicalTest.findById(req.params.id); console.log(req.params.id);
+  if (!test) {
+  
+  return res.status(404).json({ message: 'test not found' });
+  
+  }
+  
+  res.status(200).json(test); 
+  } catch (error) {
+  
+  console.error(error);
+  
+  res.status(500).json({ message: 'Error retrieving test', error });
+  
+  }
+  
+  })
 
 module.exports = router;

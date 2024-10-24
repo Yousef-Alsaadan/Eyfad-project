@@ -1,16 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import userImage from "../../images/user.png";
 import NavBar from "../../Components/NavBar";
 import { Link, useNavigate } from "react-router-dom";
 
 const HomeUser = () => {
   const userData = JSON.parse(localStorage.getItem("user"));
+  
+  console.log(userData.token);
+  localStorage.setItem("user1",JSON.stringify({userData}))
 
   const navigate = useNavigate();
 
-  if (!userData) {
-    navigate("/user/login");
-  }
+  useEffect(() => {
+    if (!userData) {
+      navigate("/user/login");
+    }
+  });
   return (
     <div className="">
       <NavBar />

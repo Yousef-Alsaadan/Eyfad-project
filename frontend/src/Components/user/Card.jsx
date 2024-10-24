@@ -1,8 +1,10 @@
 import React from "react";
 
-const Card = ({ date, testName, descreptions, fileName }) => {
+const Card = ({ date, testName, onClick,fileName }) => {
+
   return (
-    <div
+   
+    <div onClick={onClick}
       dir="ltr"
       className="  flex flex-col lg:flex-row gap-5 bg-white   rounded-lg p-6 hover:shadow-lg transition-shadow duration-300"
     >
@@ -11,7 +13,6 @@ const Card = ({ date, testName, descreptions, fileName }) => {
       </div>
       <div className="flex-1">
         <h3 className="text-lg font-semibold text-gray-800 mb-2">{testName}</h3>
-        <p className="text-gray-600 mb-4">{descreptions}</p>
         <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4">
           <div className="flex items-center gap-2 text-gray-600">
             <svg
