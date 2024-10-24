@@ -25,21 +25,22 @@ function MedicalTerms() {
           messages: [
             {
               role: "system",
-              content: "You are a helpful assistant providing medical explanations in Arabic."
+              content: "You are a helpful assistant providing medical terms explanations in Arabic."
             },
             {
               role: "user",
-              content: `Give me a simple explanation in Arabic about ${searchTerm}, including its description, what happens if it's too high or too low, and related symptoms. Arrange the output like this with sections separated by ###:
+              content: `Give me a simple explanation in Arabic about ${searchTerm}, if the ${searchTerm} is a medical terms write including its description, what happens if it's too high or too low, and related symptoms. Arrange the output like this with sections separated by ###:
               ### الوصف:
               - محتوى الوصف
               ### اعراض الارتفاع والانخفاض:
               - محتوى اعراض الارتفاع والانخفاض
               ### نصائح الارتفاع والانخفاض:
               - محتوى نصائح الارتفاع والانخفاض
-              Each section should be on a new line.`
+              Each section should be on a new line.
+              if the ${searchTerm} not a medical terms said it's not a medical terms`
             }
           ],
-          temperature: 0.2,
+          temperature: 0,
         },
         {
           headers: {
