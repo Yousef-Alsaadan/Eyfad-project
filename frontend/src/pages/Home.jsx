@@ -199,7 +199,7 @@ function Home() {
                 </h1>
 
                 <div className="bg-white h-[250px] w-[360px] rounded-3xl shadow-lg grid place-items-center">
-                  <img src={reportIcon} />
+                  <img src={reportIcon} className="mt-8 w-72"/>
                 </div>
               </div>
 
