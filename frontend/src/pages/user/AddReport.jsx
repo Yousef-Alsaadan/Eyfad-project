@@ -3,7 +3,7 @@ import Results from "../../Components/user/Results";
 import NavBar from "../../Components/NavBar";
 import Footer from "../../Components/Footer";
 import FileUpload from "../../Components/FileUpload";
-import Witing from "../Witing";
+import Witing from "../../Components/witing";
 import Title from "../../Components/Title";
 import { useNavigate } from "react-router-dom";
 
@@ -27,7 +27,7 @@ function AddReport() {
   return (
     <div>
       <NavBar />
-      <div className="container m-auto w-full text-center xl:h-screen h-[85vh] mt-10 px-4">
+      <div className="container m-auto w-full text-center xl:h-full h-[85vh] mt-10 px-4">
         <Title
           title="اكتشف نتائج تقريرك بسرعة مع الذكاء الاصطناعي"
           linkPath="/user"

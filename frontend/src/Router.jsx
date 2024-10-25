@@ -10,7 +10,6 @@ import UserInfo from "./pages/user/UserInfo";
 import HomeUser from "./pages/user/HomeUser";
 import Results from "./Components/user/Results";
 import ResultsHistory from "./Components/user/ResultsHistory";
-import Witing from "./pages/Witing";
 // import Results from "./Components/user/Results";
 // import Witing from "./pages/Witing";
 
@@ -29,7 +28,6 @@ const router = createBrowserRouter([
   { path: "/user/history", element:  <UserInfo />}, // just add an ID to the path
   { path: "/Results", element: <Results /> }, // this must be deleted
   { path: "/reports/:id", element: <ResultsHistory /> },
-  { path: "/Witing", element: <Witing /> }, // this must be deleted
   // { path: "/Results", element: <Results /> }, // this must be deleted
   // { path: "/Witing", element: <Witing /> }, // this must be deleted
 ]);

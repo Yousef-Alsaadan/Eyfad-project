@@ -1,5 +1,5 @@
 import React from "react";
-import Title from "../Components/Title";
+import Title from "./Title";
 import witingImage from "../images/witing.png";
 
 const Witing = () => {

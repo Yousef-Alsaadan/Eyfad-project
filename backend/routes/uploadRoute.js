@@ -80,7 +80,13 @@ Analyze the following medical text and include only analyses where the result is
       'https://api.openai.com/v1/chat/completions',
       {
         model: 'gpt-3.5-turbo', 
-        messages: [{ role: 'user', content: prompt }],
+        messages: [ 
+           {
+              role: "system",
+              content: "You are a professional medical assistant providing precise and accurate analyses for medical test results. Respond in clear, medically accurate Arabic, with special attention to identifying any results that are outside the normal reference range. Use structured JSON format as specified by the user, and ensure terminology aligns with standard medical references and practices."
+            },
+            {
+          role: 'user', content: prompt }],
         temperature: 0,
       },
       {
