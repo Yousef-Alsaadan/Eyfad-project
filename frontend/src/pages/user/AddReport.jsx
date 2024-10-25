@@ -25,7 +25,7 @@ function AddReport() {
   };
 
   return (
-    <div className="bg-custom-gradient min:h-screen  ">
+    <div className="bg-custom-gradient min:h-screen overflow-hidden lg:h-screen  ">
       <NavBar />
       <div className="container m-auto w-full text-center xl:h-screen h-[85vh] mt-10 p-2 px-4 ">
         <Title

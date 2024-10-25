@@ -18,8 +18,8 @@ function UserInfo() {
       <NavBar />
       <div className="grid grid-cols-5 h-screen">
         {/* First column for the user name */}
-        <div className="bg-blue-200 p-4">
-          <h1 className="text-xl font-bold">{userData.name}</h1>
+        <div className="bg-blue-200 p-4 rounded-lg border">
+          <h1 className="text-xl font-bold text-center">{userData.firstName +"  "+userData.secondName}</h1>
         </div>
 
         {/* Second column for ResultHistory */}
