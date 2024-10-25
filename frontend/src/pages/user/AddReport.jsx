@@ -28,15 +28,24 @@ function AddReport() {
     <div className="bg-custom-gradient min:h-screen overflow-hidden lg:h-screen  ">
       <NavBar />
       <div className="container m-auto w-full text-center xl:h-screen h-[85vh] mt-10 p-2 px-4 ">
-        <Title
-          title="اكتشف نتائج تقريرك بسرعة مع الذكاء الاصطناعي"
-          linkPath="/user"
-        />
-        <div className="md:mt-20 mt-10">
-         
+        {!isUploading && !uploadData && (
+          <Title
+            title="اكتشف نتائج تقريرك بسرعة مع الذكاء الاصطناعي"
+            linkPath="/user"
+          />
+        )}
+
+        {isUploading && <Title title="نقوم الآن بتحليل نتيجتك ..." />}
+
+        {uploadData && <Title title="نتيجتك" linkPath="/user" />}
+
+        <div className="mt-8">
           {/* Show the appropriate component based on the upload state */}
           {!isUploading && !uploadData && (
-            <FileUpload token={userData?userData.token:""} onUploadComplete={handleUploadComplete} />
+            <FileUpload
+              token={userData ? userData.token : ""}
+              onUploadComplete={handleUploadComplete}
+            />
           )}
 
           {isUploading && <Witing />}
@@ -44,7 +53,7 @@ function AddReport() {
           {uploadData && <Results data={uploadData} />}
         </div>
       </div>
-    
+      <Footer />
     </div>
   );
 }
