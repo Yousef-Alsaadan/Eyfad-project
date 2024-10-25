@@ -19,6 +19,7 @@ import Typewriter from "typewriter-effect";
 import bgTop from "../Images/bgTop.png";
 import mainBg from "../Images/mainBG.png";
 import circleBG from "../Images/circleBG.png";
+import cardAbout from "../Images/cardAbout.png";
 
 function Home() {
   return (
@@ -244,24 +245,51 @@ function Home() {
         </div>
       </div>
 
-      <div className="bg-[#f4f5f987] h-auto">
+      <div className="bg-[#f4f5f987] rounded-tl-[200px] rounded-br-[200px] h-auto py-20">
         <div className="container mx-auto px-4 py-20">
           <h1 className="font-bold text-5xl">بالاضافة الى:</h1>
 
-          <div className="flex xl:flex-row flex-col gap-20 xl:gap-0 items-center justify-between mt-12">
-            <div className="bg-white h-[250px] w-[360px] rounded-3xl shadow-lg grid place-items-center">
-              <img src={aboutImg} />
-              <h1 className="font-bold text-xl">التتبع وحفظ السجلات</h1>
+          <div className="flex flex-col gap-20 items-center justify-between mt-12">
+            <div className="flex-col xl:flex-row gap-8 flex justify-around items-center w-full">
+              <div className="flex flex-col text-center gap-4 max-w-sm">
+                <h1 className="font-bold text-xl">التتبع وحفظ السجلات</h1>
+                <p>
+                  يقوم المستخدم بتخزين كافة تقاريره الصحية داخل المنصة، مما يسمح
+                  له بتتبع تطور حالته الصحية على مدار الوقت، ومراجعة أي تغييرات
+                  أو تحسن في حالته الصحية.
+                </p>
+              </div>
+              <div className="bg-gradient-to-r from-[#f9f8fb] via-[#fff] to-[#eff5fd] h-[250px] w-[360px] rounded-3xl border border-[#468cbd3d] shadow-xl shadow-[#edf5fb] grid place-items-center">
+                <img src={aboutImg} />
+              </div>
             </div>
 
-            <div className="bg-white h-[250px] w-[360px] rounded-3xl shadow-lg grid place-items-center p-2">
-              <img src={aboutImg2} />
-              <h1 className="font-bold text-xl">التوصيات الصحية</h1>
+            <div className="flex-col xl:flex-row-reverse gap-8 flex justify-around items-center w-full">
+              <div className="flex flex-col text-center gap-4 max-w-sm">
+                <h1 className="font-bold text-xl">التوصيات الصحية</h1>
+                <p>
+                  بناءً على نتائج التحليل، يتم تقديم نصائح طبية مخصصة للمستخدم
+                  لتحسين حالته الصحية. تشمل هذه التوصيات تغييرات في النظام
+                  الغذائي أو النصائح العامة للعناية بالصحة.
+                </p>
+              </div>
+              <div className="bg-gradient-to-r from-[#f9f8fb] via-[#fff] to-[#eff5fd] h-[250px] w-[360px] rounded-3xl border border-[#468cbd3d] shadow-xl shadow-[#edf5fb] grid place-items-center p-2">
+                <img src={aboutImg2} />
+              </div>
             </div>
 
-            <div className="bg-white h-[250px] w-[360px] rounded-3xl shadow-lg grid place-items-center">
-              <img src={aboutImg3} />
-              <h1 className="font-bold text-xl">التنبؤ بالحالة الصحية</h1>
+            <div className="flex-col xl:flex-row gap-8 flex justify-around items-center w-full">
+              <div className="flex flex-col text-center gap-4 max-w-sm">
+                <h1 className="font-bold text-xl">التنبؤ بالحالة الصحية</h1>
+                <p>
+                  بناءً على تحليل التقرير والبيانات السابقة، يقدم النظام توقعات
+                  حول الأعراض أو المشاكل الصحية المحتملة التي قد تظهر في
+                  المستقبل.
+                </p>
+              </div>
+              <div className="bg-gradient-to-r from-[#f9f8fb] via-[#fff] to-[#eff5fd] h-[250px] w-[360px] rounded-3xl border border-[#468cbd3d] shadow-xl shadow-[#edf5fb] grid place-items-center">
+                <img src={aboutImg3} />
+              </div>
             </div>
           </div>
         </div>
