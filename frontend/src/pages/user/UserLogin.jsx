@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 // import LogIn from "../assets/Login-img.png";
 import axios from "axios";
+import bgTop from "../../Images/bgTop.png";
+
 function UserLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -12,7 +14,15 @@ function UserLogin() {
 
   // const [users, setUsers] = useState([]);
 
+  const userData = JSON.parse(localStorage.getItem("user"));
+
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (userData) {
+      navigate("/user");
+    }
+  });
 
   const handleSubmit = async (e) => {
     if (email === "" || password === "") {
@@ -20,7 +30,6 @@ function UserLogin() {
       return;
     }
 
-  
     // console.log(email, password);
 
     // const user = users.find((data) => data.email === email);
@@ -42,7 +51,7 @@ function UserLogin() {
       localStorage.setItem(
         "user",
         JSON.stringify({
-          id:response.data.user._id,
+          id: response.data.user._id,
           firstName: response.data.user.firstName,
           secondName: response.data.user.secondName,
           email: response.data.user.email,
@@ -77,11 +86,11 @@ function UserLogin() {
   };
 
   return (
-    <div dir="ltr">
-      <div className="flex items-center justify-center h-screen">
-        <div className="rounded-3xl px-4 pb-12 pt-6 shadow-xl bg-transparent z-10 shadow-[#00293333] text-center flex flex-col items-center gap-4 md:gap-8 xl:w-2/5 md:w-9/12 w-full">
+    <div className="bg-gradient-to-br from-[#dcf3ff] via-[#f5ffff] to-[#fff] to-[20%]">
+      <div className="flex items-center justify-center h-screen bg-gradient-to-tl from-[#dcf3ff] via-[#f5ffff] to-transparent md:to-[20%] to-[40%]">
+        <div className="rounded-3xl px-4 pb-12 pt-6 shadow-xl bg-white z-50 shadow-[#00293333] text-center flex flex-col items-center gap-4 md:gap-8 xl:w-2/5 md:w-9/12 w-full">
           <div className="w-full h-0 text-2xl">
-            <div className="w-fit rounded-full p-2">
+            <div className="w-fit rounded-full p-2 float-left">
               <Link to="/" className="p-2">
                 <IoIosArrowBack />
               </Link>
@@ -98,23 +107,15 @@ function UserLogin() {
           </div>
 
           <div className="w-full md:px-4 flex flex-col gap-4">
-            <p className="text-[#FF6565] text-sm text-end">{errorMessage}</p>
+            <p className="text-[#FF6565] text-sm text-start">{errorMessage}</p>
 
-            <p className="text-end">
-              <span className="text-[#EF3061]">*</span> البريد الالكتروني
+            <p className="text-start">
+              البريد الالكتروني
+              <span className="text-[#EF3061]"> *</span>
             </p>
             <label
               className={`input input-bordered border-2 ${errorBorder} flex items-center gap-2 focus-within:outline-none`}
             >
-              <input
-                type="text"
-                className="grow text-end"
-                placeholder="example@gmail.com"
-                value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
-              />
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 16 16"
@@ -124,25 +125,26 @@ function UserLogin() {
                 <path d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z" />
                 <path d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" />
               </svg>
+              <input
+                type="text"
+                className="grow"
+                placeholder="example@gmail.com"
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+              />
             </label>
           </div>
 
           <div className="w-full md:px-4 flex flex-col gap-4">
-            <p className="text-end">
-              <span className="text-[#EF3061]">*</span> كلمة المرور
+            <p className="text-start">
+              كلمة المرور
+              <span className="text-[#EF3061]"> *</span>
             </p>
             <label
               className={`input input-bordered border-2 ${errorBorder} flex items-center gap-2 focus-within:outline-none`}
             >
-              <input
-                type="password"
-                className="grow text-end"
-                placeholder="••••••••"
-                value={password}
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                }}
-              />
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 16 16"
@@ -155,10 +157,19 @@ function UserLogin() {
                   clipRule="evenodd"
                 />
               </svg>
+              <input
+                type="password"
+                className="grow"
+                placeholder="••••••••"
+                value={password}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+              />
             </label>
           </div>
 
-          <p className="text-end w-full md:px-4 text-[#737D7F] text-sm">
+          <p className="text-start w-full md:px-4 text-[#737D7F] text-sm">
             ليس لديك حساب ؟{" "}
             <span className="text-[#0AC6F2] hover:underline">
               <Link to="/user/signup">إنشاء حساب</Link>
@@ -172,16 +183,16 @@ function UserLogin() {
             >
               الدخول{" "}
               <span className="text-xl mt-1">
-                <IoMdArrowRoundForward className="hover:text-[#fff]" />
+                <IoMdArrowRoundForward className="hover:text-[#fff] rotate-180" />
               </span>
             </button>
           </div>
         </div>
 
-        <div className="absolute md:bottom-40 md:right-40 bottom-32 right-4">
-          {/* <img src={LogIn} className="h-[50px]" /> */}
+        {/* <div className="absolute md:bottom-40 md:right-40 bottom-32 right-4">
+          <img src={LogIn} className="h-[50px]" />
         </div>
-        <div className="absolute md:bottom-2/3  md:left-[88%] bottom-2/3 right-4 -z-50">
+        <div className="absolute md:top-32  md:right-52 z-30">
           <svg
             width="88"
             height="139"
@@ -217,7 +228,7 @@ function UserLogin() {
             />
           </svg>
         </div>
-        <div className="absolute md:bottom-1/4  md:right-[88%] bottom-1/4 right-4 -z-50">
+        <div className="absolute md:bottom-32  md:right-52 z-30">
           <svg
             width="88"
             height="139"
@@ -252,7 +263,7 @@ function UserLogin() {
               fill="#6622CE"
             />
           </svg>
-        </div>
+        </div> */}
       </div>
     </div>
   );

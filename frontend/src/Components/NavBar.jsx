@@ -3,6 +3,8 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { IoClose } from "react-icons/io5";
 import { HashLink as Link } from "react-router-hash-link";
 import { FiUser } from "react-icons/fi";
+import bgTop from "../Images/bgTop.png";
+import mainBg from "../Images/mainBG.png";
 
 function NavBar() {
   const [hidden, setHidden] = useState("hidden");
@@ -10,9 +12,9 @@ function NavBar() {
   const userData = JSON.parse(localStorage.getItem("user"));
 
   return (
-    <div className="bg-[#FBFBFB] p-4">
+    <div className="p-4">
       <div className="flex items-center justify-between container mx-auto px-4">
-        <div className="text-4xl font-extrabold tajawal-extralight">
+        <div className="text-4xl font-extrabold tajawal-extralight text-black">
           <Link to="/">
             {/* <img src="" className="object-cover" /> */}
             إيــفـــــاد
@@ -43,7 +45,7 @@ function NavBar() {
             to="/user/login"
             className="md:block hidden hover:scale-110 transition-transform duration-200"
           >
-            <div className="bg-gradient-to-b from-[#f96f5e99] via-[#E6BCC4] to-[#DFD0E0] font-medium text-[#002933] rounded-full p-[1px]">
+            <div className="bg-gradient-to-b from-[#f9705ea9] via-[#edb9c2] to-[#d6bcd8] font-medium text-[#002933] rounded-full p-[1px]">
               <span className="flex w-full bg-white rounded-full py-3 px-6">
                 حلل الآن
               </span>
@@ -103,10 +105,16 @@ function NavBar() {
         </div>
       </div>
 
-      <div className="block md:hidden z-30 w-full top-0 left-0 fixed bg-[#FBFBFB]">
-        <div className={`h-screen ${hidden} p-4`}>
+      <div
+        className="block md:hidden z-30 w-full top-0 left-0 fixed bg-no-repeat"
+        style={{ backgroundImage: `url(${mainBg})` }}
+      >
+        <div
+          className={`h-screen ${hidden} p-4 bg-no-repeat`}
+          style={{ backgroundImage: `url(${bgTop})` }}
+        >
           <div className="flex items-center justify-between container mx-auto px-4">
-            <div className="text-4xl font-extrabold tajawal-extralight">
+            <div className="text-4xl font-extrabold tajawal-extralight text-black">
               <Link to="/">
                 {/* <img src="" className="object-cover" /> */}
                 إيــفـــــاد
@@ -131,65 +139,69 @@ function NavBar() {
               )}
             </div>
           </div>
-          <div className="flex flex-col items-center justify-center justify- gap-10 h-[90%]">
-            <Link
-              to="/"
-              className="hover:underline underline-offset-[6px] text-xl font-bold"
-            >
-              الرئيسية
-            </Link>
-            <Link
-              to="/#about"
-              className="hover:underline underline-offset-[6px] text-xl font-bold"
-              smooth
-            >
-              حول المنصة
-            </Link>
-            <Link
-              to="/terms"
-              className="hover:underline underline-offset-[6px] text-xl font-bold"
-            >
-              المصطلحات الطبية
-            </Link>
-            <Link
-              to="/report"
-              className="hover:underline underline-offset-[6px] text-xl font-bold"
-            >
-              تحليل
-            </Link>
+          <div className="flex flex-col items-center justify-between pt-20 h-[90%]">
+            <div className="flex flex-col items-center justify-center gap-10">
+              <Link
+                to="/"
+                className="hover:underline underline-offset-[6px] text-xl font-bold"
+              >
+                الرئيسية
+              </Link>
+              <Link
+                to="/#about"
+                className="hover:underline underline-offset-[6px] text-xl font-bold"
+                smooth
+              >
+                حول المنصة
+              </Link>
+              <Link
+                to="/terms"
+                className="hover:underline underline-offset-[6px] text-xl font-bold"
+              >
+                المصطلحات الطبية
+              </Link>
+              <Link
+                to="/report"
+                className="hover:underline underline-offset-[6px] text-xl font-bold"
+              >
+                تحليل
+              </Link>
 
-            <Link
-              to="/user/history"
-              className={
-                userData
-                  ? `hover:underline underline-offset-[6px] text-xl font-bold`
-                  : "hidden"
-              }
-            >
-              الملف الشخصي
-            </Link>
+              <div className={userData ? `hidden` : ""}>
+                <Link to="/user/login">
+                  <div className="bg-gradient-to-b from-[#f9705ea9] via-[#edb9c2] to-[#d6bcd8] text-[#002933] font-medium rounded-full p-[1px]">
+                    <span className="flex w-full bg-white rounded-full py-3 px-6">
+                      حلل الآن
+                    </span>
+                  </div>
+                </Link>
+              </div>
+            </div>
 
-            <Link
-              className={
-                userData
-                  ? `hover:underline underline-offset-[6px] text-xl font-bold`
-                  : "hidden"
-              }
-              onClick={() => {
-                localStorage.removeItem("user");
-                navigate("/");
-              }}
-            >
-              تسجيل الخروج
-            </Link>
+            <div className="flex justify-between items-center w-full">
+              <Link
+                to="/user/history"
+                className={
+                  userData
+                    ? `hover:underline underline-offset-[6px] text-lg font-semibold`
+                    : "hidden"
+                }
+              >
+                الملف الشخصي
+              </Link>
 
-            <div className={userData ? `hidden` : ""}>
-              <Link to="/user/login">
-                <div className="bg-gradient-to-b from-[#f96f5e99] via-[#E6BCC4] to-[#DFD0E0] text-[#002933] font-medium rounded-full p-[1px]">
-                  <span className="flex w-full bg-white rounded-full py-3 px-6">
-                    حلل الآن
-                  </span>
-                </div>
+              <Link
+                className={
+                  userData
+                    ? `hover:underline underline-offset-[6px] text-lg font-semibold`
+                    : "hidden"
+                }
+                onClick={() => {
+                  localStorage.removeItem("user");
+                  navigate("/");
+                }}
+              >
+                تسجيل الخروج
               </Link>
             </div>
           </div>

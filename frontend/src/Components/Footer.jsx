@@ -1,12 +1,13 @@
 import React from "react";
 import { HashLink as Link } from "react-router-hash-link";
+import bgTop from "../Images/bgTop.png";
 
 function Footer() {
   return (
-    <div className="bg-[#FBFBFB] p-4">
+    <div className="p-4" style={{ backgroundImage: `url(${bgTop})` }}>
       <div className="flex flex-col md:flex-row items-center justify-between container gap-20 md:text-start text-center mx-auto py-3 px-4">
         <div className="flex flex-col items-center md:flex-row gap-6">
-          <Link to="/" className="text-4xl font-extrabold tajawal-extralight">
+          <Link to="/" className="text-4xl font-extrabold text-black tajawal-extralight">
             {/* <img src="" className="object-cover" /> */}
             إيــفـــــاد
           </Link>
