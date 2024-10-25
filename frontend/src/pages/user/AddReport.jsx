@@ -53,7 +53,6 @@ function AddReport() {
           {uploadData && <Results data={uploadData} />}
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

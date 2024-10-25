@@ -8,11 +8,7 @@ import UserLogin from "./pages/user/UserLogin";
 import UserSignup from "./pages/user/UserSignup";
 import UserInfo from "./pages/user/UserInfo";
 import HomeUser from "./pages/user/HomeUser";
-import Results from "./Components/user/Results";
 import ResultsHistory from "./Components/user/ResultsHistory";
-import ResultHistory from "./Components/user/ResultHistory";
-// import Results from "./Components/user/Results";
-// import Witing from "./Components/Witing";
 
 const router = createBrowserRouter([
   {
@@ -21,17 +17,12 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   { path: "/terms", element: <MedicalTerms /> },
-
   { path: "/user", element: <HomeUser /> },
   { path: "/user/login", element: <UserLogin /> },
   { path: "/user/signup", element: <UserSignup /> },
   { path: "/report", element: <AddReport /> },
-  { path: "/user/history", element:  <UserInfo />}, // just add an ID to the path
-  // { path: "/Results", element: <Results /> }, // this must be deleted
+  { path: "/user/history", element: <UserInfo /> },
   { path: "/reports/:id", element: <ResultsHistory /> },
-  // { path: "/asd", element: <ResultHistory /> },
-  // { path: "/Results", element: <Results /> }, // this must be deleted
-  // { path: "/Witing", element: <Witing /> }, // this must be deleted
 ]);
 
 function Router() {

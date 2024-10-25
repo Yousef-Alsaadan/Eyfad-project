@@ -2,64 +2,81 @@
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
 
 body {
-    font-family: "Noto Sans Arabic", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-    font-variation-settings:
-        "wdth" 100;
+  font-family: "Noto Sans Arabic", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
 }
 
 .tajawal-extralight {
-    font-family: "Tajawal", sans-serif;
-    font-style: normal;
+  font-family: "Tajawal", sans-serif;
+  font-style: normal;
 }
+
 .highlight {
-    background-color: rgba(250, 229, 155, 0.38);  
-    display: inline; 
-  }
+  background-color: rgba(250, 229, 155, 0.38);
+  display: inline;
+  padding: 0 1rem 0 1rem;
+}
+
 @keyframes moveUp {
-    0% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px); /* Move up */
-    }
-    100% {
-      transform: translateY(0); /* Move back down */
-    }
+  0% {
+    transform: translateY(0);
   }
-  
-  @keyframes moveDown {
-    0% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(10px); /* Move down */
-    }
-    100% {
-      transform: translateY(0); /* Move back up */
-    }
+
+  50% {
+    transform: translateY(-10px);
+    /* Move up */
   }
-  
-  .move-up {
-    animation: moveUp 1s ease-in-out infinite; /* Up and down animation */
+
+  100% {
+    transform: translateY(0);
+    /* Move back down */
   }
-  
-  .move-down {
-    animation: moveDown 1s ease-in-out infinite; /* Down and up animation */
+}
+
+@keyframes moveDown {
+  0% {
+    transform: translateY(0);
   }
-  .animated-path {
-    animation: pulse 1.5s infinite;
+
+  50% {
+    transform: translateY(10px);
+    /* Move down */
   }
-  
-  @keyframes pulse {
-    0% {
-      fill: #a89cc4;
-    }
-    50% {
-      fill: #3B4D68; /* Change to any color you like */
-    }
-    100% {
-      fill: #537aad;
-    }
+
+  100% {
+    transform: translateY(0);
+    /* Move back up */
   }
+}
+
+.move-up {
+  animation: moveUp 1s ease-in-out infinite;
+  /* Up and down animation */
+}
+
+.move-down {
+  animation: moveDown 1s ease-in-out infinite;
+  /* Down and up animation */
+}
+
+.animated-path {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    fill: #a89cc4;
+  }
+
+  50% {
+    fill: #3B4D68;
+    /* Change to any color you like */
+  }
+
+  100% {
+    fill: #537aad;
+  }
+}

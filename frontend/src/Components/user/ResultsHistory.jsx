@@ -29,7 +29,7 @@ function ResultsHistory() {
       style={{ backgroundImage: `url(${bgImage})` }}
     >
       <div className="container m-auto px-4 pb-4">
-        <Title title="نتيجتك" linkPath={`/reports/${id}`}></Title>
+        <Title title="نتيجتك" linkPath={`/user/history`}></Title>
       </div>
       <div className="grid place-items-center xl:p-0 p-8">
         <div className="overflow-y-scroll no-scrollbar max-h-[620px] h-[620px] lg:w-[830px] md:w-[650px] w-[330px] border border-[#524FE1] rounded-xl p-4 flex justify-between flex-col">
