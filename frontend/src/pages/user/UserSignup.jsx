@@ -15,7 +15,15 @@ function UserSignup() {
 
   // const [users, setUsers] = useState([]);
 
+  const userData = JSON.parse(localStorage.getItem("user"));
+
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (userData) {
+      navigate("/user");
+    }
+  });
 
   const handleSubmit = () => {
     if (
@@ -64,7 +72,7 @@ function UserSignup() {
         localStorage.setItem(
           "user",
           JSON.stringify({
-            id:response.data.user._id,
+            id: response.data.user._id,
             firstName: response.data.user.firstName,
             secondName: response.data.user.secondName,
             email: response.data.user.email,
@@ -95,28 +103,28 @@ function UserSignup() {
   };
 
   return (
-    <div dir="ltr">
-      <div className="flex items-center justify-center h-screen">
-        <div className="rounded-3xl px-4 pb-12 pt-6 shadow-xl bg-transparent z-10 shadow-[#00293333] text-center flex flex-col items-center gap-4 md:gap-8 xl:w-2/5 md:w-9/12 w-full">
+    <div className="bg-gradient-to-br from-[#dcf3ff] via-[#f5ffff] to-[#fff] to-[20%]">
+      <div className="flex items-center justify-center h-screen bg-gradient-to-tl from-[#dcf3ff] via-[#f5ffff] to-transparent md:to-[20%] to-[40%]">
+        <div className="rounded-3xl px-4 pb-12 pt-6 shadow-xl bg-transparent z-50 shadow-[#00293333] text-center flex flex-col items-center gap-4 md:gap-8 xl:w-2/5 md:w-9/12 w-full">
           <div className="w-full h-0 text-2xl">
-            <div className="w-fit rounded-full p-2">
+            <div className="w-fit rounded-full p-2 float-left">
               <Link to="/" className="h-fit p-2">
                 <IoIosArrowBack />
               </Link>
             </div>
           </div>
 
-          <h1 className="font-medium text-4xl text-end">إنشاء حساب</h1>
+          <h1 className="font-medium text-4xl">إنشاء حساب</h1>
 
           <div className="flex flex-col gap-2">
             <p className="text-[#737D7F] text-sm">
-              الرجاء إدخال بريدك الإلكتروني وكلمة المرور أدناه <br />
+              الـرجـاء إدخــال بيـانــاتـك أدنــاه <br />
               للوصول إلى إيفاد
             </p>
           </div>
 
           <div className="w-full">
-            <p className="text-[#FF6565] text-sm md:px-4 mb-2 text-end">
+            <p className="text-[#FF6565] text-sm md:px-4 mb-2 text-start">
               {errorMessage}
             </p>
 
@@ -124,15 +132,6 @@ function UserSignup() {
               <label
                 className={`input input-bordered ${errorBorder} border-2 flex items-center gap-2 md:w-1/2 focus-within:outline-none`}
               >
-                <input
-                  type="text"
-                  className="grow text-end"
-                  placeholder="الاسم الاخير"
-                  value={secondName}
-                  onChange={(e) => {
-                    setSecondName(e.target.value);
-                  }}
-                />
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 16 16"
@@ -141,19 +140,19 @@ function UserSignup() {
                 >
                   <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
                 </svg>
-              </label>
-              <label
-                className={`input input-bordered ${errorBorder} border-2 flex items-center gap-2 md:w-1/2 focus-within:outline-none`}
-              >
                 <input
                   type="text"
-                  className="grow text-end"
+                  className="grow"
                   placeholder="الاسم الاول"
                   value={firstName}
                   onChange={(e) => {
                     setFirstName(e.target.value);
                   }}
                 />
+              </label>
+              <label
+                className={`input input-bordered ${errorBorder} border-2 flex items-center gap-2 md:w-1/2 focus-within:outline-none`}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 16 16"
@@ -162,26 +161,27 @@ function UserSignup() {
                 >
                   <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
                 </svg>
+                <input
+                  type="text"
+                  className="grow"
+                  placeholder="الاسم الاخير"
+                  value={secondName}
+                  onChange={(e) => {
+                    setSecondName(e.target.value);
+                  }}
+                />
               </label>
             </div>
           </div>
 
           <div className="w-full md:px-4 flex flex-col gap-4">
-            <p className="text-end">
-              <span className="text-[#EF3061]">*</span> البريد الالكتروني
+            <p className="text-start">
+              البريد الالكتروني
+              <span className="text-[#EF3061]"> *</span>
             </p>
             <label
               className={`input input-bordered border-2 ${errorBorder} flex items-center gap-2 focus-within:outline-none`}
             >
-              <input
-                type="text"
-                className="grow text-end"
-                placeholder="example@gmail.com"
-                value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
-              />
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 16 16"
@@ -191,25 +191,26 @@ function UserSignup() {
                 <path d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z" />
                 <path d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" />
               </svg>
+              <input
+                type="text"
+                className="grow"
+                placeholder="example@gmail.com"
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+              />
             </label>
           </div>
 
           <div className="w-full md:px-4 flex flex-col gap-4">
-            <p className="text-end">
-              <span className="text-[#EF3061]">*</span> كلمة المرور
+            <p className="text-start">
+              كلمة المرور
+              <span className="text-[#EF3061]"> *</span>
             </p>
             <label
               className={`input input-bordered border-2 ${errorBorder} flex items-center gap-2 focus-within:outline-none`}
             >
-              <input
-                type="password"
-                className="grow text-end"
-                placeholder="••••••••"
-                value={password}
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                }}
-              />
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 16 16"
@@ -222,10 +223,19 @@ function UserSignup() {
                   clipRule="evenodd"
                 />
               </svg>
+              <input
+                type="password"
+                className="grow"
+                placeholder="••••••••"
+                value={password}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+              />
             </label>
           </div>
 
-          <p className="text-end w-full md:px-4 text-[#737D7F] text-sm">
+          <p className="text-start w-full md:px-4 text-[#737D7F] text-sm">
             ليس لديك حساب ؟{"  "}
             <span className="text-[#0AC6F2] hover:underline">
               <Link to="/user/login">تسجيل دخول</Link>
@@ -240,13 +250,13 @@ function UserSignup() {
               {" "}
               إنشاء حساب
               <span className="text-xl mt-1">
-                <IoMdArrowRoundForward className="hover:text-[#fff] " />
+                <IoMdArrowRoundForward className="hover:text-[#fff] rotate-180" />
               </span>
             </button>
           </div>
         </div>
 
-        <div className="absolute md:bottom-2/3  md:left-[88%] bottom-2/3 right-4 -z-50">
+        {/* <div className="absolute md:bottom-2/3  md:left-[88%] bottom-2/3 right-4 -z-50">
           <svg
             width="88"
             height="139"
@@ -317,7 +327,7 @@ function UserSignup() {
               fill="#6622CE"
             />
           </svg>
-        </div>
+        </div> */}
       </div>
     </div>
   );
