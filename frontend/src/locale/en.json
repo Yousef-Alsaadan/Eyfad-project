@@ -1,0 +1,50 @@
+{
+    "app": {
+      "title": "Eyfad",
+      "hero": {
+        "header1": "Your platform to understand and analyze ",
+        "header2": "medical reports intelligently",
+        "description": "An innovative platform that simplifies complex medical reports, provides health recommendations, and offers a trusted medical team to answer your questions.",
+        "analyzeNow": "Analyze Now",
+        "uploadReport": "Upload Medical Report",
+        "ai": "Artificial Intelligence",
+        "simpleExplanation": "Simple and Personalized Explanation",
+        "explanationSample": "Hemoglobin (Hemoglobin):<br><br>Result: 13.5 g/dL<br><br>Status: Normal<br><br>Explanation: Your hemoglobin level is within the normal range, indicating no issues related to anemia."
+      },
+      "features": {
+        "title": "Additionally:",
+        "tracking": {
+          "title": "Tracking and Record Keeping",
+          "description": "Users can store all their health reports within the platform, enabling them to track their health progress over time and review any changes or improvements."
+        },
+        "recommendations": {
+          "title": "Health Recommendations",
+          "description": "Based on analysis results, personalized medical advice is offered to improve users' health. These recommendations may include dietary changes or general health tips."
+        },
+        "prediction": {
+          "title": "Health Prediction",
+          "description": "Based on report analysis and past data, the system provides predictions on potential symptoms or health issues that may arise in the future."
+        }
+      },
+      "contact": {
+        "title": "Contact the Developers",
+        "developer1": {
+          "role": "Software Developer",
+          "name": "Yousef Alsaadan"
+        },
+        "developer2": {
+          "role": "Software Developer",
+          "name": "Ahmed Alharbi"
+        },
+        "developer3": {
+          "role": "Software Developer",
+          "name": "Nourah Altuwaim"
+        },
+        "developer4": {
+          "role": "Software Developer",
+          "name": "Mada"
+        }
+      }
+    }
+  }
+  
