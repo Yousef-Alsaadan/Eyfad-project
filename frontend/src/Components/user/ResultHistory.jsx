@@ -60,7 +60,9 @@ function ResultHistory() {
                   fileName={`${el.testName} test.pdf`}
                 />
               ))
-            : ""}
+            : 
+           ""
+            }
         </div>
       </div>
     </div>

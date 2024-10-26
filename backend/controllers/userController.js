@@ -4,23 +4,7 @@ const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv");
 const bcrypt = require("bcrypt");
 dotenv.config();
-// function authenticateToken(req, res, next) {
 
-//     const token = req.headers['authorization'];
-
-//     if (!token) return res.status(401).json({ message: 'Access Denied' });
-
-//     jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
-
-//     if (err) return res.status(403).json({ message: 'Invalid Token' });
-
-//     req.user = user; // إضافة بيانات المستخدم إلى الطلب
-
-//     next();
-
-//     });
-
-//     }
 const signupUser = [
   body("firstName").isLength({ min: 3 }),
   body("firstName").isLength({ min: 3 }),
@@ -90,7 +74,7 @@ const logIn = async (req, res) => {
     const token = jwt.sign(
       { id: user._id, email: user.email }, // User data to include in the token
       process.env.JWT_SECRET, // Secret key
-      { expiresIn: "1h" } // Token expiration
+      { expiresIn: "5h" } // Token expiration
     );
     res.status(200).json({ message: "Login successful", user, token });
   } catch (error) {

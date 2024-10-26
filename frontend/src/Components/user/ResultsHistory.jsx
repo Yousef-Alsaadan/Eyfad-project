@@ -44,9 +44,11 @@ function ResultsHistory() {
                     analysisName={el.analysisName}
                     res={el.result}
                     unit={el.unit}
-                    isNom={el.isNormal}
+                    mngmnt={el.management}
                     desc={el.description}
                     rec={el.recommendations}
+                    refReng={el.referenceRange}
+                    symptoms={el.symptoms}
                   />
                 ))
               : ""}
