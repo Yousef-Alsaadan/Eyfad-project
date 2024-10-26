@@ -2,7 +2,7 @@ import React from "react";
 
 const InfoBox = ({ title, description }) => {
   return (
-    <div className="p-6 sm:p-10 md:p-12 md:px-20 space-y-6   shadow-2xl max-w-2xl w-full ">
+    <div className="p-6 sm:p-10 md:p-12 md:px-20 space-y-6 bg-white min-h-[350px] rounded-3xl shadow-lg max-w-2xl w-full ">
       <div className="flex flex-col-reverse md:flex-row items-center gap-3 md:gap-5">
         <div>
           <svg

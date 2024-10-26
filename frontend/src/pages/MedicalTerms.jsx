@@ -9,6 +9,7 @@ function MedicalTerms() {
   const [searchTerm, setSearchTerm] = useState("");
   const [result, setResult] = useState("");
   const [error, setError] = useState("");
+  const [errorBorder, setErrorBorder] = useState("");
 
   const handleSearch = async (e) => {
     e.preventDefault();
@@ -16,6 +17,11 @@ function MedicalTerms() {
     const OPENAI_API_KEY = import.meta.env.VITE_OPENAI_API_KEY;
 
     try {
+      if (searchTerm === "") {
+        setErrorBorder("border-[#FF6565]"); // if the search term empty don't search
+        return;
+      }
+      setErrorBorder(""); // Reset error border if successful request
       const response = await axios.post(
         "https://api.openai.com/v1/chat/completions",
         {
@@ -89,7 +95,7 @@ function MedicalTerms() {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="ابحث عن المصطلح الطبي ..."
-                className="w-full px-6 h-12 border rounded-full shadow-sm focus:outline-none"
+                className={`${errorBorder} w-full px-6 h-12 border rounded-full shadow-sm focus:outline-none`}
               />
               <button className="absolute top-0 left-0 h-full flex items-center px-3 hover:scale-110  transition duration-200 ease-in-out hover:text-gray-700 group">
                 <svg
@@ -121,16 +127,19 @@ function MedicalTerms() {
           </div>
 
           {/* Info Box */}
-          {result && (
-            <InfoBox
-              title={` ${searchTerm}`}
-              description={
-                <div style={{ direction: "rtl", textAlign: "right" }}>
-                  {formatResult(result)} {/* Format and display the result */}
-                </div>
-              }
-            />
-          )}
+          {searchTerm === "" && !result
+            ? ""
+            : result && (
+                <InfoBox
+                  title={` ${searchTerm}`}
+                  description={
+                    <div style={{ direction: "rtl", textAlign: "right" }}>
+                      {formatResult(result)}{" "}
+                      {/* Format and display the result */}
+                    </div>
+                  }
+                />
+              )}
 
           {/* Error Message */}
           {error && <div className="text-red-500">{error}</div>}
