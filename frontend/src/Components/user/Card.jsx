@@ -1,19 +1,18 @@
 import React from "react";
 
-const Card = ({ date, testName, onClick,fileName }) => {
-
+const Card = ({ date, testName, onClick, fileName }) => {
   return (
-   
-    <div onClick={onClick}
-      dir="ltr"
-      className="  flex flex-col lg:flex-row gap-5 bg-white   rounded-lg p-6 hover:shadow-lg transition-shadow duration-300"
+    <div
+      onClick={onClick}
+      className="  flex flex-col lg:flex-row gap-5 rounded-lg p-6 hover:shadow-lg transition-shadow duration-300"
     >
-      <div className="border-r-2 border-gray-300 text-sm text-gray-500 px-4">
-        {date}
-      </div>
+      <div className="border-r-2 border-gray-300 px-0"></div>
       <div className="flex-1">
-        <h3 className="text-lg font-semibold text-gray-800 mb-2">{testName}</h3>
-        <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4">
+        <div className="flex w-full items-center justify-between mb-2">
+          <h3 className="text-lg font-semibold text-gray-800">{testName}</h3>
+          <p className="text-sm text-gray-500">{date}</p>
+        </div>
+        <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4 w-full justify-between">
           <div className="flex items-center gap-2 text-gray-600">
             <svg
               width="18"
@@ -33,7 +32,7 @@ const Card = ({ date, testName, onClick,fileName }) => {
             <p>من قبل الذكاء الاصطناعي</p>
           </div>
 
-          <button className="bg-white border-2 border-gray-300 px-4 py-2 rounded-xl text-gray-600 hover:bg-gray-100 transition-colors">
+          <button className="flex items-center justify-center bg-white border-2 border-gray-300 xl:p-4 lg:p-2 p-4 rounded-xl text-gray-600 hover:bg-gray-100 transition-colors xl:w-6/12 lg:w-9/12">
             <div className="flex items-center gap-2">
               <svg
                 width="20"
@@ -50,7 +49,16 @@ const Card = ({ date, testName, onClick,fileName }) => {
                   strokeLinejoin="round"
                 />
               </svg>
-              <p>{fileName}</p>
+              <p dir="ltr" className="lg:block hidden">
+                {fileName.length > 25
+                  ? fileName.split("").slice(0, 25).join("") + "..."
+                  : fileName}
+              </p>
+              <p dir="ltr" className="lg:hidden block">
+                {fileName.length > 20
+                  ? fileName.split("").slice(0, 20).join("") + "..."
+                  : fileName}
+              </p>
             </div>
           </button>
         </div>

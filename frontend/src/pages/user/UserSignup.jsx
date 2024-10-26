@@ -209,7 +209,7 @@ function UserSignup() {
               <span className="text-[#EF3061]"> *</span>
             </p>
             <label
-              className={`input input-bordered border-2 ${errorBorder} flex items-center gap-2 focus-within:outline-none`}
+              className={`input noto_font input-bordered border-2 ${errorBorder} flex items-center gap-2 focus-within:outline-none`}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

@@ -44,7 +44,7 @@ function Home() {
             </h1>
             <p className="mb-5 text-[#04040499]">
               منصة مبتكرة لتحليل التقارير الطبية المعقدة بطريقة مبسطة. نقدم
-              توصيات صحية ونوفر فريق طبي موثوق للإجابة على استفساراتك.
+              توصيات صحية ونوفر معجم شامل لجميع الوحدات والمصطلحات الطبية.
             </p>
 
             <HeroSvg2 />
@@ -55,7 +55,7 @@ function Home() {
             >
               <div className="bg-gradient-to-l from-[#f9705ea9] via-[#edb9c2] to-[#d6bcd8] text-[#002933] font-medium rounded-full p-[1px]">
                 <span className="flex w-full bg-transparent rounded-full py-3 px-10 hover:text-[#002933]">
-                  حلل الآن
+                  ابدأ الآن
                 </span>
               </div>
             </Link>
@@ -199,7 +199,7 @@ function Home() {
                 </h1>
 
                 <div className="bg-white h-[250px] w-[360px] rounded-3xl shadow-lg grid place-items-center">
-                  <img src={reportIcon} className="mt-8 w-72"/>
+                  <img src={reportIcon} className="mt-8 w-72" />
                 </div>
               </div>
 

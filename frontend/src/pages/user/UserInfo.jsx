@@ -4,6 +4,9 @@ import NavBar from "../../Components/NavBar";
 import Footer from "../../Components/Footer";
 import { useNavigate } from "react-router-dom";
 
+import bgImage from "../../Images/bgUserPage.png";
+import bgTop from "../../Images/bgTop.png";
+
 function UserInfo() {
   const navigate = useNavigate();
 
@@ -14,20 +17,30 @@ function UserInfo() {
     }
   });
   return (
-    <div >
-      <NavBar />
-      <div className="grid grid-cols-5 h-screen">
-        {/* First column for the user name */}
-        <div className="bg-blue-200 p-4 rounded-lg border">
-          <h1 className="text-xl font-bold text-center">{userData.firstName +"  "+userData.secondName}</h1>
-        </div>
+    <div
+      className="bg-no-repeat bg-cover bg-center"
+      style={{ backgroundImage: `url(${bgImage})` }}
+    >
+      <div
+        className={` bg-no-repeat`}
+        style={{ backgroundImage: `url(${bgTop})` }}
+      >
+        <NavBar />
+        <div className="grid md:grid-cols-5">
+          {/* First column for the user name */}
+          <div className="p-4 border-l md:block hidden">
+            <h1 className="text-xl font-bold text-center">
+              {userData ? userData.firstName + "  " + userData.secondName : ""}
+            </h1>
+          </div>
 
-        {/* Second column for ResultHistory */}
-        <div className="col-span-4 bg-white p-4">
-          <ResultHistory />
+          {/* Second column for ResultHistory */}
+          <div className="col-span-4 p-4">
+            <ResultHistory />
+          </div>
         </div>
+        <Footer />
       </div>
-      <Footer />
     </div>
   );
 }

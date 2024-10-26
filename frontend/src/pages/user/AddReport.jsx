@@ -25,21 +25,10 @@ function AddReport() {
   };
 
   return (
-    <div className="bg-custom-gradient min:h-screen overflow-hidden lg:h-screen  ">
+    <div className="bg-custom-gradient pb-10 min-h-screen">
       <NavBar />
-      <div className="container m-auto w-full text-center xl:h-screen h-[85vh] mt-10 p-2 px-4 ">
-        {!isUploading && !uploadData && (
-          <Title
-            title="اكتشف نتائج تقريرك بسرعة مع الذكاء الاصطناعي"
-            linkPath="/user"
-          />
-        )}
-
-        {isUploading && <Title title="نقوم الآن بتحليل نتيجتك ..." />}
-
-        {uploadData && <Title title="نتيجتك" linkPath="/user" />}
-
-        <div className="mt-8">
+      <div className="container m-auto w-full h-full text-center mt-10 p-2 px-4">
+        <div className="">
           {/* Show the appropriate component based on the upload state */}
           {!isUploading && !uploadData && (
             <FileUpload

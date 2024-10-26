@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import titleimage from "../images/title.png";
 
-const Title = ({ title, linkPath }) => {
+const Title = ({ title, linkPath, hidden }) => {
   return (
     <div className="flex justify-between items-center">
       {/*
@@ -21,7 +21,7 @@ const Title = ({ title, linkPath }) => {
       </div>
 
       {/*  */}
-      <div>
+      <div className={hidden}>
         <Link
           to={linkPath}
           className="hover:scale-110 transition-transform duration-200 flex items-center"

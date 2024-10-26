@@ -5,11 +5,14 @@ import { HashLink as Link } from "react-router-hash-link";
 import { FiUser } from "react-icons/fi";
 import bgTop from "../Images/bgTop.png";
 import mainBg from "../Images/mainBG.png";
+import { useNavigate } from "react-router-dom";
 
 function NavBar() {
   const [hidden, setHidden] = useState("hidden");
 
   const userData = JSON.parse(localStorage.getItem("user"));
+
+  const navigate = useNavigate();
 
   return (
     <div className="p-4">
@@ -47,7 +50,7 @@ function NavBar() {
           >
             <div className="bg-gradient-to-b from-[#f9705ea9] via-[#edb9c2] to-[#d6bcd8] font-medium text-[#002933] rounded-full p-[1px]">
               <span className="flex w-full bg-white rounded-full py-3 px-6">
-                حلل الآن
+                ابدأ الآن
               </span>
             </div>
           </Link>
@@ -171,7 +174,7 @@ function NavBar() {
                 <Link to="/user/login">
                   <div className="bg-gradient-to-b from-[#f9705ea9] via-[#edb9c2] to-[#d6bcd8] text-[#002933] font-medium rounded-full p-[1px]">
                     <span className="flex w-full bg-white rounded-full py-3 px-6">
-                      حلل الآن
+                      ابدأ الآن
                     </span>
                   </div>
                 </Link>

@@ -1,12 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
 
-body {
+.noto_font {
   font-family: "Noto Sans Arabic", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
   font-variation-settings:
     "wdth" 100;
+}
+
+body {
+  font-family: "Cairo", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0;
 }
 
 .tajawal-extralight {

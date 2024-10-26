@@ -80,7 +80,7 @@ function MedicalTerms() {
           }
           linkPath="/"
         />{" "}
-        <div className="flex flex-col items-center p-6 space-y-6">
+        <div className="flex flex-col items-center p-6 space-y-6 mt-4">
           {/* Search Bar */}
           <div className="relative w-full max-w-lg mb-10">
             <form onSubmit={handleSearch}>
