@@ -5,6 +5,8 @@ import Footer from "../Components/Footer";
 import Title from "../Components/Title";
 import InfoBox from "../Components/InfoBox";
 
+import emptySearchIcon from "../Images/emptySearchIcon.png";
+
 function MedicalTerms() {
   const [searchTerm, setSearchTerm] = useState("");
   const [result, setResult] = useState("");
@@ -132,19 +134,23 @@ function MedicalTerms() {
           </div>
 
           {/* Info Box */}
-          {searchTerm === "" && !result
-            ? ""
-            : result && (
-                <InfoBox
-                  title={` ${searchTerm}`}
-                  description={
-                    <div style={{ direction: "rtl", textAlign: "right" }}>
-                      {formatResult(result)}{" "}
-                      {/* Format and display the result */}
-                    </div>
-                  }
-                />
-              )}
+          {!result ? (
+            <div className="flex flex-col">
+              <img src={emptySearchIcon} className="h-[330px] object-cover" />
+              <h1 className="text-3xl text-gray-400">لم يتم البحث</h1>
+            </div>
+          ) : (
+            result && (
+              <InfoBox
+                title={` ${searchTerm}`}
+                description={
+                  <div style={{ direction: "rtl", textAlign: "right" }}>
+                    {formatResult(result)} {/* Format and display the result */}
+                  </div>
+                }
+              />
+            )
+          )}
 
           {/* Error Message */}
           {/* {error && <div className="text-red-500">{error}</div>} */}
