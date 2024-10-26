@@ -91,7 +91,7 @@ function MedicalTerms() {
         <div className="flex flex-col items-center p-6 space-y-6 mt-4">
           {/* Search Bar */}
           <div className="relative w-full max-w-lg mb-10">
-            <form onSubmit={handleSearch}>
+            <form onSubmit={handleSearch} className="flex items-center">
               <input
                 type="text"
                 value={searchTerm}
@@ -99,7 +99,7 @@ function MedicalTerms() {
                 placeholder="ابحث عن المصطلح الطبي ..."
                 className={`${errorBorder} w-full px-6 h-12 border rounded-full shadow-sm focus:outline-none`}
               />
-              <button className="absolute top-0 left-0 h-full flex items-center px-3 hover:scale-110  transition duration-200 ease-in-out hover:text-gray-700 group">
+              <button className="absolute left-0 px-3 hover:scale-110  transition duration-200 ease-in-out hover:text-gray-700 group">
                 <svg
                   className="w-10 h-10 text-gray-500 "
                   width="48"

@@ -46,7 +46,7 @@ function Results({ data }) {
                     </span>
                   </div>
                   <div className="collapse-content bg-[#F9FAFC] text-sm font-bold flex flex-col gap-4">
-                    <p>{analysis.description}</p>
+                    <p>{analysis.description}.</p>
 
                     <span className="pt-4 font-bold text-2xl">التحليل</span>
 
@@ -64,24 +64,24 @@ function Results({ data }) {
                     <p className="pt-4">طريقة التعامل عندما يكون:</p>
                     <p>
                       مرتفع عن الطبيعي:{" "}
-                      {analysis.management.high || "غير متوفرة"}
+                      {analysis.management.high || "غير متوفرة"}.
                     </p>
                     <p>
                       منخفض عن الطبيعي:{" "}
-                      {analysis.management.low || "غير متوفرة"}
+                      {analysis.management.low || "غير متوفرة"}.
                     </p>
 
                     {/* Symptoms */}
                     <div>
                       <p className="font-bold text-lg">الأعراض المحتملة عند:</p>
-                      <p>الارتفاع: {analysis.symptoms.high || "غير متوفرة"}</p>
-                      <p>الانخفاض: {analysis.symptoms.low || "غير متوفرة"}</p>
+                      <p>الارتفاع: {analysis.symptoms.high || "غير متوفرة"}.</p>
+                      <p>الانخفاض: {analysis.symptoms.low || "غير متوفرة"}.</p>
                     </div>
 
                     {/* Recommendations */}
                     <div>
                       <p className="font-bold text-lg">التوصيات:</p>
-                      <p>{analysis.recommendations || "لا توجد توصيات"}</p>
+                      <p>{analysis.recommendations || "لا توجد توصيات"}.</p>
                     </div>
                   </div>
                 </div>
@@ -90,7 +90,7 @@ function Results({ data }) {
           )}
 
           <div className="pt-4">
-            <p>جميع النتائج المتبيقة في النطاق السليم</p>
+            <p>جميع النتائج المتبيقة في النطاق السليم.</p>
           </div>
         </div>
 

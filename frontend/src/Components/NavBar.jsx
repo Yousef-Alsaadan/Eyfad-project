@@ -39,7 +39,7 @@ function NavBar() {
             المصطلحات الطبية
           </Link>
           <Link to="/report" className="hover:underline underline-offset-[6px]">
-            تحليل
+            التحليل الذكي
           </Link>
         </div>
 
@@ -167,7 +167,7 @@ function NavBar() {
                 to="/report"
                 className="hover:underline underline-offset-[6px] text-xl font-bold"
               >
-                تحليل
+                التحليل الذكي
               </Link>
 
               <div className={userData ? `hidden` : ""}>

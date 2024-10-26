@@ -193,7 +193,7 @@ function Home() {
             <h1 className="font-bold text-5xl">كيف يعمل إيـفـــاد</h1>
 
             <div className="flex xl:flex-row flex-col gap-20 xl:gap-0 items-center justify-between mt-20">
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-4 xl:mb-0 mb-20">
                 <h1 className="font-extrabold text-3xl mx-8">
                   رفع التقرير الطبي
                 </h1>
@@ -567,7 +567,7 @@ function Home() {
               <div className="flex flex-col items-center justify-between h-full">
                 <p className="text-[#6B6969] text-lg">Software Developer</p>
 
-                <p className="font-bold text-2xl">مدى</p>
+                <p className="font-bold text-2xl">مدى الوذيناني</p>
 
                 <div className="flex items-center justify-around w-full border-dashed rounded-lg border border-[#2b44e740] p-1">
                   <a

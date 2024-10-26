@@ -16,7 +16,7 @@ const Title = ({ title, linkPath, hidden }) => {
           /> */}
         </div>
         <div className="mb-4 md:mb-0 text-start">
-          <h1 className="font-bold md:text-3xl text-xl leading-10">{title}</h1>
+          <h1 className="font-bold md:text-3xl text-xl leading-10 md:max-w-full max-w-64">{title}</h1>
         </div>
       </div>
 

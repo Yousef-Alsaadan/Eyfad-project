@@ -37,9 +37,9 @@ const HomeUser = () => {
             كيف يمكننا مساعدتك اليوم؟
           </h1>
 
-          <div className="flex flex-col lg:flex-row gap-4 lg:gap-12 md:gap-28 w-3/4 mt-14 justify-center items-center px-5">
-            <Link to={"/report"}>
-              <div className="bg-[rgba(255,255,255,0.29)] border-2 border-[rgba(43,68,231,0.23)] px-4 pt-5 pb-10 w-full rounded-xl text-gray-600 shadow-[0_4px_10px_rgba(43,68,231,0.2)] transition-colors cursor-pointer hover:bg-white">
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-12 md:gap-28 xl:w-3/4 w-full mt-14 justify-center items-center px-5">
+            <Link to={"/report"} className="w-full">
+              <div className="lg:h-[200px] h-auto bg-[rgba(255,255,255,0.29)] border-2 border-[rgba(43,68,231,0.23)] px-4 pt-5 pb-10 w-full rounded-xl text-gray-600 shadow-[0_4px_10px_rgba(43,68,231,0.2)] transition-colors cursor-pointer hover:bg-white">
                 <div className="flex flex-col sm:flex-row items-center gap-2">
                   <svg
                     width="15"
@@ -55,7 +55,7 @@ const HomeUser = () => {
                       strokeLinecap="round"
                     />
                   </svg>
-                  <h1 className="font-bold">
+                  <h1 className="font-bold text-center md:text-start">
                     اكتشف نتائج تقريرك بسرعة مع الذكاء الاصطناعي
                   </h1>
                 </div>
@@ -69,8 +69,8 @@ const HomeUser = () => {
               </div>
             </Link>
 
-            <Link to={"/terms"}>
-              <div className="bg-[rgba(255,255,255,0.29)] border-2 border-[rgba(43,68,231,0.23)] px-4 pt-5 pb-10 w-full rounded-xl text-gray-600 shadow-[0_4px_10px_rgba(43,68,231,0.2)] transition-colors cursor-pointer hover:bg-white">
+            <Link to={"/terms"} className="w-full">
+              <div className="lg:h-[200px] h-auto bg-[rgba(255,255,255,0.29)] border-2 border-[rgba(43,68,231,0.23)] px-4 pt-5 pb-10 w-full rounded-xl text-gray-600 shadow-[0_4px_10px_rgba(43,68,231,0.2)] transition-colors cursor-pointer hover:bg-white">
                 <div className="flex flex-col sm:flex-row items-center gap-2">
                   <svg
                     width="26"
@@ -97,7 +97,7 @@ const HomeUser = () => {
                       strokeLinecap="round"
                     />
                   </svg>
-                  <h1 className="font-bold">
+                  <h1 className="font-bold text-center md:text-start">
                     ابحث عن مصطلح طبي تود المعرفة عنه
                   </h1>
                 </div>

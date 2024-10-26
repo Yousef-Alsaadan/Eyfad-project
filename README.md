@@ -3,7 +3,7 @@
 - Yousef Alsaadan
 - Ahmed Alharbi
 - Noura Altuwaim
-- Mada
+- Mada Alwthanen
 
 # Eyfad Project
 
