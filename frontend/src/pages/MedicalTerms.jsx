@@ -57,7 +57,7 @@ function MedicalTerms() {
       setResult(response.data.choices[0].message.content); // Get the result from GPT
     } catch (error) {
       console.error("Error fetching details:", error);
-      setError("Failed to fetch medical term details. Please try again.");
+      setError("فشل في جلب تفاصيل المصطلح الطبي. يرجى المحاولة مرة أخرى.");
     }
   };
   const formatResult = (text) => {
@@ -124,6 +124,11 @@ function MedicalTerms() {
                 </svg>
               </button>
             </form>
+
+            {/* Error Message */}
+            <p className="text-[#FF6565] text-sm font-thin text-start">
+              {error}
+            </p>
           </div>
 
           {/* Info Box */}
@@ -142,7 +147,7 @@ function MedicalTerms() {
               )}
 
           {/* Error Message */}
-          {error && <div className="text-red-500">{error}</div>}
+          {/* {error && <div className="text-red-500">{error}</div>} */}
         </div>
       </div>
     </div>
