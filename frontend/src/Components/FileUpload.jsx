@@ -10,6 +10,8 @@ const FileUpload = ({ token, onUploadComplete }) => {
   const [uploadProgress, setUploadProgress] = useState(0);
   const [isUploading, setIsUploading] = useState(false);
   const [cancelTokenSource, setCancelTokenSource] = useState(null);
+  const [borderError, setBorderError] = useState("border-blue-700/25");
+  const [messError, setMessError] = useState("");
 
   const handleCancelUpload = () => {
     if (cancelTokenSource) {
@@ -25,14 +27,23 @@ const FileUpload = ({ token, onUploadComplete }) => {
       alert("File size exceeds 10 MB");
       return;
     }
+    setMessError("");
+    setBorderError("border-blue-700/25");
+
     setFile(selectedFile);
     setUploadProgress(0);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!file) return;
+    if (!file) {
+      setBorderError("border-[#FF6565]");
+      setMessError("الرجاء ارفاق الملف الصحيح");
+      return;
+    }
 
+    setMessError("");
+    setBorderError("border-blue-700/25");
     const formData = new FormData();
     formData.append("pdf", file);
 
@@ -63,8 +74,11 @@ const FileUpload = ({ token, onUploadComplete }) => {
       console.log("File uploaded successfully:", response.data.extractedData);
     } catch (error) {
       if (axios.isCancel(error)) {
+        setMessError("تم الغاء التحميل");
         console.log("Upload canceled");
       } else {
+        setBorderError("border-[#FF6565]");
+        setMessError("الرجاء ارفاق الملف الصحيح");
         console.error(
           "Error uploading file:",
           error.response ? error.response.data : error.message
@@ -95,7 +109,9 @@ const FileUpload = ({ token, onUploadComplete }) => {
               <p className="text-gray-600 text-sm font-thin text-start">
                 أضف مستنداتك هنا
               </p>
-              <div className="mt-2 flex justify-center rounded-lg border border-dashed border-blue-700/25 px-6 py-10">
+              <label htmlFor="file-upload"
+                className={`mt-2 flex justify-center rounded-lg border cursor-pointer border-dashed ${borderError} px-6 py-10`}
+              >
                 <div className="text-center">
                   {/* SVG icon and file selection */}
                   <svg
@@ -130,9 +146,8 @@ const FileUpload = ({ token, onUploadComplete }) => {
 
                   <div className="mt-4 flex justify-center items-center text-sm leading-6 text-gray-600">
                     <p className="pl-1">اسحب ملفك أو</p>
-                    <label
-                      htmlFor="file-upload"
-                      className="relative cursor-pointer rounded-md bg-white font-semibold text-blue-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-blue-900 focus-within:ring-offset-2 hover:text-blue-900"
+                    <div
+                      className="relative cursor-pointer rounded-md bg-white font-semibold text-blue-600 focus-within:outline-none hover:text-blue-900"
                     >
                       <span>تصفح</span>
                       <input
@@ -142,22 +157,25 @@ const FileUpload = ({ token, onUploadComplete }) => {
                         onChange={handleFileChange}
                         className="sr-only"
                       />
-                    </label>
+                    </div>
                   </div>
                   <p className="text-xs leading-5 text-gray-600 font-thin">
                     يُسمح بملفات بحجم 10 ميجابايت كحد أقصى
                   </p>
                 </div>
-              </div>
+              </label>
               <p className="text-gray-600 text-sm font-thin text-start">
                 يدعم فقط ملفات <span dir="ltr">.PDF</span>
+              </p>
+              <p className="text-[#FF6565] text-sm font-thin text-start">
+                {messError}
               </p>
             </div>
 
             {/* Show selected file name */}
             {file && (
-              <div className="mt-4 text-gray-600 text-sm">
-                <strong>File selected:</strong> {file.name}
+              <div className="mt-4 text-gray-600 text-sm text-start">
+                <strong>اسم الملف:</strong> {file.name}
               </div>
             )}
 
