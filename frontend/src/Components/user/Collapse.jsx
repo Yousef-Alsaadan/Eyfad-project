@@ -1,6 +1,6 @@
 import React from "react";
 
-function Collapse({ analysisName, res, unit, isNom, desc, rec }) {
+function Collapse({ analysisName, res, unit,  desc, rec,refReng, mngmnt,symptoms}) {
   return (
     <div className="collapse bg-[#F9FAFC] border">
       <input type="checkbox" />
@@ -33,9 +33,29 @@ function Collapse({ analysisName, res, unit, isNom, desc, rec }) {
             {res} {unit}
           </span>
         </p>
-        {isNom ? <p>الوضع: طبيعي</p> : <p>الوضع: غير طبيعي</p>}
+        <p>
+                      الحد الطبيعي: {refReng.min} -{" "}
+                      {refReng.max}
+                    </p>
 
-        <p className="pt-4">{rec}</p>
+                    <p className="pt-4">طريقة التعامل عندما يكون:</p>
+                    <p>
+                      مرتفع عن الطبيعي:{" "}
+                      {mngmnt.high || "غير متوفرة"}
+                    </p>
+                    <p>
+                      منخفض عن الطبيعي:{" "}
+                      {mngmnt.low || "غير متوفرة"}
+                    </p>
+
+                    {/* Symptoms */}
+                    <div>
+                      <p className="font-bold text-lg">الأعراض المحتملة عند:</p>
+                      <p>الارتفاع: {symptoms.high || "غير متوفرة"}</p>
+                      <p>الانخفاض: {symptoms.low || "غير متوفرة"}</p>
+                    </div>
+
+        <p className="pt-4">{rec || "لا توجد توصيات"}</p>
       </div>
     </div>
   );
