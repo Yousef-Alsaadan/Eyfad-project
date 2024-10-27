@@ -45,7 +45,7 @@ const signupUser = [
 
     res
       .status(201)
-      .json({ message: "User registered successfully", user: newUser, token });
+      .json({ message: "تم تسجيل المستخدم بنجاح.", user: newUser, token });
   },
 ];
 
@@ -76,9 +76,11 @@ const logIn = async (req, res) => {
       process.env.JWT_SECRET, // Secret key
       { expiresIn: "5h" } // Token expiration
     );
-    res.status(200).json({ message: "Login successful", user, token });
+    res.status(200).json({ message: "تم تسجيل الدخول بنجاح.", user, token });
   } catch (error) {
-    res.status(500).json({ message: "Server error", error });
+    res
+      .status(500)
+      .json({ message: "خطأ في الخادم, حاول في وقت لاحق.", error });
   }
 };
 

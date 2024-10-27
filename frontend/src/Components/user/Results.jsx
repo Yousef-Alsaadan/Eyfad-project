@@ -90,7 +90,7 @@ function Results({ data }) {
           )}
 
           <div className="pt-4">
-            <p>جميع النتائج المتبيقة في النطاق السليم.</p>
+            <p className="text-green-800">جميع النتائج المتبيقة في النطاق السليم.</p>
           </div>
         </div>
 
