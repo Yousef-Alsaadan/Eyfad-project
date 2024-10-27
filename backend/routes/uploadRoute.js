@@ -144,7 +144,7 @@ router.post('/', upload.single('pdf'),authenticateToken, async (req, res) => {
     await newMedicalTest.save();
  user.reports.push(newMedicalTest._id);
  await user.save();
-    console.log('Extracted Data:', extractedData,newMedicalTest._id,user.reports);
+    // console.log('Extracted Data:', extractedData,newMedicalTest._id,user.reports);
 
     // Optionally delete the file after processing
     fs.unlinkSync(filePath);
@@ -154,7 +154,7 @@ router.post('/', upload.single('pdf'),authenticateToken, async (req, res) => {
       extractedData: extractedData,
     });
   } catch (error) {
-    console.error('Error processing PDF or GPT request:', error);
+    // console.error('Error processing PDF or GPT request:', error);
     res.status(500).json({ message: 'Error processing PDF or GPT request.' });
   }
 });
@@ -172,7 +172,7 @@ router.get('/reports/:id', async (req, res) => {
   res.status(200).json(test); 
   } catch (error) {
   
-  console.error(error);
+  // console.error(error);
   
   res.status(500).json({ message: 'Error retrieving test', error });
   
