@@ -12,6 +12,7 @@ const FileUpload = ({ token, onUploadComplete }) => {
   const [cancelTokenSource, setCancelTokenSource] = useState(null);
   const [borderError, setBorderError] = useState("border-blue-700/25");
   const [messError, setMessError] = useState("");
+  const [isDragging, setIsDragging] = useState(false); // New state for drag effect
 
   const handleCancelUpload = () => {
     if (cancelTokenSource) {
@@ -21,8 +22,7 @@ const FileUpload = ({ token, onUploadComplete }) => {
     }
   };
 
-  const handleFileChange = (e) => {
-    const selectedFile = e.target.files[0];
+  const handleFileChange = (selectedFile) => {
     if (selectedFile && selectedFile.size > 10 * 1024 * 1024) {
       alert("File size exceeds 10 MB");
       return;
@@ -32,6 +32,22 @@ const FileUpload = ({ token, onUploadComplete }) => {
 
     setFile(selectedFile);
     setUploadProgress(0);
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+    setIsDragging(true); // Highlight border on drag
+  };
+
+  const handleDragLeave = () => {
+    setIsDragging(false); // Reset border when not dragging
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    setIsDragging(false);
+    const droppedFile = e.dataTransfer.files[0];
+    handleFileChange(droppedFile);
   };
 
   const handleSubmit = async (e) => {
@@ -53,7 +69,7 @@ const FileUpload = ({ token, onUploadComplete }) => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/upload",
+        "http://localhost:5002/upload",
         formData,
         {
           headers: {
@@ -109,11 +125,16 @@ const FileUpload = ({ token, onUploadComplete }) => {
               <p className="text-gray-600 text-sm font-thin text-start">
                 أضف مستنداتك هنا
               </p>
-              <label htmlFor="file-upload"
-                className={`mt-2 flex justify-center rounded-lg border cursor-pointer border-dashed ${borderError} px-6 py-10`}
+              <div
+                onDragOver={handleDragOver}
+                onDragLeave={handleDragLeave}
+                onDrop={handleDrop}
+                onClick={() => document.getElementById("file-upload").click()}
+                className={`mt-2 flex justify-center rounded-lg border cursor-pointer border-dashed ${
+                  isDragging ? "border-blue-700 bg-blue-50" : borderError
+                } px-6 py-10 transition duration-300 ease-in-out`}
               >
                 <div className="text-center">
-                  {/* SVG icon and file selection */}
                   <svg
                     width="38"
                     height="38"
@@ -146,15 +167,13 @@ const FileUpload = ({ token, onUploadComplete }) => {
 
                   <div className="mt-4 flex justify-center items-center text-sm leading-6 text-gray-600">
                     <p className="pl-1">اسحب ملفك أو</p>
-                    <div
-                      className="relative cursor-pointer rounded-md bg-white font-semibold text-blue-600 focus-within:outline-none hover:text-blue-900"
-                    >
+                    <div className="relative cursor-pointer rounded-md bg-white font-semibold text-blue-600 focus-within:outline-none hover:text-blue-900">
                       <span>تصفح</span>
                       <input
                         id="file-upload"
                         name="file-upload"
                         type="file"
-                        onChange={handleFileChange}
+                        onChange={(e) => handleFileChange(e.target.files[0])}
                         className="sr-only"
                       />
                     </div>
@@ -163,7 +182,7 @@ const FileUpload = ({ token, onUploadComplete }) => {
                     يُسمح بملفات بحجم 10 ميجابايت كحد أقصى
                   </p>
                 </div>
-              </label>
+              </div>
               <p className="text-gray-600 text-sm font-thin text-start">
                 يدعم فقط ملفات <span dir="ltr">.PDF</span>
               </p>
@@ -174,22 +193,40 @@ const FileUpload = ({ token, onUploadComplete }) => {
 
             {/* Show selected file name */}
             {file && (
-              <div className="mt-4 text-gray-600 text-sm text-start">
-                <strong>اسم الملف:</strong> {file.name}
+              <div className="text-xs font-light text-gray-500 mt-1">
+                الملف المرفق: {file.name}
               </div>
             )}
 
-            {/* Submit Button */}
-            <div className="w-full text-center">
+            {/* Progress bar */}
+            {isUploading && (
+              <div className="relative pt-1">
+                <div className="overflow-hidden h-2 text-xs flex rounded bg-blue-200">
+                  <div
+                    style={{ width: `${uploadProgress}%` }}
+                    className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500"
+                  ></div>
+                </div>
+              </div>
+            )}
+
+            {/* Upload and cancel buttons */}
+            <div className="flex justify-between mt-4">
               <button
                 type="submit"
-                className={`border border-blue-600 font-bold bg-white text-blue-600 py-2 px-4 rounded-lg hover:text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-900 focus:ring-opacity-50 transition duration-300 ease-in-out shadow-sm hover:shadow-md active:shadow-lg transform active:scale-95 ${
-                  isUploading && "cursor-not-allowed"
-                }`}
-                disabled={isUploading}
+                className="text-white bg-blue-600 hover:bg-blue-700 font-semibold py-2 px-4 rounded-lg"
               >
-                تحليل
+                تحميل
               </button>
+              {isUploading && (
+                <button
+                  type="button"
+                  onClick={handleCancelUpload}
+                  className="text-gray-600 font-semibold py-2 px-4 rounded-lg"
+                >
+                  إلغاء التحميل
+                </button>
+              )}
             </div>
           </form>
         </div>
