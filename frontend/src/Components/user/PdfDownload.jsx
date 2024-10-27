@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import logo from "../../Images/emptyProfileIcon.png";
+import Almarai from "../../fonts/Almarai-Regular.ttf";
 
 import {
   PDFDownloadLink,
@@ -14,8 +15,10 @@ import {
 
 Font.register({
   family: "Almarai", // Change this to your font family
-  src: "/Almarai-Regular.ttf", // Adjust the path to your font filel()
+  src: Almarai, // Adjust the path to your font filel()
 });
+
+const userData = JSON.parse(localStorage.getItem("user"));
 
 // Create styles for the PDF
 const styles = StyleSheet.create({
@@ -26,11 +29,22 @@ const styles = StyleSheet.create({
     paddingRight: 40,
     lineHeight: 1.5,
     flexDirection: "column",
+    fontFamily: "Almarai",
+    direction: "rtl",
+    textAlign: "right",
   },
 
   spaceBetween: {
     flex: 1,
     flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    color: "#3E3E3E",
+  },
+
+  spaceBetween2: {
+    flex: 1,
+    flexDirection: "row-reverse",
     alignItems: "center",
     justifyContent: "space-between",
     color: "#3E3E3E",
@@ -45,50 +59,57 @@ const styles = StyleSheet.create({
 
   reportTitle: { fontSize: 16, textAlign: "center" },
 
-  addressTitle: { fontSize: 11, fontStyle: "bold" },
+  addressTitle: {
+    fontSize: 11,
+    fontWeight: "bold",
+    direction: "rtl",
+  },
 
   invoice: { fontWeight: "bold", fontSize: 20 },
 
   invoiceNumber: { fontSize: 11, fontWeight: "bold" },
 
-  address: { fontWeight: 400, fontSize: 10 },
+  address: {
+    fontWeight: 400,
+    fontSize: 10,
+  },
 
   theader: {
     marginTop: 20,
     fontSize: 10,
-    fontStyle: "bold",
+    fontWeight: "bold",
     paddingTop: 4,
-    paddingLeft: 7,
+    paddingRight: 7,
     flex: 1,
     height: 20,
     backgroundColor: "#DEDEDE",
     borderColor: "whitesmoke",
-    borderRightWidth: 1,
+    borderLeftWidth: 1,
     borderBottomWidth: 1,
   },
 
-  theader2: { flex: 2, borderRightWidth: 0, borderBottomWidth: 1 },
+  theader2: { flex: 2, borderLeftWidth: 0, borderBottomWidth: 1 },
 
   tbody: {
     fontSize: 9,
     paddingTop: 4,
-    paddingLeft: 7,
+    paddingRight: 7,
     flex: 1,
     borderColor: "whitesmoke",
-    borderRightWidth: 1,
+    borderLeftWidth: 1,
     borderBottomWidth: 1,
   },
 
   total: {
     fontSize: 9,
     paddingTop: 4,
-    paddingLeft: 7,
+    paddingRight: 7,
     flex: 1.5,
     borderColor: "whitesmoke",
     borderBottomWidth: 1,
   },
 
-  tbody2: { flex: 2, borderRightWidth: 1 },
+  tbody2: { flex: 2, borderLeftWidth: 1 },
 });
 // Create a Document component
 const MyDocument = ({ rep }) => (
@@ -98,16 +119,22 @@ const MyDocument = ({ rep }) => (
       <View style={styles.titleContainer}>
         <View style={styles.spaceBetween}>
           <Image style={styles.logo} src={logo} />
+
           <Text style={styles.reportTitle}>{"نتائج التحليل"}</Text>
         </View>
       </View>
 
       {/* title section */}
       <View style={styles.titleContainer}>
-        <View style={styles.spaceBetween}>
-          <View style={{ maxWidth: 200 }}>
-            <Text style={styles.addressTitle}>{"اسم التحليل:"}</Text>
-            <Text style={styles.address}>{rep.testNames}</Text>
+        <View style={styles.spaceBetween2}>
+          <View style={{ maxWidth: 200, alignItems: "flex-end" }}>
+            <Text style={styles.addressTitle}>
+              {"اسم المريض:"} {userData ? userData.firstName : " "}{" "}
+              {userData ? userData.secondName : " "}
+            </Text>
+            <Text style={styles.addressTitle}>
+              {"اسم التحليل:"} {rep.testName}
+            </Text>
           </View>
           <Text style={styles.addressTitle}>{rep.testDate}</Text>
         </View>
@@ -171,13 +198,7 @@ const MyDocument = ({ rep }) => (
           <Text> </Text>
         </View>
         <View style={styles.total}>
-          <Text> </Text>
-        </View>
-        <View style={styles.tbody}>
-          <Text>{"*جميع النتائج المتبية في النطاق السليم"}</Text>
-        </View>
-        <View style={styles.total}>
-          <Text> </Text>
+          <Text>{"جميع النتائج المتبقية في النطاق السليم*"}</Text>
         </View>
       </View>
     </Page>

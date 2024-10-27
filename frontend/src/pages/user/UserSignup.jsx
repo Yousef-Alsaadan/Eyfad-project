@@ -78,9 +78,9 @@ function UserSignup() {
         setPassword("");
 
         // Set a timeout to remove 'user' from localStorage after 5 hours
-        // setTimeout(() => {
-        //   localStorage.removeItem("user");
-        // }, 5 * 60 * 60 * 1000);
+        setTimeout(() => {
+          localStorage.removeItem("user");
+        }, 5 * 60 * 60 * 1000);
 
         navigate("/user");
       })

@@ -39,8 +39,9 @@ function ResultsHistory() {
               <p>{tests.testDate}</p>
             </div>
             {tests.analyses != undefined
-              ? tests.analyses.map((el) => (
+              ? tests.analyses.map((el, index) => (
                   <Collapse
+                    key={index}
                     analysisName={el.analysisName}
                     res={el.result}
                     unit={el.unit}
