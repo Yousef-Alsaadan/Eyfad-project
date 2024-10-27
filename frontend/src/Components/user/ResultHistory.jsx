@@ -58,6 +58,7 @@ function ResultHistory() {
                   date={el.testDate}
                   testName={el.testName}
                   fileName={`${el.testName} test.pdf`}
+                  report={el}
                 />
               ))
             : 
