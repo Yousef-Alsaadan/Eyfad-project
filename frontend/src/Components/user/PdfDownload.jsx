@@ -1,85 +1,184 @@
-import React from "react";
+import React, { Fragment } from "react";
+import logo from "../../Images/emptyProfileIcon.png";
+
 import {
   PDFDownloadLink,
   Document,
   Page,
   Text,
   View,
+  Image,
   StyleSheet,
   Font,
 } from "@react-pdf/renderer";
+
 Font.register({
   family: "Almarai", // Change this to your font family
   src: "/Almarai-Regular.ttf", // Adjust the path to your font filel()
 });
+
 // Create styles for the PDF
 const styles = StyleSheet.create({
   page: {
+    fontSize: 11,
+    paddingTop: 20,
+    paddingLeft: 40,
+    paddingRight: 40,
+    lineHeight: 1.5,
     flexDirection: "column",
-    padding: 20,
   },
-  table: {
-    display: "table",
-    width: "100%",
-    margin: 12,
-    direction: "rtl" /* Sets the direction to right-to-left */,
-    textAlign: "right",
-  },
-  tableRow: {
+
+  spaceBetween: {
+    flex: 1,
     flexDirection: "row",
-    direction: "rtl" /* Sets the direction to right-to-left */,
-    textAlign: "right",
+    alignItems: "center",
+    justifyContent: "space-between",
+    color: "#3E3E3E",
   },
-  tableCell: {
-    margin: 2,
-    padding: 2,
-    border: "1px solid black",
-    width: "20%",
-    fontFamily: "Almarai", // Use the registered font
-    fontSize: 14,
-    direction: "rtl", // Set the text direction to right-to-left
-    textAlign: "center", // Align text to the right
+
+  titleContainer: {
+    flexDirection: "row",
+    marginTop: 24,
   },
-  header: {
-    backgroundColor: "#f0f0f0",
-    fontWeight: "bold",
+
+  logo: { width: 90 },
+
+  reportTitle: { fontSize: 16, textAlign: "center" },
+
+  addressTitle: { fontSize: 11, fontStyle: "bold" },
+
+  invoice: { fontWeight: "bold", fontSize: 20 },
+
+  invoiceNumber: { fontSize: 11, fontWeight: "bold" },
+
+  address: { fontWeight: 400, fontSize: 10 },
+
+  theader: {
+    marginTop: 20,
+    fontSize: 10,
+    fontStyle: "bold",
+    paddingTop: 4,
+    paddingLeft: 7,
+    flex: 1,
+    height: 20,
+    backgroundColor: "#DEDEDE",
+    borderColor: "whitesmoke",
+    borderRightWidth: 1,
+    borderBottomWidth: 1,
   },
+
+  theader2: { flex: 2, borderRightWidth: 0, borderBottomWidth: 1 },
+
+  tbody: {
+    fontSize: 9,
+    paddingTop: 4,
+    paddingLeft: 7,
+    flex: 1,
+    borderColor: "whitesmoke",
+    borderRightWidth: 1,
+    borderBottomWidth: 1,
+  },
+
+  total: {
+    fontSize: 9,
+    paddingTop: 4,
+    paddingLeft: 7,
+    flex: 1.5,
+    borderColor: "whitesmoke",
+    borderBottomWidth: 1,
+  },
+
+  tbody2: { flex: 2, borderRightWidth: 1 },
 });
 // Create a Document component
 const MyDocument = ({ rep }) => (
   <Document>
     <Page size="A4" style={styles.page}>
-      <Text style={{ fontSize: 24, marginBottom: 10, textAlign: "center" }}>
-        {" "}
-        {rep.testName + "                        " + rep.testDate}
-      </Text>
-      <View style={styles.table}>
-        {/* Header Row */}
-        <View style={[styles.tableRow, styles.header]}>
-          <Text style={styles.tableCell}>{"اقتراحات"}</Text>
-          <Text style={styles.tableCell}>{"النصائح"}</Text>
-          <Text style={styles.tableCell}>{"الأعراض المتوقعة"}</Text>
-          <Text style={styles.tableCell}>{"النتيجة"}</Text>
-          <Text style={styles.tableCell}>{"التحليل"}</Text>
+      {/* logo section */}
+      <View style={styles.titleContainer}>
+        <View style={styles.spaceBetween}>
+          <Image style={styles.logo} src={logo} />
+          <Text style={styles.reportTitle}>{"نتائج التحليل"}</Text>
         </View>
-        {/* Data Rows */}
-        {rep.analyses.map((el) => (
-          <View style={styles.tableRow}>
-            <Text style={styles.tableCell}>{el.recommendations}</Text>
-            <Text style={styles.tableCell}>
-              {el.result > el.referenceRange.max
-                ? el.management.high || "غير متوفرة"
-                : el.management.low || "غير متوفرة"}
-            </Text>
-            <Text style={styles.tableCell}>
-              {el.result > el.referenceRange.max
-                ? el.symptoms.high || "غير متوفرة"
-                : el.symptoms.low || "غير متوفرة"}
-            </Text>
-            <Text style={styles.tableCell}>{el.unit + " " + el.result}</Text>
-            <Text style={styles.tableCell}>{el.analysisName}</Text>
+      </View>
+
+      {/* title section */}
+      <View style={styles.titleContainer}>
+        <View style={styles.spaceBetween}>
+          <View style={{ maxWidth: 200 }}>
+            <Text style={styles.addressTitle}>{"اسم التحليل:"}</Text>
+            <Text style={styles.address}>{rep.testNames}</Text>
           </View>
-        ))}
+          <Text style={styles.addressTitle}>{rep.testDate}</Text>
+        </View>
+      </View>
+
+      {/* Header Row */}
+      <View style={{ width: "100%", flexDirection: "row", marginTop: 10 }}>
+        <View style={[styles.theader, styles.theader2]}>
+          <Text>{"اقتراحات"}</Text>
+        </View>
+        <View style={styles.theader}>
+          <Text>{"النصائح"}</Text>
+        </View>
+        <View style={styles.theader}>
+          <Text>{"الأعراض المتوقعة"}</Text>
+        </View>
+        <View style={styles.theader}>
+          <Text>{"النتيجة"}</Text>
+        </View>
+        <View style={styles.theader}>
+          <Text>{"التحليل"}</Text>
+        </View>
+      </View>
+
+      {/* Data Rows */}
+      {rep.analyses.map((el, index) => (
+        <Fragment key={index}>
+          <View style={{ width: "100%", flexDirection: "row" }}>
+            <View style={[styles.tbody, styles.tbody2]}>
+              <Text>{el.recommendations}</Text>
+            </View>
+            <View style={styles.tbody}>
+              <Text>
+                {el.result > el.referenceRange.max
+                  ? el.management.high || "غير متوفرة"
+                  : el.management.low || "غير متوفرة"}
+              </Text>
+            </View>
+            <View style={styles.tbody}>
+              <Text>
+                {el.result > el.referenceRange.max
+                  ? el.symptoms.high || "غير متوفرة"
+                  : el.symptoms.low || "غير متوفرة"}
+              </Text>
+            </View>
+            <View style={styles.tbody}>
+              <Text>{el.unit + " " + el.result}</Text>
+            </View>
+            <View style={styles.tbody}>
+              <Text>{el.analysisName}</Text>
+            </View>
+          </View>
+        </Fragment>
+      ))}
+
+      <View style={{ width: "100%", flexDirection: "row" }}>
+        <View style={styles.total}>
+          <Text></Text>
+        </View>
+        <View style={styles.total}>
+          <Text> </Text>
+        </View>
+        <View style={styles.total}>
+          <Text> </Text>
+        </View>
+        <View style={styles.tbody}>
+          <Text>{"*جميع النتائج المتبية في النطاق السليم"}</Text>
+        </View>
+        <View style={styles.total}>
+          <Text> </Text>
+        </View>
       </View>
     </Page>
   </Document>

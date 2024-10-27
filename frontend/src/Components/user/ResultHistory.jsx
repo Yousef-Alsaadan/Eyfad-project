@@ -33,7 +33,7 @@ function ResultHistory() {
         <Title title="تاريخ تحاليلك" linkPath="/user" />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mt-5">
-          {console.log(reports)}
+          {/* {console.log(reports)} */}
           {reports.length == 0 ? (
             <div className="flex flex-col w-full items-center justify-center col-span-2">
               <img src={emptyProfileIcon} className="h-[330px] object-cover" />
@@ -51,8 +51,9 @@ function ResultHistory() {
             ""
           )}
           {reports != []
-            ? reports.map((el) => (
+            ? reports.map((el, index) => (
                 <Card
+                  key={index}
                   onClick={() => handleClick(el._id)}
                   date={el.testDate}
                   testName={el.testName}

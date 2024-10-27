@@ -78,16 +78,16 @@ function UserSignup() {
         setPassword("");
 
         // Set a timeout to remove 'user' from localStorage after 5 hours
-        setTimeout(() => {
-          localStorage.removeItem("user");
-        }, 5 * 60 * 60 * 1000);
+        // setTimeout(() => {
+        //   localStorage.removeItem("user");
+        // }, 5 * 60 * 60 * 1000);
 
         navigate("/user");
       })
       .catch(function (error) {
         if (error.response) {
           // Show user-friendly error messages based on response
-          errorLog(error.response.data.message || "Signup failed!");
+          errorLog(error.response.data.message || "فشل التسجيل, حاول مره اخرى");
         } else {
           // console.log("Error Message:", error.message);
         }
