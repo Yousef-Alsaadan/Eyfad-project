@@ -1,6 +1,9 @@
 import React from "react";
-
-const Card = ({ date, testName, onClick, fileName }) => {
+import PdfDownload from './PdfDownload';
+const Card = ({ date, testName, onClick, fileName ,report}) => {
+  const childClick = (e) => {
+    e.stopPropagation();
+  };
   return (
     <div
       onClick={onClick}
@@ -31,36 +34,9 @@ const Card = ({ date, testName, onClick, fileName }) => {
             </svg>
             <p>من قبل الذكاء الاصطناعي</p>
           </div>
-
-          <button className="flex items-center justify-center bg-white border-2 border-gray-300 xl:p-4 lg:p-2 p-4 rounded-xl text-gray-600 hover:bg-gray-100 transition-colors xl:w-6/12 lg:w-9/12">
-            <div className="flex items-center gap-2">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 20 20"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M11.6663 1.66699H4.99967C4.55765 1.66699 4.13372 1.84259 3.82116 2.15515C3.5086 2.46771 3.33301 2.89163 3.33301 3.33366V16.667C3.33301 17.109 3.5086 17.5329 3.82116 17.8455C4.13372 18.1581 4.55765 18.3337 4.99967 18.3337H14.9997C15.4417 18.3337 15.8656 18.1581 16.1782 17.8455C16.4907 17.5329 16.6663 17.109 16.6663 16.667V6.66699M11.6663 1.66699L16.6663 6.66699M11.6663 1.66699V6.66699H16.6663M13.333 10.8337H6.66634M13.333 14.167H6.66634M8.33301 7.50033H6.66634"
-                  stroke="#6172F3"
-                  strokeWidth="1.67"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              <p dir="ltr" className="lg:block hidden">
-                {fileName.length > 25
-                  ? fileName.split("").slice(0, 25).join("") + "..."
-                  : fileName}
-              </p>
-              <p dir="ltr" className="lg:hidden block">
-                {fileName.length > 20
-                  ? fileName.split("").slice(0, 20).join("") + "..."
-                  : fileName}
-              </p>
-            </div>
-          </button>
+          <PdfDownload fileName={fileName} rep={report} click={childClick} /> 
+      
+        
         </div>
       </div>
     </div>
