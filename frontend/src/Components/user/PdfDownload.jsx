@@ -74,7 +74,7 @@ const MyDocument = ({rep}) => (
 const PdfDownload = ({fileName,click,rep}) => (
     
     <button className="flex items-center justify-center bg-white border-2 border-gray-300 xl:p-4 lg:p-2 p-4 rounded-xl text-gray-600 hover:bg-gray-100 transition-colors xl:w-6/12 lg:w-9/12" onClick={(e)=>click(e)}>
-           <PDFDownloadLink document={<MyDocument rep={rep} />} fileName="download.pdf">
+           <PDFDownloadLink document={<MyDocument rep={rep} />} fileName={`${rep.testName}.pdf`}>
           <div className="flex items-center gap-2">
             <svg
               width="20"
