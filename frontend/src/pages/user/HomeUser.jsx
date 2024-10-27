@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import userImage from "../../images/user.png";
 import NavBar from "../../Components/NavBar";
 import bgImage from "../../Images/bgUserPage.png";
 import { Link, useNavigate } from "react-router-dom";

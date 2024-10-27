@@ -25,14 +25,14 @@ function ResultsHistory() {
   }, []);
   return (
     <div
-      className="p-4 bg-no-repeat bg-cover bg-center h-screen"
+      className="p-4 bg-no-repeat bg-cover bg-center min-h-screen"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
       <div className="container m-auto px-4 pb-4">
         <Title title="نتيجتك" linkPath={`/user/history`}></Title>
       </div>
       <div className="grid place-items-center xl:p-0 p-8">
-        <div className="overflow-y-scroll no-scrollbar max-h-[620px] h-[620px] lg:w-[830px] md:w-[650px] w-[330px] border border-[#524FE1] rounded-xl p-4 flex justify-between flex-col">
+        <div className="overflow-y-scroll no-scrollbar max-h-[620px] h-[620px] lg:w-[830px] md:w-[650px] sm:w-[330px] border border-[#524FE1] rounded-xl p-4 flex justify-between flex-col">
           <div className="flex flex-col gap-4">
             <div className="flex justify-between text-xl font-medium">
               <p>{tests.testName}</p>
@@ -55,11 +55,13 @@ function ResultsHistory() {
           </div>
 
           <div className="pt-4">
-            <p className="text-green-800">جميع النتائج المتبيقة في النطاق السليم.</p>
+            <p className="text-green-800">
+              جميع النتائج المتبيقة في النطاق السليم.
+            </p>
           </div>
         </div>
 
-        <div className="flex w-full gap-[51.8rem] items-center justify-center absolute overflow-y-hidden -z-10 no-scrollbar ">
+        <div className="lg:flex hidden w-full gap-[51.8rem] items-center justify-center absolute overflow-y-hidden -z-10 no-scrollbar ">
           <img src={resultSVGr} />
           <img src={resultSVGr} className="transform -scale-x-100" />
         </div>

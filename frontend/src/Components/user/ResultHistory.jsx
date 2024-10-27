@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Card from "./Card";
 import Title from "../Title";
-import NavBar from "../NavBar";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -61,9 +60,7 @@ function ResultHistory() {
                   report={el}
                 />
               ))
-            : 
-           ""
-            }
+            : ""}
         </div>
       </div>
     </div>

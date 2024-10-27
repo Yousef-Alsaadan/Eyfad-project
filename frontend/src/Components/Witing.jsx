@@ -1,6 +1,5 @@
 import React from "react";
 import Title from "../Components/Title";
-import witingImage from "../images/witing.png"; // Uncomment this if you want to use the image later
 import WitingSVG from "../Components/style/WitingSvg.jsx";
 
 const Witing = () => {

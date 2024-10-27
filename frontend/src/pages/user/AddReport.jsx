@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Results from "../../Components/user/Results";
 import NavBar from "../../Components/NavBar";
-import Footer from "../../Components/Footer";
 import FileUpload from "../../Components/FileUpload";
 import Witing from "../../Components/Witing";
-import Title from "../../Components/Title";
 import { useNavigate } from "react-router-dom";
 
 function AddReport() {

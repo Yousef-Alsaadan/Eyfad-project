@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { IoMdArrowRoundForward } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
-// import SignUp from "../assets/Signup-img.png";
 import axios from "axios";
 
 function UserSignup() {
@@ -12,8 +11,6 @@ function UserSignup() {
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [errorBorder, setErrorBorder] = useState("");
-
-  // const [users, setUsers] = useState([]);
 
   const userData = JSON.parse(localStorage.getItem("user"));
 
@@ -55,12 +52,6 @@ function UserSignup() {
       return;
     }
 
-    // const user = users.find((data) => data.email === email);
-    // if (user) {
-    //   errorLog("Email is taken!");
-    //   return;
-    // }
-
     axios
       .post("http://localhost:5000/signup", {
         firstName: firstName,
@@ -80,11 +71,16 @@ function UserSignup() {
             isAdmin: response.data.user.isAdmin,
           })
         );
-        console.log(response.data.token);
+        // console.log(response.data.token);
         setFirstName("");
         setSecondName("");
         setEmail("");
         setPassword("");
+
+        // Set a timeout to remove 'user' from localStorage after 5 hours
+        setTimeout(() => {
+          localStorage.removeItem("user");
+        }, 5 * 60 * 60 * 1000);
 
         navigate("/user");
       })
@@ -93,7 +89,7 @@ function UserSignup() {
           // Show user-friendly error messages based on response
           errorLog(error.response.data.message || "Signup failed!");
         } else {
-          console.log("Error Message:", error.message);
+          // console.log("Error Message:", error.message);
         }
       });
   };
@@ -255,79 +251,6 @@ function UserSignup() {
             </button>
           </div>
         </div>
-
-        {/* <div className="absolute md:bottom-2/3  md:left-[88%] bottom-2/3 right-4 -z-50">
-          <svg
-            width="88"
-            height="139"
-            viewBox="0 0 88 139"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="hidden md:block"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M0 45.8869C0 43.3498 2.05679 41.293 4.59397 41.293C7.13115 41.293 9.18794 43.3498 9.18794 45.8869V133.61C9.18794 136.147 7.13115 138.204 4.59397 138.204C2.05679 138.204 0 136.147 0 133.61L0 45.8869Z"
-              fill="#C5D4E9"
-              className="xs:hidden"
-            />
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M52.0781 32.4572C52.0781 29.9201 54.1349 27.8633 56.6721 27.8633C59.2093 27.8633 61.2661 29.9201 61.2661 32.4573V120.18C61.2661 122.717 59.2093 124.774 56.6721 124.774C54.1349 124.774 52.0781 122.717 52.0781 120.18L52.0781 32.4572Z"
-              fill="#C5D4E9"
-            />
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M78.1211 4.59397C78.1211 2.05679 80.1779 0 82.7151 0C85.2522 0 87.309 2.05679 87.309 4.59397V92.3169C87.309 94.8541 85.2522 96.9109 82.7151 96.9109C80.1779 96.9109 78.1211 94.8541 78.1211 92.3169L78.1211 4.59397Z"
-              fill="#001926"
-            />
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M26.043 16.7092C26.043 14.172 28.0998 12.1152 30.6369 12.1152C33.1741 12.1152 35.2309 14.172 35.2309 16.7092V104.432C35.2309 106.969 33.1741 109.026 30.6369 109.026C28.0998 109.026 26.043 106.969 26.043 104.432L26.043 16.7092Z"
-              fill="#6622CE"
-            />
-          </svg>
-        </div>
-        <div className="absolute md:bottom-1/4  md:right-[88%] bottom-1/4 right-4 -z-50">
-          <svg
-            width="88"
-            height="139"
-            viewBox="0 0 88 139"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="hidden md:block"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M0 45.8869C0 43.3498 2.05679 41.293 4.59397 41.293C7.13115 41.293 9.18794 43.3498 9.18794 45.8869V133.61C9.18794 136.147 7.13115 138.204 4.59397 138.204C2.05679 138.204 0 136.147 0 133.61L0 45.8869Z"
-              fill="#C5D4E9"
-              className="xs:hidden"
-            />
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M52.0781 32.4572C52.0781 29.9201 54.1349 27.8633 56.6721 27.8633C59.2093 27.8633 61.2661 29.9201 61.2661 32.4573V120.18C61.2661 122.717 59.2093 124.774 56.6721 124.774C54.1349 124.774 52.0781 122.717 52.0781 120.18L52.0781 32.4572Z"
-              fill="#C5D4E9"
-            />
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M78.1211 4.59397C78.1211 2.05679 80.1779 0 82.7151 0C85.2522 0 87.309 2.05679 87.309 4.59397V92.3169C87.309 94.8541 85.2522 96.9109 82.7151 96.9109C80.1779 96.9109 78.1211 94.8541 78.1211 92.3169L78.1211 4.59397Z"
-              fill="#001926"
-            />
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M26.043 16.7092C26.043 14.172 28.0998 12.1152 30.6369 12.1152C33.1741 12.1152 35.2309 14.172 35.2309 16.7092V104.432C35.2309 106.969 33.1741 109.026 30.6369 109.026C28.0998 109.026 26.043 106.969 26.043 104.432L26.043 16.7092Z"
-              fill="#6622CE"
-            />
-          </svg>
-        </div> */}
       </div>
     </div>
   );

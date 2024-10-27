@@ -1,13 +1,13 @@
 import React from "react";
-import PdfDownload from './PdfDownload';
-const Card = ({ date, testName, onClick, fileName ,report}) => {
+import PdfDownload from "./PdfDownload";
+const Card = ({ date, testName, onClick, fileName, report }) => {
   const childClick = (e) => {
     e.stopPropagation();
   };
   return (
     <div
       onClick={onClick}
-      className="  flex flex-col lg:flex-row gap-5 rounded-lg p-6 hover:shadow-lg transition-shadow duration-300"
+      className="cursor-pointer flex flex-col lg:flex-row gap-5 rounded-lg p-6 hover:shadow-lg transition-shadow duration-300"
     >
       <div className="border-r-2 border-gray-300 px-0"></div>
       <div className="flex-1">
@@ -34,9 +34,7 @@ const Card = ({ date, testName, onClick, fileName ,report}) => {
             </svg>
             <p>من قبل الذكاء الاصطناعي</p>
           </div>
-          <PdfDownload fileName={fileName} rep={report} click={childClick} /> 
-      
-        
+          <PdfDownload fileName={fileName} rep={report} click={childClick} />
         </div>
       </div>
     </div>

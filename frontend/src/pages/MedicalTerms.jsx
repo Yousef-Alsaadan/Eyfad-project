@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import NavBar from "../Components/NavBar";
-import Footer from "../Components/Footer";
 import Title from "../Components/Title";
 import InfoBox from "../Components/InfoBox";
 
@@ -151,9 +150,6 @@ function MedicalTerms() {
               />
             )
           )}
-
-          {/* Error Message */}
-          {/* {error && <div className="text-red-500">{error}</div>} */}
         </div>
       </div>
     </div>

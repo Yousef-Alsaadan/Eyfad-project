@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import NavBar from "../Components/NavBar";
 import Footer from "../Components/Footer";
-import FileUpload from "../Components/FileUpload";
 import { HashLink as Link } from "react-router-hash-link";
-import HeroSvg from "../Components/style/HeroSvg";
 import HeroSvg2 from "../Components/style/HeroSvg2";
 import HeroSvg3 from "../Components/style/HeroSvg3";
 import HeroSvg4 from "../Components/style/HeroSvg4";
@@ -13,15 +11,11 @@ import ai from "../assets/aiIcon.svg";
 import aboutImg from "../assets/aboutImg.svg";
 import aboutImg2 from "../assets/aboutImg2.svg";
 import aboutImg3 from "../assets/aboutImg3.svg";
-import homeBird from "../assets/homeBird.svg";
 import contactTop from "../assets/contactTop.svg";
 import contactB from "../assets/contactB.svg";
 import Typewriter from "typewriter-effect";
 
-import bgTop from "../Images/bgTop.png";
-import mainBg from "../Images/mainBG.png";
 import circleBG from "../Images/circleBG.png";
-import cardAbout from "../Images/cardAbout.png";
 
 function Home() {
   return (
