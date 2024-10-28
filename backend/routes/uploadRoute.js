@@ -146,16 +146,24 @@ router.post('/', upload.single('pdf'),authenticateToken, async (req, res) => {
  await user.save();
     // console.log('Extracted Data:', extractedData,newMedicalTest._id,user.reports);
 
-    // Optionally delete the file after processing
-    fs.unlinkSync(filePath);
+   
 
     res.status(200).json({
       message: 'File uploaded, text extracted, and data processed successfully!',
       extractedData: extractedData,
     });
+     fs.unlinkSync(filePath);
   } catch (error) {
-    // console.error('Error processing PDF or GPT request:', error);
+    console.error('Error processing PDF or GPT request:', error);
     res.status(500).json({ message: 'Error processing PDF or GPT request.' });
+  
+    // Attempt to delete the file even if there was an error
+    try {
+      fs.unlinkSync(filePath);
+      console.log('File deleted successfully, even after processing error.');
+    } catch (deleteError) {
+      console.error('Error deleting file:', deleteError);
+    }
   }
 });
 
