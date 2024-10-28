@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import logo from "../../Images/emptyProfileIcon.png";
+import logo from "../../Images/logo.png";
 import Almarai from "../../fonts/Almarai-Regular.ttf";
 
 import {
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     marginTop: 24,
   },
 
-  logo: { width: 90 },
+  logo: { width: 120 },
 
   reportTitle: { fontSize: 16, textAlign: "center" },
 

@@ -24,6 +24,10 @@
 
 - **Result Storage and Download:** Users can save and download the analysis and recommendations provided by the platform.
 
+## User Interface
+
+![User Interface](https://github.com/Yousef-Alsaadan/Eyfad-project/tree/master/frontend/public/UI.png?raw=true)
+
 # How to start
 
 after you clone the repo do this steps:
