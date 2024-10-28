@@ -3,7 +3,7 @@ import { IoMdArrowRoundForward } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import axios from "axios";
-import subLogo from "../../Images/subLogo.png";
+import subLogo from "../../assets/subLogo.svg";
 
 function UserLogin() {
   const [email, setEmail] = useState("");

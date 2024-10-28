@@ -1,7 +1,7 @@
 import React from "react";
 import { HashLink as Link } from "react-router-hash-link";
 import bgTop from "../Images/bgTop.png";
-import logo from "../Images/logo.png";
+import logo from "../assets/logo.svg";
 
 function Footer() {
   return (

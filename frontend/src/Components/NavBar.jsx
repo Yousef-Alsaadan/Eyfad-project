@@ -5,7 +5,7 @@ import { HashLink as Link } from "react-router-hash-link";
 import { FiUser } from "react-icons/fi";
 import bgTop from "../Images/bgTop.png";
 import mainBg from "../Images/mainBG.png";
-import logo from "../Images/logo.png";
+import logo from "../assets/logo.svg";
 import { useNavigate } from "react-router-dom";
 
 function NavBar() {
