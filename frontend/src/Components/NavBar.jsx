@@ -5,6 +5,7 @@ import { HashLink as Link } from "react-router-hash-link";
 import { FiUser } from "react-icons/fi";
 import bgTop from "../Images/bgTop.png";
 import mainBg from "../Images/mainBG.png";
+import logo from "../Images/logo.png";
 import { useNavigate } from "react-router-dom";
 
 function NavBar() {
@@ -19,8 +20,7 @@ function NavBar() {
       <div className="flex items-center justify-between container mx-auto px-4">
         <div className="text-4xl font-extrabold tajawal-extralight text-black">
           <Link to="/">
-            {/* <img src="" className="object-cover" /> */}
-            إيــفـــــاد
+            <img src={logo} className="object-cover w-40" />
           </Link>
         </div>
 
@@ -119,8 +119,7 @@ function NavBar() {
           <div className="flex items-center justify-between container mx-auto px-4">
             <div className="text-4xl font-extrabold tajawal-extralight text-black">
               <Link to="/">
-                {/* <img src="" className="object-cover" /> */}
-                إيــفـــــاد
+                <img src={logo} className="object-cover w-40" />
               </Link>
             </div>
 

@@ -1,6 +1,7 @@
 import React from "react";
 import { HashLink as Link } from "react-router-hash-link";
 import bgTop from "../Images/bgTop.png";
+import logo from "../Images/logo.png";
 
 function Footer() {
   return (
@@ -11,8 +12,7 @@ function Footer() {
             to="/"
             className="text-4xl font-extrabold text-black tajawal-extralight"
           >
-            {/* <img src="" className="object-cover" /> */}
-            إيــفـــــاد
+            <img src={logo} className="object-cover w-40" />
           </Link>
 
           <div className="md:flex-row flex flex-col gap-4">
