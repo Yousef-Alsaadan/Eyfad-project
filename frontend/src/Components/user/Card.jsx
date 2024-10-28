@@ -32,7 +32,7 @@ const Card = ({ date, testName, onClick, fileName, report }) => {
                 strokeLinejoin="round"
               />
             </svg>
-            <p>من قبل الذكاء الاصطناعي</p>
+            <p className="text-sm">من قبل الذكاء الاصطناعي</p>
           </div>
           <PdfDownload fileName={fileName} rep={report} click={childClick} />
         </div>
