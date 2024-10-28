@@ -26,7 +26,6 @@
 
 ## User Interface
 
-![User Interface](https://github.com/Yousef-Alsaadan/Eyfad-project/tree/master/frontend/public/UI.png?raw=true)
 ![UI](https://github.com/user-attachments/assets/3ad2d97c-d21d-47e2-b996-7cc277db7c4e)
 
 # How to start
