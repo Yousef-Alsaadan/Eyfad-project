@@ -18,27 +18,6 @@ import Typewriter from "typewriter-effect";
 import circleBG from "../Images/circleBG.png";
 
 function Home() {
-  const text =
-    "الهيموغلوبين (Hemoglobin):<br><br>النتيجة: 13.5 جم/دل<br><br>الوضع: طبيعي<br><br>التفسير: مستوى الهيموغلوبين لديك في النطاق الطبيعي, مما يشير الى عدم وجود مشاكل تتعلق بفقر الدم";
-
-  let node = document.querySelector(".typewriter-text");
-  let i = 0;
-
-  function typeCharacter(typewriter) {
-    if (node && i < text.length) {
-      // If we hit a '<br>', add a new line
-      if (text.substring(i, i + 4) === "<br>") {
-        node.innerHTML += "<br>";
-        i += 4; // Skip past the <br>
-      } else {
-        node.innerHTML += text[i];
-        i++;
-      }
-      setTimeout(typeCharacter, 50); // Adjust delay
-    } else {
-      typewriter.typeString(text).changeDeleteSpeed(1000).start();
-    }
-  }
   return (
     <div className="bg-gradient-to-br from-[#dcf3ff] via-[#f5ffff] to-[#fff] to-[20%]">
       <NavBar />
@@ -242,15 +221,22 @@ function Home() {
                 <h1 className="font-extrabold text-3xl mx-8">شرح مبسط ومخصص</h1>
 
                 <div className="bg-white h-[250px] w-[360px] rounded-3xl shadow-lg flex items-center">
-                  <div className="font-bold text-sm flex flex-col gap-4 p-4 typewriter-text">
+                  <div className="font-bold text-sm flex flex-col gap-4 p-4">
                     <Typewriter
                       options={{
                         autoStart: true,
                         loop: true,
-                        delay: 50, // Adjust for typing speed
+                        delay: 50, // Adjust typing speed
+                        deleteSpeed: 1000,
                       }}
                       onInit={(typewriter) => {
-                        typeCharacter(typewriter);
+                        typewriter
+                          .typeString(
+                            "الهيموغلوبين (Hemoglobin):<br><br>النتيجة: 13.5 جم/دل<br><br>الوضع: طبيعي<br><br>التفسير: مستوى الهيموغلوبين لديك في النطاق الطبيعي, مما يشير الى عدم وجود مشاكل تتعلق بفقر الدم"
+                          )
+                          .pauseFor(2000)
+                          .deleteAll()
+                          .start();
                       }}
                     />
                   </div>
