@@ -68,7 +68,7 @@ const FileUpload = ({ token, onUploadComplete }) => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/upload",
+        "https://eyfad-project-6dll.onrender.com/upload",
         formData,
         {
           headers: {

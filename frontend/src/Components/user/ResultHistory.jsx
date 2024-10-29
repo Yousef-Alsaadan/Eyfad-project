@@ -16,7 +16,7 @@ function ResultHistory() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/user/${userData.id}`
+          `https://eyfad-project-6dll.onrender.com/user/${userData.id}`
         );
 
         setReports(response.data.reports);

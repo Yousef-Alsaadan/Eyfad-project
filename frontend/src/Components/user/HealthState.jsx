@@ -11,7 +11,7 @@ function HealthState() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/state/user/${userData.id}`
+          `https://eyfad-project-6dll.onrender.com/state/user/${userData.id}`
         );
 
         setReports(response.data);
