@@ -41,17 +41,15 @@ function Home() {
               توصيات صحية ونوفر معجم شامل لجميع الوحدات والمصطلحات الطبية.
             </p>
 
-{/* <img src={mainIMG} className="w-[50%] "/> */}
-<HeroSvg2 />
-
-
+            {/* <img src={mainIMG} className="w-[50%] "/> */}
+            <HeroSvg2 />
 
             <Link
               to="/user"
               className="w-fit mt-4 hover:scale-110 transition-transform duration-200"
             >
-              <div className=" bg-[#002933] text-white font-medium rounded-full p-[1px]"> 
-                  {/* bg-gradient-to-l from-[#f9705ea9] via-[#edb9c2] to-[#d6bcd8] */}
+              <div className=" bg-[#002933] text-white font-medium rounded-full p-[1px]">
+                {/* bg-gradient-to-l from-[#f9705ea9] via-[#edb9c2] to-[#d6bcd8] */}
                 <span className="flex w-full bg-transparent rounded-full py-3 px-10 hover:text-white">
                   ابدأ الآن
                 </span>
@@ -187,12 +185,12 @@ function Home() {
           id="about"
           className="rounded-br-[200px] border-b border-black min-h-screen py-20"
         >
-          <div className="container mx-auto px-4 md:px-20 md:py-20 pt-8 pb-32">
-            <h1 className="font-bold  text-2xl md:text-5xl">كيف يعمل إيـفـــاد</h1>
+          <div className="container mx-auto px-4 md:py-20 pt-8 pb-32">
+            <h1 className="font-bold text-5xl">كيف يعمل إيـفـــاد</h1>
 
             <div className="flex xl:flex-row flex-col gap-20 xl:gap-0 items-center justify-between mt-20">
               <div className="flex flex-col gap-4 xl:mb-0 mb-20">
-                <h1 className="font-extrabold text-2xl md:text-3xl mx-8">
+                <h1 className="font-extrabold text-3xl mx-8">
                   رفع التقرير الطبي
                 </h1>
 
@@ -203,15 +201,12 @@ function Home() {
 
               <Link to="/#ai" smooth className="cursor-default">
                 <div className="-rotate-90 xl:rotate-0">
-            
-
                   <img src={arrow} />
- 
                 </div>
               </Link>
 
               <div className="flex flex-col gap-4 text-center" id="ai">
-                <h1 className="font-extrabold text-2xl md:text-3xl">الذكاء الاصطناعي</h1>
+                <h1 className="font-extrabold text-3xl">الذكاء الاصطناعي</h1>
 
                 <div className="bg-transparent h-[250px] w-fit  rounded-3xl grid place-items-center">
                   <img src={ai} />
@@ -225,7 +220,7 @@ function Home() {
               </Link>
 
               <div className="flex flex-col gap-4" id="text">
-                <h1 className="font-extrabold text-2xl md:text-3xl mx-8">شرح مبسط ومخصص</h1>
+                <h1 className="font-extrabold text-3xl mx-8">شرح مبسط ومخصص</h1>
 
                 <div className="bg-white h-[250px] w-[360px] rounded-3xl shadow-lg flex items-center">
                   <div className="font-bold text-sm flex flex-col gap-4 p-4">
