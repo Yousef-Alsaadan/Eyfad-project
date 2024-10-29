@@ -14,13 +14,14 @@ import aboutImg3 from "../assets/aboutImg3.svg";
 import contactTop from "../assets/contactTop.svg";
 import contactB from "../assets/contactB.svg";
 import Typewriter from "typewriter-effect";
-import mainIMG from "../Images/mainIMG.png";
+ 
+
 
 import circleBG from "../Images/circleBG.png";
 
 function Home() {
   return (
-    <div className="bg-gradient-to-br from-[#dcf3ff] via-[#f5ffff] to-[#fff] to-[20%]">
+    <div className="bg-gradient-to-br from-[#dcf3ff] via-[#f5ffff] to-[#fff] to-[20%]   ">
       <NavBar />
 
       {/* hero section */}
@@ -42,15 +43,18 @@ function Home() {
               توصيات صحية ونوفر معجم شامل لجميع الوحدات والمصطلحات الطبية.
             </p>
 
-<img src={mainIMG} className="w-[50%] "/>
-            {/* <HeroSvg2 /> */}
+{/* <img src={mainIMG} className="w-[50%] "/> */}
+<HeroSvg2 />
+
+
 
             <Link
               to="/user"
               className="w-fit mt-4 hover:scale-110 transition-transform duration-200"
             >
-              <div className="bg-gradient-to-l from-[#f9705ea9] via-[#edb9c2] to-[#d6bcd8] text-[#002933] font-medium rounded-full p-[1px]">
-                <span className="flex w-full bg-transparent rounded-full py-3 px-10 hover:text-[#002933]">
+              <div className=" bg-[#002933] text-white font-medium rounded-full p-[1px]"> 
+                  {/* bg-gradient-to-l from-[#f9705ea9] via-[#edb9c2] to-[#d6bcd8] */}
+                <span className="flex w-full bg-transparent rounded-full py-3 px-10 hover:text-white">
                   ابدأ الآن
                 </span>
               </div>
@@ -188,7 +192,7 @@ function Home() {
           <div className="container mx-auto px-4 md:px-20 md:py-20 pt-8 pb-32">
             <h1 className="font-bold  text-2xl md:text-5xl">كيف يعمل إيـفـــاد</h1>
 
-            <div className="flex xl:flex-row flex-col gap-20 xl:gap-0 items-center justify-between mt-20">
+            <div className="flex xl:flex-row flex-col gap-20 xl:gap-0 items-center justify-between mt-20 py-5">
               <div className="flex flex-col gap-4 xl:mb-0 mb-20">
                 <h1 className="font-extrabold text-2xl md:text-3xl mx-8">
                   رفع التقرير الطبي
@@ -200,30 +204,35 @@ function Home() {
               </div>
 
               <Link to="/#ai" smooth className="cursor-default">
-                <div className="-rotate-90 xl:rotate-0">
+                <div className="-rotate-90 xl:rotate-0  mt-28">
+
                   <img src={arrow} />
+ 
                 </div>
               </Link>
 
               <div className="flex flex-col gap-4 text-center" id="ai">
-                <h1 className="font-extrabold text-2xl md:text-3xl">الذكاء الاصطناعي</h1>
+  <h1 className="font-extrabold text-2xl md:text-3xl">الذكاء الاصطناعي</h1>
 
-                <div className="bg-transparent h-[250px] w-fit  rounded-3xl grid place-items-center">
-                  <img src={ai} />
-                </div>
-              </div>
+  <div className="bg-transparent h-[250px] w-full md:w-fit rounded-3xl grid place-items-center">
+    <div className="w-full flex justify-center items-center ml-20">
+      <img src={ai} alt="AI Illustration" className="object-contain max-h-full" />
+    </div>
+  </div>
+</div>
+
 
               <Link to="/#text" smooth className="cursor-default">
-                <div className="-rotate-90 xl:rotate-0">
+                <div className="-rotate-90 xl:rotate-0  mt-28">
                   <img src={arrow} />
                 </div>
               </Link>
 
               <div className="flex flex-col gap-4" id="text">
-                <h1 className="font-extrabold text-2xl md:text-3xl mx-8">شرح مبسط ومخصص</h1>
+                <h1 className="font-extrabold text-2xl md:text-3xl mx-8  ">شرح مبسط ومخصص</h1>
 
-                <div className="bg-white h-[250px] w-[360px] rounded-3xl shadow-lg flex items-center">
-                  <div className="font-bold text-sm flex flex-col gap-4 p-4">
+                <div className="bg-white h-[250px] w-[360px] rounded-3xl shadow-lg flex items-center  py-10 ">
+                  <div className="font-bold text-sm flex flex-col gap-4 p-4 py-10 ">
                     <Typewriter
                       options={{ autoStart: true, loop: true }}
                       onInit={(typewriter) => {

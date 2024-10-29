@@ -163,7 +163,7 @@ function UserLogin() {
           <div className="font-bold text-base">
             <button
               onClick={handleSubmit}
-              className="border-2 border-[#6622CE] rounded-full hover:text-[#fff] px-8 py-2 hover:bg-[#6622CE] hover:border-[#6622CE] text-[#6622CE] flex items-center justify-center gap-2"
+              className="border-2 border-[#002933] rounded-full hover:text-[#fff] px-8 py-2 hover:bg-[#002933] hover:border-[#002933] text-black flex items-center justify-center gap-2"
             >
               الدخول{" "}
               <span className="text-xl mt-1">

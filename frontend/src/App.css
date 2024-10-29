@@ -36,12 +36,12 @@ body {
 
   50% {
     transform: translateY(-10px);
-    /* Move up */
+   
   }
 
   100% {
     transform: translateY(0);
-    /* Move back down */
+    
   }
 }
 
@@ -52,23 +52,23 @@ body {
 
   50% {
     transform: translateY(10px);
-    /* Move down */
+   
   }
 
   100% {
     transform: translateY(0);
-    /* Move back up */
+    
   }
 }
 
 .move-up {
   animation: moveUp 1s ease-in-out infinite;
-  /* Up and down animation */
+ 
 }
 
 .move-down {
   animation: moveDown 1s ease-in-out infinite;
-  /* Down and up animation */
+ 
 }
 
 .animated-path {
@@ -82,10 +82,17 @@ body {
 
   50% {
     fill: #3B4D68;
-    /* Change to any color you like */
+  
   }
 
   100% {
     fill: #537aad;
   }
 }
+.hero-svg {
+    width: 100%;
+    height: 50%;
+    max-width: 269px;  
+  }
+ 
+  
