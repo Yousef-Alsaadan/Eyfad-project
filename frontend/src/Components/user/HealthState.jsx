@@ -70,6 +70,7 @@ function HealthState() {
             ))
             
 )) }
+<div>لا مزيد من التحاليل لعرضها</div>
         </div>
       </div>
     </div>
