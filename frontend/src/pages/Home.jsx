@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NavBar from "../Components/NavBar";
 import Footer from "../Components/Footer";
 import { HashLink as Link } from "react-router-hash-link";
@@ -18,6 +18,14 @@ import Typewriter from "typewriter-effect";
 import circleBG from "../Images/circleBG.png";
 
 function Home() {
+  const [isSafari, setIsSafari] = useState(false);
+
+  useEffect(() => {
+    const userAgent = navigator.userAgent;
+    // Check for Safari (not Chrome or Firefox)
+    const isSafariBrowser = /^((?!chrome|android).)*safari/i.test(userAgent);
+    setIsSafari(isSafariBrowser);
+  }, []);
   return (
     <div className="bg-gradient-to-br from-[#dcf3ff] via-[#f5ffff] to-[#fff] to-[20%]">
       <NavBar />
@@ -223,7 +231,13 @@ function Home() {
                 <h1 className="font-extrabold text-3xl mx-8">شرح مبسط ومخصص</h1>
 
                 <div className="bg-white h-[250px] w-[360px] rounded-3xl shadow-lg flex items-center">
-                  <div className="font-bold text-sm flex flex-col gap-4 p-4">
+                  <div
+                    className={
+                      isSafari
+                        ? "hidden"
+                        : `font-bold text-sm flex flex-col gap-4 p-4`
+                    }
+                  >
                     <Typewriter
                       options={{ autoStart: true, loop: true }}
                       onInit={(typewriter) => {
@@ -235,6 +249,21 @@ function Home() {
                           .start();
                       }}
                     />
+                  </div>
+                  <div
+                    className={
+                      isSafari
+                        ? "font-bold text-sm flex flex-col gap-4 p-4"
+                        : `hidden`
+                    }
+                  >
+                    <p>الهيموغلوبين (Hemoglobin):</p>
+                    <p>النتيجة: 13.5 جم/دل</p>
+                    <p>الوضع: طبيعي</p>
+                    <p>
+                      التفسير: مستوى الهيموغلوبين لديك في النطاق الطبيعي, مما
+                      يشير الى عدم وجود مشاكل تتعلق بفقر الدم
+                    </p>
                   </div>
                 </div>
               </div>
