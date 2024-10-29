@@ -26,7 +26,7 @@ function authenticateToken(req, res, next) {
   
   }
 
-console.log(MedicalTest); // This should log the imported model
+
 const router = express.Router();
 
 // Set up storage for Multer

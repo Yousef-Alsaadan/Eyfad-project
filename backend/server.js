@@ -23,6 +23,28 @@ app.get("/reports",(req,res)=>{
    res.send(result)
   })
  })
+ app.get('/state/user/:id', async (req, res) => {
+  try {
+  
+  let user1 = await User.findById(req.params.id).populate('reports'); // استخدم populate هنا
+
+  if (!user1) {
+  
+  return res.status(404).json({ message: 'User not found' });
+  
+  }
+  user1=[user1.reports[user1.reports.length-2],user1.reports[user1.reports.length-1]];
+ 
+  res.status(200).json(user1); 
+  } catch (error) {
+  
+ 
+  
+  res.status(500).json({ message: 'Error retrieving user', error });
+  
+  }
+  
+  })
 app.get('/user/:id', async (req, res) => {
   try {
   
