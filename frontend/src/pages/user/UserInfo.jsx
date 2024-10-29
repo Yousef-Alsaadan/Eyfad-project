@@ -3,7 +3,7 @@ import ResultHistory from "../../Components/user/ResultHistory";
 import NavBar from "../../Components/NavBar";
 import Footer from "../../Components/Footer";
 import { useNavigate } from "react-router-dom";
-
+import HealthState from "../../Components/user/HealthState";
 import bgImage from "../../Images/bgUserPage.png";
 import bgTop from "../../Images/bgTop.png";
 
@@ -36,6 +36,7 @@ function UserInfo() {
 
           {/* Second column for ResultHistory */}
           <div className="col-span-4 p-4">
+          <HealthState/>
             <ResultHistory />
           </div>
         </div>

@@ -168,14 +168,14 @@ const MyDocument = ({ rep }) => (
             </View>
             <View style={styles.tbody}>
               <Text>
-                {el.result > el.referenceRange.max
+                {el.result >= el.referenceRange.max
                   ? el.management.high || "غير متوفرة"
                   : el.management.low || "غير متوفرة"}
               </Text>
             </View>
             <View style={styles.tbody}>
               <Text>
-                {el.result > el.referenceRange.max
+                {el.result >= el.referenceRange.max
                   ? el.symptoms.high || "غير متوفرة"
                   : el.symptoms.low || "غير متوفرة"}
               </Text>
