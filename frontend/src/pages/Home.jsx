@@ -14,14 +14,12 @@ import aboutImg3 from "../assets/aboutImg3.svg";
 import contactTop from "../assets/contactTop.svg";
 import contactB from "../assets/contactB.svg";
 import Typewriter from "typewriter-effect";
- 
-
 
 import circleBG from "../Images/circleBG.png";
 
 function Home() {
   return (
-    <div className="bg-gradient-to-br from-[#dcf3ff] via-[#f5ffff] to-[#fff] to-[20%]   ">
+    <div className="bg-gradient-to-br from-[#dcf3ff] via-[#f5ffff] to-[#fff] to-[20%]">
       <NavBar />
 
       {/* hero section */}
@@ -192,7 +190,7 @@ function Home() {
           <div className="container mx-auto px-4 md:px-20 md:py-20 pt-8 pb-32">
             <h1 className="font-bold  text-2xl md:text-5xl">كيف يعمل إيـفـــاد</h1>
 
-            <div className="flex xl:flex-row flex-col gap-20 xl:gap-0 items-center justify-between mt-20 py-5">
+            <div className="flex xl:flex-row flex-col gap-20 xl:gap-0 items-center justify-between mt-20">
               <div className="flex flex-col gap-4 xl:mb-0 mb-20">
                 <h1 className="font-extrabold text-2xl md:text-3xl mx-8">
                   رفع التقرير الطبي
@@ -204,7 +202,8 @@ function Home() {
               </div>
 
               <Link to="/#ai" smooth className="cursor-default">
-                <div className="-rotate-90 xl:rotate-0  mt-28">
+                <div className="-rotate-90 xl:rotate-0">
+            
 
                   <img src={arrow} />
  
@@ -212,27 +211,24 @@ function Home() {
               </Link>
 
               <div className="flex flex-col gap-4 text-center" id="ai">
-  <h1 className="font-extrabold text-2xl md:text-3xl">الذكاء الاصطناعي</h1>
+                <h1 className="font-extrabold text-2xl md:text-3xl">الذكاء الاصطناعي</h1>
 
-  <div className="bg-transparent h-[250px] w-full md:w-fit rounded-3xl grid place-items-center">
-    <div className="w-full flex justify-center items-center ml-20">
-      <img src={ai} alt="AI Illustration" className="object-contain max-h-full" />
-    </div>
-  </div>
-</div>
-
+                <div className="bg-transparent h-[250px] w-fit  rounded-3xl grid place-items-center">
+                  <img src={ai} />
+                </div>
+              </div>
 
               <Link to="/#text" smooth className="cursor-default">
-                <div className="-rotate-90 xl:rotate-0  mt-28">
+                <div className="-rotate-90 xl:rotate-0">
                   <img src={arrow} />
                 </div>
               </Link>
 
               <div className="flex flex-col gap-4" id="text">
-                <h1 className="font-extrabold text-2xl md:text-3xl mx-8  ">شرح مبسط ومخصص</h1>
+                <h1 className="font-extrabold text-2xl md:text-3xl mx-8">شرح مبسط ومخصص</h1>
 
-                <div className="bg-white h-[250px] w-[360px] rounded-3xl shadow-lg flex items-center  py-10 ">
-                  <div className="font-bold text-sm flex flex-col gap-4 p-4 py-10 ">
+                <div className="bg-white h-[250px] w-[360px] rounded-3xl shadow-lg flex items-center">
+                  <div className="font-bold text-sm flex flex-col gap-4 p-4">
                     <Typewriter
                       options={{ autoStart: true, loop: true }}
                       onInit={(typewriter) => {

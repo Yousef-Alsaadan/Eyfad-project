@@ -10,13 +10,16 @@
 <mask id="path-5-inside-3_0_1" fill="white">
 <path d="M78.3262 21.5479L57.9612 42.942L37.6012 21.5531L57.9662 0.158933L78.3262 21.5479Z"/>
 </mask>
-<path d="M37.6012 21.5531L34.1538 17.9315L30.7065 21.5531L34.1538 25.1747L37.6012 21.5531ZM61.4085 39.3205L41.0485 17.9315L34.1538 25.1747L54.5138 46.5636L61.4085 39.3205ZM41.0485 25.1747L61.4135 3.7805L54.5188 -3.46263L34.1538 17.9315L41.0485 25.1747Z" fill="#EB8785" mask="url(#path-5-inside-3_0_1)"/>
+<path d="M37.6012 21.5531L34.1538 17.9315L30.7065 21.5531L34.1538 25.1747L37.6012 21.5531ZM61.4085 39.3205L41.0485 17.9315L34.1538 25.1747L54.5138 46.5636L61.4085 39.3205ZM41.0485 25.1747L61.4135 3.7805L54.5188 -3.46263L34.1538 17.9315L41.0485 25.1747Z" fill="url(#paint2_linear_0_1)" mask="url(#path-5-inside-3_0_1)"/>
 <defs>
 <linearGradient id="paint0_linear_0_1" x1="-0.000403019" y1="21.5531" x2="0.00349981" y2="51.8053" gradientUnits="userSpaceOnUse">
 <stop/>
 </linearGradient>
 <linearGradient id="paint1_linear_0_1" x1="18.8004" y1="21.5531" x2="18.8043" y2="51.8053" gradientUnits="userSpaceOnUse">
 <stop stop-color="#CFDAFF"/>
+</linearGradient>
+<linearGradient id="paint2_linear_0_1" x1="37.6012" y1="21.5531" x2="37.6051" y2="51.8053" gradientUnits="userSpaceOnUse">
+<stop stop-color="#7F9BFF"/>
 </linearGradient>
 </defs>
 </svg>
