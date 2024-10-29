@@ -14,6 +14,7 @@ import aboutImg3 from "../assets/aboutImg3.svg";
 import contactTop from "../assets/contactTop.svg";
 import contactB from "../assets/contactB.svg";
 import Typewriter from "typewriter-effect";
+import mainIMG from "../Images/mainIMG.png";
 
 import circleBG from "../Images/circleBG.png";
 
@@ -31,7 +32,7 @@ function Home() {
         <div className="flex flex-col text-center gap-6 xl:h-[96%] items-center z-10">
           <div className="max-w-2xl text-black flex flex-col items-center">
             <p className="font-semibold text-2xl pb-6">إيـفـــاد</p>
-            <h1 className="mb-5 text-5xl font-semibold">
+            <h1 className="mb-5 text-3xl md:text-5xl font-semibold">
               منصتك لفهم وتحليل <br />
               <br />
               التقارير الطبية بذكاء
@@ -41,7 +42,8 @@ function Home() {
               توصيات صحية ونوفر معجم شامل لجميع الوحدات والمصطلحات الطبية.
             </p>
 
-            <HeroSvg2 />
+<img src={mainIMG} className="w-[50%] "/>
+            {/* <HeroSvg2 /> */}
 
             <Link
               to="/user"
@@ -183,12 +185,12 @@ function Home() {
           id="about"
           className="rounded-br-[200px] border-b border-black min-h-screen py-20"
         >
-          <div className="container mx-auto px-4 md:py-20 pt-8 pb-32">
-            <h1 className="font-bold text-5xl">كيف يعمل إيـفـــاد</h1>
+          <div className="container mx-auto px-4 md:px-20 md:py-20 pt-8 pb-32">
+            <h1 className="font-bold  text-2xl md:text-5xl">كيف يعمل إيـفـــاد</h1>
 
             <div className="flex xl:flex-row flex-col gap-20 xl:gap-0 items-center justify-between mt-20">
               <div className="flex flex-col gap-4 xl:mb-0 mb-20">
-                <h1 className="font-extrabold text-3xl mx-8">
+                <h1 className="font-extrabold text-2xl md:text-3xl mx-8">
                   رفع التقرير الطبي
                 </h1>
 
@@ -204,7 +206,7 @@ function Home() {
               </Link>
 
               <div className="flex flex-col gap-4 text-center" id="ai">
-                <h1 className="font-extrabold text-3xl">الذكاء الاصطناعي</h1>
+                <h1 className="font-extrabold text-2xl md:text-3xl">الذكاء الاصطناعي</h1>
 
                 <div className="bg-transparent h-[250px] w-fit  rounded-3xl grid place-items-center">
                   <img src={ai} />
@@ -218,7 +220,7 @@ function Home() {
               </Link>
 
               <div className="flex flex-col gap-4" id="text">
-                <h1 className="font-extrabold text-3xl mx-8">شرح مبسط ومخصص</h1>
+                <h1 className="font-extrabold text-2xl md:text-3xl mx-8">شرح مبسط ومخصص</h1>
 
                 <div className="bg-white h-[250px] w-[360px] rounded-3xl shadow-lg flex items-center">
                   <div className="font-bold text-sm flex flex-col gap-4 p-4">
@@ -242,8 +244,8 @@ function Home() {
       </div>
 
       <div className="bg-[#f4f5f987] rounded-tl-[200px] rounded-br-[200px] h-auto py-20">
-        <div className="container mx-auto px-4 py-20">
-          <h1 className="font-bold text-5xl">بالاضافة الى:</h1>
+        <div className="container mx-auto px-4 md:px-20 py-20">
+          <h1 className="font-bold text-3xl md:text-5xl">بالاضافة الى:</h1>
 
           <div className="flex flex-col gap-20 items-center justify-between mt-12">
             <div className="flex-col xl:flex-row gap-8 flex justify-around items-center w-full">
@@ -295,7 +297,7 @@ function Home() {
       <div className="bg-gradient-to-t from-[#6ba4ff1a] from-[5%] via-[#6ba4ff24] via-[15%] to-[#fff] to-[80%]">
         <div className="border-b border-black rounded-bl-[200px] pt-20 pb-40">
           <img src={contactTop} className="absolute right-24" />
-          <div className="container mx-auto px-4 pb-20">
+          <div className="container mx-auto px-4 md:px-20 pb-20">
             <div className="flex justify-between items-center pt-20">
               <h1 className="font-bold md:text-5xl text-4xl">
                 التواصل مع المطورين
