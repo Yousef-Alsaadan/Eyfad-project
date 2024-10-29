@@ -3,6 +3,7 @@ import { IoMdArrowRoundForward } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import axios from "axios";
+import subLogo from "../../assets/subLogo.svg";
 
 function UserLogin() {
   const [email, setEmail] = useState("");
@@ -44,7 +45,7 @@ function UserLogin() {
       ); // Save token to local storage
       // Redirect or update UI after successful login
       // console.log(response);
-      
+
       // Set a timeout to remove 'user' from localStorage after 5 hours
       setTimeout(() => {
         localStorage.removeItem("user");
@@ -74,6 +75,10 @@ function UserLogin() {
                 <IoIosArrowBack />
               </Link>
             </div>
+          </div>
+
+          <div className="">
+            <img src={subLogo} className="object-cover w-20" />
           </div>
 
           <h1 className="font-medium text-4xl">مرحبا!</h1>
@@ -158,7 +163,7 @@ function UserLogin() {
           <div className="font-bold text-base">
             <button
               onClick={handleSubmit}
-              className="border-2 border-[#6622CE] rounded-full hover:text-[#fff] px-8 py-2 hover:bg-[#6622CE] hover:border-[#6622CE] text-[#6622CE] flex items-center justify-center gap-2"
+              className="border-2 border-[#002933] rounded-full hover:text-[#fff] px-8 py-2 hover:bg-[#002933] hover:border-[#002933] text-black flex items-center justify-center gap-2"
             >
               الدخول{" "}
               <span className="text-xl mt-1">

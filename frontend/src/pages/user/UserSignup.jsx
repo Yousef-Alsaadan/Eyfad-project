@@ -3,6 +3,8 @@ import { IoMdArrowRoundForward } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import axios from "axios";
+import subLogo from "../../assets/subLogo.svg";
+
 
 function UserSignup() {
   const [firstName, setFirstName] = useState("");
@@ -108,6 +110,10 @@ function UserSignup() {
                 <IoIosArrowBack />
               </Link>
             </div>
+          </div>
+
+          <div className="">
+            <img src={subLogo} className="object-cover w-20" />
           </div>
 
           <h1 className="font-medium text-4xl">إنشاء حساب</h1>
@@ -241,7 +247,7 @@ function UserSignup() {
           <div className="font-bold text-base">
             <button
               onClick={handleSubmit}
-              className="border-2 border-[#6622CE] rounded-full px-8 py-2 hover:bg-[#6622CE] hover:border-[#6622CE] hover:text-[#fff] text-[#6622CE] flex items-center justify-center gap-2"
+              className="border-2 border-[#002933] rounded-full hover:text-[#fff] px-8 py-2 hover:bg-[#002933] hover:border-[#002933] text-black flex items-center justify-center gap-2"
             >
               {" "}
               إنشاء حساب

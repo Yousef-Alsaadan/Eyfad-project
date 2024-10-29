@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import logo from "../../Images/emptyProfileIcon.png";
+import logo from "../../Images/logo.png";
 import Almarai from "../../fonts/Almarai-Regular.ttf";
 
 import {
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     marginTop: 24,
   },
 
-  logo: { width: 90 },
+  logo: { width: 120 },
 
   reportTitle: { fontSize: 16, textAlign: "center" },
 
@@ -207,7 +207,7 @@ const MyDocument = ({ rep }) => (
 
 const PdfDownload = ({ fileName, click, rep }) => (
   <button
-  className="flex items-center justify-center bg-white border-2 border-gray-300 xl:p-4 lg:p-2 p-4 rounded-xl text-gray-600 hover:bg-gray-100 transition-colors w-full max-w-lg min-w-[150px] h-12"
+    className="flex items-center justify-center bg-white border-2 border-gray-300 xl:p-4 lg:p-2 p-4 rounded-xl text-gray-600 hover:bg-gray-100 transition-colors w-full max-w-lg min-w-[150px] h-12"
     onClick={(e) => click(e)}
   >
     <PDFDownloadLink

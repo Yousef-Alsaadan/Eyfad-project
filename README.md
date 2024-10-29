@@ -24,6 +24,10 @@
 
 - **Result Storage and Download:** Users can save and download the analysis and recommendations provided by the platform.
 
+## User Interface
+
+![UI](https://github.com/user-attachments/assets/3ad2d97c-d21d-47e2-b996-7cc277db7c4e)
+
 # How to start
 
 after you clone the repo do this steps:
