@@ -223,14 +223,38 @@ function Home() {
                 <div className="bg-white h-[250px] w-[360px] rounded-3xl shadow-lg flex items-center">
                   <div className="font-bold text-sm flex flex-col gap-4 p-4">
                     <Typewriter
-                      options={{ autoStart: true, loop: true }}
+                      options={{
+                        autoStart: true,
+                        loop: true,
+                        delay: 50, // Adjust for typing speed
+                      }}
                       onInit={(typewriter) => {
-                        typewriter
-                          .typeString(
-                            "الهيموغلوبين (Hemoglobin):<br><br>النتيجة: 13.5 جم/دل<br><br>الوضع: طبيعي<br><br>التفسير: مستوى الهيموغلوبين لديك في النطاق الطبيعي, مما يشير الى عدم وجود مشاكل تتعلق بفقر الدم"
-                          )
-                          .changeDeleteSpeed(1000)
-                          .start();
+                        const text =
+                          "الهيموغلوبين (Hemoglobin):<br><br>النتيجة: 13.5 جم/دل<br><br>الوضع: طبيعي<br><br>التفسير: مستوى الهيموغلوبين لديك في النطاق الطبيعي, مما يشير الى عدم وجود مشاكل تتعلق بفقر الدم";
+
+                        let node = document.querySelector(".typewriter-text");
+                        let i = 0;
+
+                        function typeCharacter() {
+                          if (node && i < text.length) {
+                            // If we hit a '<br>', add a new line
+                            if (text.substring(i, i + 4) === "<br>") {
+                              node.innerHTML += "<br>";
+                              i += 4; // Skip past the <br>
+                            } else {
+                              node.innerHTML += text[i];
+                              i++;
+                            }
+                            setTimeout(typeCharacter, 50); // Adjust delay
+                          } else {
+                            typewriter
+                              .typeString(text)
+                              .changeDeleteSpeed(1000)
+                              .start();
+                          }
+                        }
+
+                        typeCharacter();
                       }}
                     />
                   </div>
