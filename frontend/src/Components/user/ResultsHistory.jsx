@@ -15,7 +15,7 @@ function ResultsHistory() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/upload/reports/${id}`
+          `${import.meta.env.BACK_END_URL}/upload/reports/${id}`
         );
 
         setTests(response.data);

@@ -68,7 +68,7 @@ const FileUpload = ({ token, onUploadComplete }) => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/upload",
+        `${import.meta.env.BACK_END_URL}/upload`,
         formData,
         {
           headers: {

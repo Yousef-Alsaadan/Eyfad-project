@@ -55,7 +55,7 @@ function UserSignup() {
     }
 
     axios
-      .post("http://localhost:5000/signup", {
+      .post(`${import.meta.env.BACK_END_URL}/signup`, {
         firstName: firstName,
         secondName: secondName,
         email: email,
