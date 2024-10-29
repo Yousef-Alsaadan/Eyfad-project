@@ -3,7 +3,7 @@ import Card from "./Card";
 import Title from "../Title";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
+import HealthState from "./HealthState";
 import emptyProfileIcon from "../../Images/emptyProfileIcon.png";
 import { Link } from "react-router-dom";
 
@@ -30,8 +30,12 @@ function ResultHistory() {
   return (
     <div>
       <div className="container mx-auto px-4 py-10 min-h-screen bg-transparent">
+      <div className=" md:hidden">
+        <Title title="تاريخ تحاليلك" hidden={"hidden"}  />
+</div>
+<div className="hidden md:block">
         <Title title="تاريخ تحاليلك" linkPath="/user" />
-
+</div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mt-5">
           {/* {console.log(reports)} */}
           {reports.length == 0 ? (

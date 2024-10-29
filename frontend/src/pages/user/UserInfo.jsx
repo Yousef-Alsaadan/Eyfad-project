@@ -32,11 +32,14 @@ function UserInfo() {
             <h1 className="text-xl font-bold text-center">
               {userData ? userData.firstName + "  " + userData.secondName : ""}
             </h1>
+            <HealthState/>
           </div>
 
           {/* Second column for ResultHistory */}
           <div className="col-span-4 p-4">
+            <div className=" md:hidden">
           <HealthState/>
+          </div>
             <ResultHistory />
           </div>
         </div>

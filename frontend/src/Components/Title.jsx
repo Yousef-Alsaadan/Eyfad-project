@@ -8,7 +8,7 @@ const Title = ({ title, linkPath, hidden }) => {
       {/*
        */}
       <div className=" flex flex-row justify-between items-center gap-10 ">
-        <div>
+        <div >
           {/* <img
             src={titleimage}
             alt="Title Image"
