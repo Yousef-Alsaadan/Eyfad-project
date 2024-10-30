@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import titleimage from "../images/title.png";
 
 const Title = ({ title, linkPath, hidden }) => {
   return (
