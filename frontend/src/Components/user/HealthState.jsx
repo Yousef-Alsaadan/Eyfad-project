@@ -35,7 +35,7 @@ function HealthState() {
       </div>
         <div className="grid grid-cols-1 gap-2 mt-5 ">
         
-          {!Array.isArray(reports)||reports.length === 0?"لا شيء لعرضه" 
+          {!Array.isArray(reports)||reports.length < 2?"لا شيء لعرضه" 
               
             :reports[0].analyses.map((el) =>( 
                
