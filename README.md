@@ -28,7 +28,7 @@
 
 ![User Interface](https://github.com/user-attachments/assets/ddfbcaee-6390-4502-bb23-a611a4cb0146)
 
-## Demo Website
+## Website
 
 
 # How to start
