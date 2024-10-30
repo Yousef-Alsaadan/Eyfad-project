@@ -30,6 +30,7 @@
 
 ## Website
 
+[Go to website](https://eyfad-project.onrender.com/)
 
 # How to start
 
