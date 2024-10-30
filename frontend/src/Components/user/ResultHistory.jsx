@@ -16,7 +16,7 @@ function ResultHistory() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `${import.meta.env.BACK_END_URL}/user/${userData.id}`
+          `https://eyfad-project-1-s66a.onrender.com/user/${userData.id}`
         );
 
         setReports(response.data.reports);
@@ -30,12 +30,12 @@ function ResultHistory() {
   return (
     <div>
       <div className="container mx-auto px-4 py-10 min-h-screen bg-transparent">
-      <div className=" md:hidden">
-        <Title title="تاريخ تحاليلك" hidden={"hidden"}  />
-</div>
-<div className="hidden md:block">
-        <Title title="تاريخ تحاليلك" linkPath="/user" />
-</div>
+        <div className=" md:hidden">
+          <Title title="تاريخ تحاليلك" hidden={"hidden"} />
+        </div>
+        <div className="hidden md:block">
+          <Title title="تاريخ تحاليلك" linkPath="/user" />
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mt-5">
           {/* {console.log(reports)} */}
           {reports.length == 0 ? (

@@ -5,7 +5,6 @@ import { IoIosArrowBack } from "react-icons/io";
 import axios from "axios";
 import subLogo from "../../assets/subLogo.svg";
 
-
 function UserSignup() {
   const [firstName, setFirstName] = useState("");
   const [secondName, setSecondName] = useState("");
@@ -55,7 +54,7 @@ function UserSignup() {
     }
 
     axios
-      .post(`${import.meta.env.BACK_END_URL}/signup`, {
+      .post("https://eyfad-project-1-s66a.onrender.com/signup", {
         firstName: firstName,
         secondName: secondName,
         email: email,

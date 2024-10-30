@@ -28,10 +28,13 @@ function UserLogin() {
     }
     e.preventDefault();
     try {
-      const response = await axios.post(`${import.meta.env.BACK_END_URL}/login`, {
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "https://eyfad-project-1-s66a.onrender.com/login",
+        {
+          email,
+          password,
+        }
+      );
       localStorage.setItem(
         "user",
         JSON.stringify({

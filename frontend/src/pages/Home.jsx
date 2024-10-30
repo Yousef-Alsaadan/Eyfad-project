@@ -49,14 +49,16 @@ function Home() {
               توصيات صحية ونوفر معجم شامل لجميع الوحدات والمصطلحات الطبية.
             </p>
 
+            {/* <img src={mainIMG} className="w-[50%] "/> */}
             <HeroSvg2 />
 
             <Link
               to="/user"
               className="w-fit mt-4 hover:scale-110 transition-transform duration-200"
             >
-              <div className="bg-gradient-to-l from-[#f9705ea9] via-[#edb9c2] to-[#d6bcd8] text-[#002933] font-medium rounded-full p-[1px]">
-                <span className="flex w-full bg-transparent rounded-full py-3 px-10 hover:text-[#002933]">
+              <div className=" bg-[#002933] text-white font-medium rounded-full p-[1px]">
+                {/* bg-gradient-to-l from-[#f9705ea9] via-[#edb9c2] to-[#d6bcd8] */}
+                <span className="flex w-full bg-transparent rounded-full py-3 px-10 hover:text-white">
                   ابدأ الآن
                 </span>
               </div>
