@@ -14,8 +14,16 @@ const port = 5000;
 dotenv.config();
 
 // Enable CORS for all routes
-app.use(cors());
+
 app.use(express.json())
+const corsOptions = {
+  origin: 'https://eyfad-project-1.onrender.com',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true, // Include credentials if needed
+  optionsSuccessStatus: 200 // For older browsers
+};
+
+app.use(cors(corsOptions));
 app.use('/', routerUser)
 app.use('/upload', uploadRoute);
 app.get("/reports",(req,res)=>{
