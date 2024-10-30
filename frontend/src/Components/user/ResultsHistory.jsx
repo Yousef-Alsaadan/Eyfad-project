@@ -15,7 +15,7 @@ function ResultsHistory() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/upload/reports/${id}`
+          `https://eyfad-project-1-s66a.onrender.com/upload/reports/${id}`
         );
 
         setTests(response.data);
