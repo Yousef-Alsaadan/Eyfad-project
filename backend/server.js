@@ -33,9 +33,11 @@ app.get("/reports",(req,res)=>{
   return res.status(404).json({ message: 'User not found' });
   
   }
+  if(user1.reports.length>1){
   user1=[user1.reports[user1.reports.length-2],user1.reports[user1.reports.length-1]];
- 
-  res.status(200).json(user1); 
+  return res.status(200).json(user1); 
+}
+res.status(200).json(user1.reports);
   } catch (error) {
   
  
