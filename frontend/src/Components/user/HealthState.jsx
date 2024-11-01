@@ -11,7 +11,7 @@ function HealthState() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://eyfad-project-1-s66a.onrender.com/state/user/${userData.id}`
+          `http://localhost:5000/state/user/${userData.id}`
         );
 
         setReports(response.data);
@@ -85,7 +85,7 @@ function HealthState() {
                               {el.analysisName}
                             </h3>
                           </div>
-                          <p>{"حالتك اصبحت طبيعية"}</p>
+                          <p>{"حالتك في النطاق الطبيعي"}</p>
                         </div>
                       </div>
                     )

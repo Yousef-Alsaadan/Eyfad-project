@@ -54,7 +54,7 @@ function UserSignup() {
     }
 
     axios
-      .post("https://eyfad-project-1-s66a.onrender.com/signup", {
+      .post("http://localhost:5000/signup", {
         firstName: firstName,
         secondName: secondName,
         email: email,
