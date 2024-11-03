@@ -14,6 +14,8 @@ import aboutImg3 from "../assets/aboutImg3.svg";
 import contactTop from "../assets/contactTop.svg";
 import contactB from "../assets/contactB.svg";
 import Typewriter from "typewriter-effect";
+import FadeInSection from '../Components/style/FadeInSection';
+
 
 import circleBG from "../Images/circleBG.png";
 
@@ -186,6 +188,7 @@ function Home() {
           </div>
         </div>
       </div>
+      <FadeInSection>
 
       {/* about section */}
       <div className="md:min-h-screen bg-gradient-to-bl from-[#dcf3ff] via-[#f5ffff] to-transparent md:to-[20%] to-[40%]">
@@ -212,16 +215,27 @@ function Home() {
                   <img src={arrow} />
                 </div>
               </Link>
-
               <div className="flex flex-col gap-4 text-center" id="ai">
-                <h1 className="font-extrabold text-3xl">الذكاء الاصطناعي</h1>
+  <h1 className="font-extrabold text-3xl text-gray-800">الذكاء الاصطناعي</h1>
 
-                <div className="bg-transparent h-[250px] w-fit  rounded-3xl grid place-items-center">
-                  <img src={ai} />
-                </div>
-              </div>
+  <div className="relative w-[250px] h-[250px] flex items-center justify-center">
+    {/* Outer pulsing circles with subtle colors */}
+    <div className="absolute w-[250px] h-[250px] rounded-full bg-gradient-to-r from-[#CFDAFF] via-gray-100 to-[#7F9BFF] opacity-20 animate-slow-pulse"></div>
+    <div className="absolute w-[200px] h-[200px] rounded-full bg-gradient-to-r from-[#CFDAFF] via-gray-100 to-[#7F9BFF] opacity-30 animate-slow-pulse delay-200"></div>
+    <div className="absolute w-[150px] h-[150px] rounded-full bg-gradient-to-r from-[#CFDAFF] via-gray-100 to-[#7F9BFF] opacity-40 animate-slow-pulse delay-400"></div>
 
-              <Link to="/#text" smooth className="cursor-default">
+    {/* Inner glowing circle */}
+    <div className="absolute w-[100px] h-[100px] rounded-full bg-gradient-to-r from-[#CFDAFF] via-gray-100 to-[#7F9BFF] opacity-50 animate-slow-ping"></div>
+
+    {/* Text in the center */}
+    <span className="absolute text-5xl font-bold text-black fontai">
+  Ai
+    </span>
+  </div>
+</div>
+
+
+              <Link to="/#text" smooth className="cursor-default ">
                 <div className="-rotate-90 xl:rotate-0">
                   <img src={arrow} />
                 </div>
@@ -271,6 +285,7 @@ function Home() {
           </div>
         </div>
       </div>
+      </FadeInSection>
 
       <div className="bg-[#f4f5f987] rounded-tl-[200px] rounded-br-[200px] h-auto py-20">
         <div className="container mx-auto px-4 md:px-20 py-20">
@@ -504,7 +519,7 @@ function Home() {
                 </div>
               </div>
             </div>
-            <div className="lg:w-[13.75rem] lg:h-[11.25rem] h-[15.625rem] w-[22.5rem] bg-[#F6E8F1] rounded-xl p-4">
+            <div className="lg:w-[13.75rem] lg:h-[11.25rem] h-[15.625rem] w-[22.5rem] bg-[#C5D4E9] rounded-xl p-4">
               <div className="flex flex-col items-center justify-between h-full">
                 <p className="text-[#6B6969] text-lg">Software Developer</p>
 
@@ -588,7 +603,7 @@ function Home() {
                 </div>
               </div>
             </div>
-            <div className="lg:w-[13.75rem] lg:h-[11.25rem] h-[15.625rem] w-[22.5rem] bg-[#d4f4ef] rounded-xl p-4">
+            <div className="lg:w-[13.75rem] lg:h-[11.25rem] h-[15.625rem] w-[22.5rem] bg-[#cbe9f1] rounded-xl p-4">
               <div className="flex flex-col items-center justify-between h-full">
                 <p className="text-[#6B6969] text-lg">Software Developer</p>
 

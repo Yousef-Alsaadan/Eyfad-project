@@ -3,6 +3,7 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      scrollBehavior: ['smooth'],
       keyframes: {
         fadeIn: {
           '0%': { opacity: 0 },

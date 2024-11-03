@@ -1,13 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=DynaPuff:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 .noto_font {
   font-family: "Noto Sans Arabic", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
   font-variation-settings:
     "wdth" 100;
+}
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -27,6 +30,10 @@ body {
   background-color: rgba(250, 229, 155, 0.38);
   display: inline;
   padding: 0 1rem 0 1rem;
+}
+.fontai{
+  font-family: "Bodoni Moda", serif;
+
 }
 
 @keyframes moveUp {
@@ -95,4 +102,32 @@ body {
     max-width: 269px;  
   }
  
-  
+  /* @keyframes slow-pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.2;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.4;
+    }
+}
+
+@keyframes slow-ping {
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1.1);
+        opacity: 0;
+    }
+}
+
+.animate-slow-pulse {
+    animation: slow-pulse 2s infinite;
+}
+
+.animate-slow-ping {
+    animation: slow-ping 1.5s infinite;
+} */

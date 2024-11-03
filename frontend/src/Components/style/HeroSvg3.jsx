@@ -29,7 +29,7 @@ function HeroSvg3() {
           y2="41.8067"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#FF5A41" />
+          <stop stopColor="#B4CCFC" />
           <stop offset="1" stopColor="#D2DFFB" stopOpacity="0.81" />
         </linearGradient>
       </defs>
