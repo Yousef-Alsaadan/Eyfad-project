@@ -26,7 +26,7 @@
 
 ## User Interface
 
-![User Interface](https://github.com/user-attachments/assets/ddfbcaee-6390-4502-bb23-a611a4cb0146)
+<img width="1437" alt="Screen Shot 1446-05-01 at 2 15 30 PM" src="https://github.com/user-attachments/assets/a341bf32-2541-4abd-beba-7c3b9f5ae3be">
 
 ## Website
 
