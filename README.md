@@ -24,13 +24,13 @@
 
 - **Result Storage and Download:** Users can save and download the analysis and recommendations provided by the platform.
 
-## User Interface
-
-<img width="1437" alt="Screen Shot 1446-05-01 at 2 15 30 PM" src="https://github.com/user-attachments/assets/a341bf32-2541-4abd-beba-7c3b9f5ae3be">
-
 ## Website
 
 [Go to website](https://eyfad-project.onrender.com/)
+
+## User Interface
+
+<img width="1437" alt="Screen Shot 1446-05-01 at 2 15 30 PM" src="https://github.com/user-attachments/assets/a341bf32-2541-4abd-beba-7c3b9f5ae3be">
 
 # How to start
 
